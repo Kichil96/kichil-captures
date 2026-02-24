@@ -269,11 +269,20 @@ footer {
     </div>
   </div>
 
-  <!-- Drone Album Placeholder -->
+  <!-- Drone Album (ADDED) -->
   <div id="drone" class="portfolio-album portfolio-grid">
-    <p style="text-align:center; color:#777;">
-      Drone footage will be added soon.
-    </p>
+    <div class="portfolio-item">
+      <img src="drone-1.WEBP" alt="Drone shot 1" loading="lazy">
+    </div>
+    <div class="portfolio-item">
+      <img src="drone-2.WEBP" alt="Drone shot 2" loading="lazy">
+    </div>
+    <div class="portfolio-item">
+      <img src="drone-3.WEBP" alt="Drone shot 3" loading="lazy">
+    </div>
+    <div class="portfolio-item">
+      <img src="drone-4.WEBP" alt="Drone shot 4" loading="lazy">
+    </div>
   </div>
 </section>
 
@@ -303,7 +312,6 @@ footer {
 </footer>
 
 <script>
-/* Fade-in animation */
 const observer = new IntersectionObserver(entries => {
   entries.forEach(entry => {
     if(entry.isIntersecting){
@@ -313,7 +321,6 @@ const observer = new IntersectionObserver(entries => {
 });
 document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
 
-/* Portfolio tabs */
 function showAlbum(album) {
   document.querySelectorAll('.portfolio-album').forEach(a => a.classList.remove('active'));
   document.querySelectorAll('.portfolio-tabs button').forEach(b => b.classList.remove('active'));
@@ -322,7 +329,6 @@ function showAlbum(album) {
   event.target.classList.add('active');
 }
 
-/* WhatsApp form */
 document.getElementById("waForm").addEventListener("submit", function(e){
   e.preventDefault();
 
