@@ -17,6 +17,7 @@ p{color:#ccc;font-size:14px}
 
 /* HERO */
 .hero{
+  position:relative;
   min-height:100vh;
   background:linear-gradient(rgba(0,0,0,.65),rgba(0,0,0,.9)),
   url("https://images.unsplash.com/photo-1500530855697-b586d89ba3ee") center/cover no-repeat;
@@ -30,6 +31,24 @@ p{color:#ccc;font-size:14px}
   font-weight:600;border:none;cursor:pointer;text-decoration:none
 }
 .btn.disabled{background:#444;cursor:not-allowed}
+
+/* SCROLL ARROW */
+.scroll-down{
+  position:absolute;
+  bottom:30px;
+  left:50%;
+  transform:translateX(-50%);
+  font-size:28px;
+  color:#fff;
+  opacity:.75;
+  cursor:pointer;
+  animation:bounce 1.8s infinite;
+}
+@keyframes bounce{
+  0%,20%,50%,80%,100%{transform:translate(-50%,0)}
+  40%{transform:translate(-50%,-10px)}
+  60%{transform:translate(-50%,-5px)}
+}
 
 /* PORTFOLIO */
 .portfolio-tabs{display:flex;justify-content:center;gap:12px;margin-bottom:25px}
@@ -55,25 +74,14 @@ p{color:#ccc;font-size:14px}
 }
 .pricing-card.popular{border:2px solid #25D366}
 .price{font-size:32px;margin:10px 0}
-.pricing-card p{margin:10px 0}
-
-/* DETAILS LIST */
-.details{
-  margin:12px 0 16px 0;
-  padding-left:18px;
-}
-.details li{
-  font-size:13px;
-  color:#bbb;
-  margin-bottom:6px;
-}
+.details{margin:12px 0 16px 18px}
+.details li{font-size:13px;color:#bbb;margin-bottom:6px}
 
 /* INFO / FAQ */
 .info-grid{display:grid;gap:25px}
 .info-card{background:#1a1a1a;padding:28px;border-radius:22px}
 @media(min-width:768px){.info-grid{grid-template-columns:repeat(3,1fr)}}
 .faq-item{margin-bottom:15px}
-.faq-item strong{display:block;margin-bottom:5px}
 
 /* MODAL */
 .modal{
@@ -90,12 +98,10 @@ p{color:#ccc;font-size:14px}
   width:100%;padding:12px;margin-top:6px;
   border-radius:8px;border:none;font-size:14px
 }
-.modal-note{font-size:12px;color:#777;margin-top:4px}
 .close-btn{
   position:absolute;top:14px;right:16px;
   font-size:20px;cursor:pointer;color:#aaa
 }
-.close-btn:hover{color:#fff}
 
 /* FLOATING WHATSAPP */
 .floating-wa{
@@ -120,49 +126,45 @@ footer{padding:30px;background:#111;text-align:center;color:#777}
     <p>Drone & Photography for Small Events</p>
     <a href="#packages" class="btn">View Packages</a>
   </div>
+  <div class="scroll-down" onclick="document.getElementById('portfolio').scrollIntoView({behavior:'smooth'})">↓</div>
 </section>
 
 <!-- PORTFOLIO -->
-<section>
-  <h2>Portfolio</h2>
+<section id="portfolio">
+<h2>Portfolio</h2>
+<div class="portfolio-tabs">
+<button class="active" data-album="photo">Photography</button>
+<button data-album="drone">Drone</button>
+</div>
 
-  <div class="portfolio-tabs">
-    <button class="active" data-album="photo">Photography</button>
-    <button data-album="drone">Drone</button>
-  </div>
+<div id="photo" class="portfolio-album active">
+<div class="portfolio-scroll">
+<div class="portfolio-item"><img src="camera-1.WEBP"></div>
+<div class="portfolio-item"><img src="camera-2.WEBP"></div>
+</div>
+</div>
 
-  <div id="photo" class="portfolio-album active">
-    <div class="portfolio-scroll">
-      <div class="portfolio-item"><img src="camera-1.WEBP"></div>
-      <div class="portfolio-item"><img src="camera-2.WEBP"></div>
-    </div>
-  </div>
-
-  <div id="drone" class="portfolio-album">
-    <div class="portfolio-scroll">
-      <div class="portfolio-item"><img src="drone-1.WEBP"></div>
-      <div class="portfolio-item"><img src="drone-2.WEBP"></div>
-      <div class="portfolio-item"><img src="drone-3.WEBP"></div>
-      <div class="portfolio-item"><img src="drone-4.WEBP"></div>
-    </div>
-  </div>
+<div id="drone" class="portfolio-album">
+<div class="portfolio-scroll">
+<div class="portfolio-item"><img src="drone-1.WEBP"></div>
+<div class="portfolio-item"><img src="drone-2.WEBP"></div>
+<div class="portfolio-item"><img src="drone-3.WEBP"></div>
+<div class="portfolio-item"><img src="drone-4.WEBP"></div>
+</div>
+</div>
 </section>
 
 <!-- PACKAGES -->
 <section id="packages">
-
-<h2>🔥 Combo Package (Best Value)</h2>
+<h2>🔥 Combo Package</h2>
 <div class="package-row">
 <div class="pricing-card popular">
 <h3>Photo + Drone Combo</h3>
 <div class="price">RM280</div>
-<p>Perfect for small events that need both ground and aerial coverage.</p>
 <ul class="details">
-<li>⏱ 1 hour photography</li>
-<li>📸 30 edited photos</li>
-<li>🎬 ~60 sec drone video</li>
-<li>🎥 Drone quality: up to 4K</li>
-<li>📱 Portrait & landscape</li>
+<li>1 hour photography</li>
+<li>30 edited photos</li>
+<li>~60s drone video (4K)</li>
 </ul>
 <button class="btn choose-btn" data-package="Photo + Drone Combo – RM280">Choose Package</button>
 </div>
@@ -170,87 +172,25 @@ footer{padding:30px;background:#111;text-align:center;color:#777}
 
 <h2 style="margin-top:60px">Drone Packages</h2>
 <div class="package-row">
-
 <div class="pricing-card">
-<h3>Mini Aerial</h3>
-<div class="price">RM100</div>
-<p>Quick aerial shots for social media or location preview.</p>
+<h3>Mini Aerial</h3><div class="price">RM100</div>
 <ul class="details">
-<li>⏱ 15–20 min flight</li>
-<li>🎬 30–45 sec video</li>
-<li>🎥 2.7K quality</li>
-<li>📱 Portrait / landscape</li>
+<li>15–20 min flight</li>
+<li>30–45s video</li>
+<li>2.7K</li>
 </ul>
 <button class="btn choose-btn" data-package="Mini Aerial – RM100">Choose Package</button>
 </div>
 
 <div class="pricing-card">
-<h3>Standard Promo</h3>
-<div class="price">RM150</div>
-<p>Cinematic drone footage with smooth movement and color grading.</p>
+<h3>Standard Promo</h3><div class="price">RM150</div>
 <ul class="details">
-<li>⏱ 20–30 min flight</li>
-<li>🎬 ~60 sec video</li>
-<li>🎥 4K quality</li>
-<li>📱 Portrait / landscape</li>
+<li>20–30 min flight</li>
+<li>~60s video</li>
+<li>4K</li>
 </ul>
 <button class="btn choose-btn" data-package="Standard Promo – RM150">Choose Package</button>
 </div>
-
-<div class="pricing-card">
-<h3>Extended Event</h3>
-<div class="price">RM250–300</div>
-<p>Longer coverage with multiple angles and detailed shots.</p>
-<ul class="details">
-<li>⏱ Up to 1 hour</li>
-<li>🎬 75–90 sec video</li>
-<li>🎥 4K quality</li>
-<li>📱 Portrait & landscape</li>
-</ul>
-<button class="btn choose-btn" data-package="Extended Event – RM250–300">Choose Package</button>
-</div>
-
-</div>
-
-<h2 style="margin-top:60px">Photography Packages</h2>
-<div class="package-row">
-
-<div class="pricing-card">
-<h3>Basic Session</h3>
-<div class="price">RM120</div>
-<p>Short session for small gatherings.</p>
-<ul class="details">
-<li>⏱ 30–45 min</li>
-<li>📸 15 edited photos</li>
-<li>🎨 Basic color correction</li>
-</ul>
-<button class="btn choose-btn" data-package="Basic Session – RM120">Choose Package</button>
-</div>
-
-<div class="pricing-card popular">
-<h3>Standard Event</h3>
-<div class="price">RM200</div>
-<p>Balanced coverage for birthdays, engagements & graduations.</p>
-<ul class="details">
-<li>⏱ 1–1.5 hour</li>
-<li>📸 30 edited photos</li>
-<li>🎨 Color graded</li>
-</ul>
-<button class="btn choose-btn" data-package="Standard Event – RM200">Choose Package</button>
-</div>
-
-<div class="pricing-card">
-<h3>Premium Small Event</h3>
-<div class="price">RM300</div>
-<p>Extended coverage with more moments captured.</p>
-<ul class="details">
-<li>⏱ Up to 2 hours</li>
-<li>📸 50 edited photos</li>
-<li>🎨 Full color grading</li>
-</ul>
-<button class="btn choose-btn" data-package="Premium Small Event – RM300">Choose Package</button>
-</div>
-
 </div>
 </section>
 
@@ -258,65 +198,41 @@ footer{padding:30px;background:#111;text-align:center;color:#777}
 <section>
 <h2>How Booking Works</h2>
 <div class="info-grid">
-<div class="info-card">1️⃣ Choose a package</div>
-<div class="info-card">2️⃣ Select date & location</div>
+<div class="info-card">1️⃣ Choose package</div>
+<div class="info-card">2️⃣ Pick date & location</div>
 <div class="info-card">3️⃣ Confirm via WhatsApp</div>
-</div>
-</section>
-
-<!-- SERVICE INFO -->
-<section>
-<h2>Service Info</h2>
-<div class="info-grid">
-<div class="info-card"><strong>📍 Coverage Area</strong><p>Kota Kinabalu – Tamparuli</p></div>
-<div class="info-card"><strong>⏱ Delivery Time</strong><p>Photo: 3–5 days<br>Drone: 5–7 days</p></div>
-<div class="info-card"><strong>➕ Add-ons</strong><p>Extra edited photos: RM5/photo</p></div>
 </div>
 </section>
 
 <!-- FAQ -->
 <section>
 <h2>FAQ</h2>
-<div class="faq-item"><strong>Do you work on Saturdays?</strong>No, due to Sabbath.</div>
-<div class="faq-item"><strong>Can I choose portrait or landscape?</strong>Yes.</div>
-<div class="faq-item"><strong>What if weather is bad?</strong>Reschedule available.</div>
+<div class="faq-item">❌ Saturdays unavailable (Sabbath)</div>
+<div class="faq-item">📱 Portrait & landscape supported</div>
+<div class="faq-item">🌦 Weather reschedule available</div>
 </section>
 
-<!-- BOOKING MODAL -->
+<!-- MODAL -->
 <div class="modal" id="bookingModal">
 <div class="modal-content">
 <span class="close-btn" id="closeModal">✕</span>
 <h3 id="selectedPackage"></h3>
-
-<label>Your Name</label>
-<input id="clientName">
-
-<label>Event Location</label>
-<input id="eventLocation">
-
-<label>Event Date</label>
-<input type="date" id="eventDate">
-<div class="modal-note">Saturday unavailable (Sabbath)</div>
-
+<label>Name</label><input id="clientName">
+<label>Location</label><input id="eventLocation">
+<label>Date</label><input type="date" id="eventDate">
 <button id="confirmBtn" class="btn disabled" disabled>Confirm Booking</button>
 </div>
 </div>
 
 <a href="https://wa.me/601139346782" class="floating-wa">💬</a>
-
 <footer>© 2026 Kichil Captures</footer>
 
 <script>
 document.addEventListener("DOMContentLoaded",()=>{
-const modal=document.getElementById("bookingModal");
-const selectedPackageEl=document.getElementById("selectedPackage");
-const nameInput=document.getElementById("clientName");
-const locationInput=document.getElementById("eventLocation");
-const dateInput=document.getElementById("eventDate");
-const confirmBtn=document.getElementById("confirmBtn");
 let selectedPackage="";
+const modal=document.getElementById("bookingModal");
+const confirmBtn=document.getElementById("confirmBtn");
 
-/* Portfolio tabs */
 document.querySelectorAll(".portfolio-tabs button").forEach(btn=>{
 btn.onclick=()=>{
 document.querySelectorAll(".portfolio-tabs button").forEach(b=>b.classList.remove("active"));
@@ -326,50 +242,15 @@ document.getElementById(btn.dataset.album).classList.add("active");
 };
 });
 
-/* Choose package */
 document.querySelectorAll(".choose-btn").forEach(btn=>{
 btn.onclick=()=>{
 selectedPackage=btn.dataset.package;
-selectedPackageEl.innerText=selectedPackage;
+document.getElementById("selectedPackage").innerText=selectedPackage;
 modal.style.display="flex";
-validate();
 };
 });
 
-/* Close modal */
 document.getElementById("closeModal").onclick=()=>modal.style.display="none";
-window.onclick=e=>{if(e.target===modal)modal.style.display="none";};
-
-/* Block Saturday */
-dateInput.onchange=()=>{
-const d=new Date(dateInput.value);
-if(d.getDay()===6){alert("Saturday unavailable.");dateInput.value="";}
-validate();
-};
-
-/* Validation */
-[nameInput,locationInput].forEach(i=>i.oninput=validate);
-function validate(){
-if(nameInput.value && locationInput.value && dateInput.value){
-confirmBtn.disabled=false;
-confirmBtn.classList.remove("disabled");
-}else{
-confirmBtn.disabled=true;
-confirmBtn.classList.add("disabled");
-}
-}
-
-/* WhatsApp */
-confirmBtn.onclick=()=>{
-const msg=`Hello Kichil Captures,
-
-Package: ${selectedPackage}
-Name: ${nameInput.value}
-Location: ${locationInput.value}
-Date: ${dateInput.value}`;
-window.open(`https://wa.me/601139346782?text=${encodeURIComponent(msg)}`,"_blank");
-modal.style.display="none";
-};
 });
 </script>
 
