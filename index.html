@@ -67,7 +67,7 @@ border-radius:22px;text-align:left
 .details{margin:12px 0 16px 18px}
 .details li{font-size:13px;color:#bbb;margin-bottom:6px}
 
-/* INFO SECTIONS */
+/* INFO */
 .info-grid{display:grid;gap:25px}
 .info-card{background:#1a1a1a;padding:28px;border-radius:22px}
 @media(min-width:768px){.info-grid{grid-template-columns:repeat(3,1fr)}}
@@ -331,6 +331,7 @@ document.getElementById(btn.dataset.album).classList.add("active");
 /* Booking modal */
 const modal=document.getElementById("bookingModal");
 const selectedPackage=document.getElementById("selectedPackage");
+const dateInput=document.getElementById("eventDate");
 
 document.querySelectorAll(".choose-btn").forEach(btn=>{
 btn.onclick=()=>{
@@ -342,6 +343,16 @@ modal.style.display="flex";
 document.getElementById("closeModal").onclick=()=>modal.style.display="none";
 window.onclick=e=>{if(e.target===modal)modal.style.display="none";};
 
+/* BLOCK SATURDAY */
+dateInput.addEventListener("change",()=>{
+const d=new Date(dateInput.value);
+if(d.getDay()===6){
+alert("Saturday bookings are not available due to Sabbath day.");
+dateInput.value="";
+}
+});
+
+/* WhatsApp */
 document.getElementById("confirmBtn").onclick=()=>{
 const msg=`Hello Kichil Captures,
 
