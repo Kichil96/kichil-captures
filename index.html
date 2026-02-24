@@ -5,7 +5,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>KichilCaptures | Drone • Photography • Visual Stories</title>
 
-<!-- Google Font -->
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
 
 <style>
@@ -50,10 +49,10 @@ p {
   background: linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.85)),
               url('https://images.unsplash.com/photo-1500530855697-b586d89ba3ee') center/cover no-repeat;
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
   text-align: center;
+  flex-direction: column;
 }
 
 .hero h1 {
@@ -71,10 +70,8 @@ p {
   padding: 12px 30px;
   background: #25D366;
   color: white;
-  border: none;
   border-radius: 30px;
   font-weight: 600;
-  cursor: pointer;
   text-decoration: none;
   transition: 0.3s ease;
 }
@@ -143,6 +140,14 @@ p {
 .portfolio-grid {
   display: grid;
   gap: 15px;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+/* Small phones */
+@media (max-width: 480px) {
+  .portfolio-grid {
+    grid-template-columns: 1fr;
+  }
 }
 
 .portfolio-item {
@@ -160,6 +165,16 @@ p {
 .portfolio-item img:hover {
   transform: scale(1.08);
   opacity: 0.9;
+}
+
+/* Desktop */
+@media(min-width:768px) {
+  .services-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .portfolio-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
 }
 
 /* ===== CONTACT ===== */
@@ -185,16 +200,6 @@ footer {
   background: #111;
   font-size: 14px;
   color: #888;
-}
-
-/* ===== RESPONSIVE ===== */
-@media(min-width:768px) {
-  .services-grid {
-    grid-template-columns: repeat(3, 1fr);
-  }
-  .portfolio-grid {
-    grid-template-columns: repeat(3, 1fr);
-  }
 }
 
 /* ===== ANIMATION ===== */
@@ -226,8 +231,7 @@ footer {
   <h2>About</h2>
   <p>
     Kichil Captures is a growing creative portfolio focused on cinematic visuals,
-    aerial storytelling, and small event photography. Each frame is crafted with
-    intention, mood, and clarity.
+    aerial storytelling, and small event photography.
   </p>
 </section>
 
@@ -241,11 +245,11 @@ footer {
     </div>
     <div class="service-card">
       <h3>Photography</h3>
-      <p>Clean, modern photography for events, products, and creative visuals.</p>
+      <p>Clean, modern photography for events and creative visuals.</p>
     </div>
     <div class="service-card">
       <h3>Cinematic Creative</h3>
-      <p>Stylized shots focused on mood, composition, and visual impact.</p>
+      <p>Stylized shots focused on mood and composition.</p>
     </div>
   </div>
 </section>
@@ -255,33 +259,33 @@ footer {
   <h2>Portfolio</h2>
 
   <div class="portfolio-tabs">
-    <button class="active" onclick="showAlbum('photo')">Photography</button>
-    <button onclick="showAlbum('drone')">Drone Footage</button>
+    <button class="active" onclick="showAlbum('photo', this)">Photography</button>
+    <button onclick="showAlbum('drone', this)">Drone Footage</button>
   </div>
 
-  <!-- Photography Album -->
+  <!-- Photography -->
   <div id="photo" class="portfolio-album active portfolio-grid">
     <div class="portfolio-item">
-      <img src="camera-1.WEBP" alt="Photography by Kichil Captures" loading="lazy">
+      <img src="camera-1.WEBP" alt="Photography 1" loading="lazy">
     </div>
     <div class="portfolio-item">
-      <img src="camera-2.WEBP" alt="Photography by Kichil Captures" loading="lazy">
+      <img src="camera-2.WEBP" alt="Photography 2" loading="lazy">
     </div>
   </div>
 
-  <!-- Drone Album (ADDED) -->
+  <!-- Drone -->
   <div id="drone" class="portfolio-album portfolio-grid">
     <div class="portfolio-item">
-      <img src="drone-1.WEBP" alt="Drone shot 1" loading="lazy">
+      <img src="drone-1.WEBP" alt="Drone 1" loading="lazy">
     </div>
     <div class="portfolio-item">
-      <img src="drone-2.WEBP" alt="Drone shot 2" loading="lazy">
+      <img src="drone-2.WEBP" alt="Drone 2" loading="lazy">
     </div>
     <div class="portfolio-item">
-      <img src="drone-3.WEBP" alt="Drone shot 3" loading="lazy">
+      <img src="drone-3.WEBP" alt="Drone 3" loading="lazy">
     </div>
     <div class="portfolio-item">
-      <img src="drone-4.WEBP" alt="Drone shot 4" loading="lazy">
+      <img src="drone-4.WEBP" alt="Drone 4" loading="lazy">
     </div>
   </div>
 </section>
@@ -312,6 +316,8 @@ footer {
 </footer>
 
 <script>
+
+/* Fade animation */
 const observer = new IntersectionObserver(entries => {
   entries.forEach(entry => {
     if(entry.isIntersecting){
@@ -321,34 +327,31 @@ const observer = new IntersectionObserver(entries => {
 });
 document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
 
-function showAlbum(album) {
+/* Fixed Portfolio Tabs */
+function showAlbum(album, btn) {
   document.querySelectorAll('.portfolio-album').forEach(a => a.classList.remove('active'));
   document.querySelectorAll('.portfolio-tabs button').forEach(b => b.classList.remove('active'));
 
   document.getElementById(album).classList.add('active');
-  event.target.classList.add('active');
+  btn.classList.add('active');
 }
 
+/* WhatsApp form */
 document.getElementById("waForm").addEventListener("submit", function(e){
   e.preventDefault();
-
-  const name = document.getElementById("name").value;
-  const phone = document.getElementById("phone").value;
-  const service = document.getElementById("service").value;
-  const date = document.getElementById("date").value;
-  const message = document.getElementById("message").value;
 
   const text =
 `Hello Kichil Captures,
 
-Name: ${name}
-Phone: ${phone}
-Service: ${service}
-Event Date: ${date}
-Message: ${message}`;
+Name: ${name.value}
+Phone: ${phone.value}
+Service: ${service.value}
+Event Date: ${date.value}
+Message: ${message.value}`;
 
   window.open(`https://wa.me/601139346782?text=${encodeURIComponent(text)}`, "_blank");
 });
+
 </script>
 
 </body>
