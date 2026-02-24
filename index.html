@@ -15,46 +15,58 @@ h1,h2,h3{font-weight:800}
 h2{text-align:center;font-size:28px;margin-bottom:25px}
 p{color:#ccc;font-size:14px}
 
+/* HERO */
 .hero{
-min-height:100vh;
-background:linear-gradient(rgba(0,0,0,.65),rgba(0,0,0,.9)),
-url("https://images.unsplash.com/photo-1500530855697-b586d89ba3ee") center/cover no-repeat;
-display:flex;align-items:center;justify-content:center;text-align:center
+  min-height:100vh;
+  background:linear-gradient(rgba(0,0,0,.65),rgba(0,0,0,.9)),
+  url("https://images.unsplash.com/photo-1500530855697-b586d89ba3ee") center/cover no-repeat;
+  display:flex;align-items:center;justify-content:center;text-align:center
 }
 .hero h1{font-size:42px}
 
 .btn{
-display:inline-block;margin-top:16px;padding:12px 32px;
-background:#25D366;color:#fff;border-radius:30px;
-font-weight:600;border:none;cursor:pointer;text-decoration:none
+  display:inline-block;margin-top:16px;padding:12px 32px;
+  background:#25D366;color:#fff;border-radius:30px;
+  font-weight:600;border:none;cursor:pointer;text-decoration:none
 }
 .btn.disabled{background:#444;cursor:not-allowed}
 
 /* PORTFOLIO */
 .portfolio-tabs{display:flex;justify-content:center;gap:12px;margin-bottom:25px}
 .portfolio-tabs button{
-padding:10px 26px;border-radius:30px;border:none;
-background:#1a1a1a;color:#bbb;font-weight:600;cursor:pointer
+  padding:10px 26px;border-radius:30px;border:none;
+  background:#1a1a1a;color:#bbb;font-weight:600;cursor:pointer
 }
 .portfolio-tabs button.active{background:#25D366;color:#fff}
 .portfolio-album{display:none}
 .portfolio-album.active{display:block}
 .portfolio-scroll{display:flex;gap:18px;overflow-x:auto;padding-bottom:10px}
 .portfolio-item{
-flex-shrink:0;border-radius:18px;overflow:hidden;background:#111;
-max-width:260px
+  flex-shrink:0;border-radius:18px;overflow:hidden;background:#111;
+  max-width:260px
 }
 .portfolio-item img{width:100%;height:auto;display:block}
 
 /* PACKAGES */
 .package-row{display:flex;gap:20px;overflow-x:auto;padding-bottom:10px}
 .pricing-card{
-min-width:260px;background:#1a1a1a;padding:26px;
-border-radius:22px;text-align:left
+  min-width:260px;background:#1a1a1a;padding:26px;
+  border-radius:22px;text-align:left
 }
 .pricing-card.popular{border:2px solid #25D366}
 .price{font-size:32px;margin:10px 0}
-.pricing-card p{margin:10px 0 14px 0}
+.pricing-card p{margin:10px 0}
+
+/* DETAILS LIST */
+.details{
+  margin:12px 0 16px 0;
+  padding-left:18px;
+}
+.details li{
+  font-size:13px;
+  color:#bbb;
+  margin-bottom:6px;
+}
 
 /* INFO / FAQ */
 .info-grid{display:grid;gap:25px}
@@ -65,34 +77,34 @@ border-radius:22px;text-align:left
 
 /* MODAL */
 .modal{
-display:none;position:fixed;inset:0;
-background:rgba(0,0,0,.85);
-align-items:center;justify-content:center;z-index:999
+  display:none;position:fixed;inset:0;
+  background:rgba(0,0,0,.85);
+  align-items:center;justify-content:center;z-index:999
 }
 .modal-content{
-position:relative;background:#1a1a1a;padding:28px;
-border-radius:20px;width:90%;max-width:380px
+  position:relative;background:#1a1a1a;padding:28px;
+  border-radius:20px;width:90%;max-width:380px
 }
 .modal-content label{font-size:13px;color:#aaa;display:block;margin-top:12px}
 .modal-content input{
-width:100%;padding:12px;margin-top:6px;
-border-radius:8px;border:none;font-size:14px
+  width:100%;padding:12px;margin-top:6px;
+  border-radius:8px;border:none;font-size:14px
 }
 .modal-note{font-size:12px;color:#777;margin-top:4px}
 .close-btn{
-position:absolute;top:14px;right:16px;
-font-size:20px;cursor:pointer;color:#aaa
+  position:absolute;top:14px;right:16px;
+  font-size:20px;cursor:pointer;color:#aaa
 }
 .close-btn:hover{color:#fff}
 
-/* FLOATING WA */
+/* FLOATING WHATSAPP */
 .floating-wa{
-position:fixed;bottom:20px;right:20px;
-width:60px;height:60px;border-radius:50%;
-background:#25D366;display:flex;align-items:center;
-justify-content:center;font-size:28px;color:#fff;
-text-decoration:none;box-shadow:0 4px 15px rgba(0,0,0,.4);
-z-index:1000
+  position:fixed;bottom:20px;right:20px;
+  width:60px;height:60px;border-radius:50%;
+  background:#25D366;display:flex;align-items:center;
+  justify-content:center;font-size:28px;color:#fff;
+  text-decoration:none;box-shadow:0 4px 15px rgba(0,0,0,.4);
+  z-index:1000
 }
 
 footer{padding:30px;background:#111;text-align:center;color:#777}
@@ -103,36 +115,37 @@ footer{padding:30px;background:#111;text-align:center;color:#777}
 
 <!-- HERO -->
 <section class="hero">
-<div>
-<h1>Kichil Captures</h1>
-<p>Drone & Photography for Small Events</p>
-<a href="#packages" class="btn">View Packages</a>
-</div>
+  <div>
+    <h1>Kichil Captures</h1>
+    <p>Drone & Photography for Small Events</p>
+    <a href="#packages" class="btn">View Packages</a>
+  </div>
 </section>
 
 <!-- PORTFOLIO -->
 <section>
-<h2>Portfolio</h2>
-<div class="portfolio-tabs">
-<button class="active" data-album="photo">Photography</button>
-<button data-album="drone">Drone</button>
-</div>
+  <h2>Portfolio</h2>
 
-<div id="photo" class="portfolio-album active">
-<div class="portfolio-scroll">
-<div class="portfolio-item"><img src="camera-1.WEBP"></div>
-<div class="portfolio-item"><img src="camera-2.WEBP"></div>
-</div>
-</div>
+  <div class="portfolio-tabs">
+    <button class="active" data-album="photo">Photography</button>
+    <button data-album="drone">Drone</button>
+  </div>
 
-<div id="drone" class="portfolio-album">
-<div class="portfolio-scroll">
-<div class="portfolio-item"><img src="drone-1.WEBP"></div>
-<div class="portfolio-item"><img src="drone-2.WEBP"></div>
-<div class="portfolio-item"><img src="drone-3.WEBP"></div>
-<div class="portfolio-item"><img src="drone-4.WEBP"></div>
-</div>
-</div>
+  <div id="photo" class="portfolio-album active">
+    <div class="portfolio-scroll">
+      <div class="portfolio-item"><img src="camera-1.WEBP"></div>
+      <div class="portfolio-item"><img src="camera-2.WEBP"></div>
+    </div>
+  </div>
+
+  <div id="drone" class="portfolio-album">
+    <div class="portfolio-scroll">
+      <div class="portfolio-item"><img src="drone-1.WEBP"></div>
+      <div class="portfolio-item"><img src="drone-2.WEBP"></div>
+      <div class="portfolio-item"><img src="drone-3.WEBP"></div>
+      <div class="portfolio-item"><img src="drone-4.WEBP"></div>
+    </div>
+  </div>
 </section>
 
 <!-- PACKAGES -->
@@ -143,80 +156,102 @@ footer{padding:30px;background:#111;text-align:center;color:#777}
 <div class="pricing-card popular">
 <h3>Photo + Drone Combo</h3>
 <div class="price">RM280</div>
-<p>
-Perfect for small events that need both ground and aerial coverage.
-Includes photography highlights and a short cinematic drone video.
-</p>
+<p>Perfect for small events that need both ground and aerial coverage.</p>
+<ul class="details">
+<li>⏱ 1 hour photography</li>
+<li>📸 30 edited photos</li>
+<li>🎬 ~60 sec drone video</li>
+<li>🎥 Drone quality: up to 4K</li>
+<li>📱 Portrait & landscape</li>
+</ul>
 <button class="btn choose-btn" data-package="Photo + Drone Combo – RM280">Choose Package</button>
 </div>
 </div>
 
 <h2 style="margin-top:60px">Drone Packages</h2>
 <div class="package-row">
+
 <div class="pricing-card">
 <h3>Mini Aerial</h3>
 <div class="price">RM100</div>
-<p>
-Quick aerial shots for location preview, social media, or place overview.
-Short, clean, and effective.
-</p>
+<p>Quick aerial shots for social media or location preview.</p>
+<ul class="details">
+<li>⏱ 15–20 min flight</li>
+<li>🎬 30–45 sec video</li>
+<li>🎥 2.7K quality</li>
+<li>📱 Portrait / landscape</li>
+</ul>
 <button class="btn choose-btn" data-package="Mini Aerial – RM100">Choose Package</button>
 </div>
 
 <div class="pricing-card">
 <h3>Standard Promo</h3>
 <div class="price">RM150</div>
-<p>
-Cinematic drone footage with smooth movements and basic color grading.
-Ideal for events or promotional use.
-</p>
+<p>Cinematic drone footage with smooth movement and color grading.</p>
+<ul class="details">
+<li>⏱ 20–30 min flight</li>
+<li>🎬 ~60 sec video</li>
+<li>🎥 4K quality</li>
+<li>📱 Portrait / landscape</li>
+</ul>
 <button class="btn choose-btn" data-package="Standard Promo – RM150">Choose Package</button>
 </div>
 
 <div class="pricing-card">
 <h3>Extended Event</h3>
 <div class="price">RM250–300</div>
-<p>
-Longer aerial coverage with multiple angles.
-Best for larger venues, marketing, or detailed location showcase.
-</p>
+<p>Longer coverage with multiple angles and detailed shots.</p>
+<ul class="details">
+<li>⏱ Up to 1 hour</li>
+<li>🎬 75–90 sec video</li>
+<li>🎥 4K quality</li>
+<li>📱 Portrait & landscape</li>
+</ul>
 <button class="btn choose-btn" data-package="Extended Event – RM250–300">Choose Package</button>
 </div>
+
 </div>
 
 <h2 style="margin-top:60px">Photography Packages</h2>
 <div class="package-row">
+
 <div class="pricing-card">
 <h3>Basic Session</h3>
 <div class="price">RM120</div>
-<p>
-Short photography session for small gatherings.
-Carefully selected and edited photos.
-</p>
+<p>Short session for small gatherings.</p>
+<ul class="details">
+<li>⏱ 30–45 min</li>
+<li>📸 15 edited photos</li>
+<li>🎨 Basic color correction</li>
+</ul>
 <button class="btn choose-btn" data-package="Basic Session – RM120">Choose Package</button>
 </div>
 
 <div class="pricing-card popular">
 <h3>Standard Event</h3>
 <div class="price">RM200</div>
-<p>
-Ideal for birthdays, engagements, graduations, and pre-events.
-Balanced coverage with consistent editing.
-</p>
+<p>Balanced coverage for birthdays, engagements & graduations.</p>
+<ul class="details">
+<li>⏱ 1–1.5 hour</li>
+<li>📸 30 edited photos</li>
+<li>🎨 Color graded</li>
+</ul>
 <button class="btn choose-btn" data-package="Standard Event – RM200">Choose Package</button>
 </div>
 
 <div class="pricing-card">
 <h3>Premium Small Event</h3>
 <div class="price">RM300</div>
-<p>
-Extended coverage with more moments captured.
-Best for clients who want fuller storytelling.
-</p>
+<p>Extended coverage with more moments captured.</p>
+<ul class="details">
+<li>⏱ Up to 2 hours</li>
+<li>📸 50 edited photos</li>
+<li>🎨 Full color grading</li>
+</ul>
 <button class="btn choose-btn" data-package="Premium Small Event – RM300">Choose Package</button>
 </div>
-</div>
 
+</div>
 </section>
 
 <!-- HOW BOOKING WORKS -->
@@ -243,11 +278,11 @@ Best for clients who want fuller storytelling.
 <section>
 <h2>FAQ</h2>
 <div class="faq-item"><strong>Do you work on Saturdays?</strong>No, due to Sabbath.</div>
-<div class="faq-item"><strong>Can I choose portrait or landscape?</strong>Yes, both formats are available.</div>
-<div class="faq-item"><strong>What if weather is bad?</strong>We can reschedule to another available date.</div>
+<div class="faq-item"><strong>Can I choose portrait or landscape?</strong>Yes.</div>
+<div class="faq-item"><strong>What if weather is bad?</strong>Reschedule available.</div>
 </section>
 
-<!-- MODAL -->
+<!-- BOOKING MODAL -->
 <div class="modal" id="bookingModal">
 <div class="modal-content">
 <span class="close-btn" id="closeModal">✕</span>
@@ -312,8 +347,8 @@ if(d.getDay()===6){alert("Saturday unavailable.");dateInput.value="";}
 validate();
 };
 
+/* Validation */
 [nameInput,locationInput].forEach(i=>i.oninput=validate);
-
 function validate(){
 if(nameInput.value && locationInput.value && dateInput.value){
 confirmBtn.disabled=false;
