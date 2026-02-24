@@ -24,7 +24,6 @@ url("https://images.unsplash.com/photo-1500530855697-b586d89ba3ee") center/cover
 display:flex;align-items:center;justify-content:center;text-align:center
 }
 .hero h1{font-size:42px}
-
 .btn{
 display:inline-block;margin-top:16px;padding:12px 32px;
 background:#25D366;color:#fff;border-radius:30px;
@@ -68,6 +67,12 @@ border-radius:22px;text-align:left
 .details{margin:12px 0 16px 18px}
 .details li{font-size:13px;color:#bbb;margin-bottom:6px}
 
+/* INFO SECTIONS */
+.info-grid{display:grid;gap:25px}
+.info-card{background:#1a1a1a;padding:28px;border-radius:22px}
+@media(min-width:768px){.info-grid{grid-template-columns:repeat(3,1fr)}}
+.faq-item{margin-bottom:15px}
+
 /* MODAL */
 .modal{
 display:none;position:fixed;inset:0;
@@ -103,6 +108,7 @@ footer{padding:30px;background:#111;text-align:center;color:#777}
 
 <body>
 
+<!-- HERO -->
 <section class="hero">
 <div>
 <h1>Kichil Captures</h1>
@@ -112,6 +118,7 @@ footer{padding:30px;background:#111;text-align:center;color:#777}
 <div class="scroll-down" onclick="document.getElementById('portfolio').scrollIntoView({behavior:'smooth'})">↓</div>
 </section>
 
+<!-- PORTFOLIO -->
 <section id="portfolio">
 <h2>Portfolio</h2>
 <div class="portfolio-tabs">
@@ -136,16 +143,24 @@ footer{padding:30px;background:#111;text-align:center;color:#777}
 </div>
 </section>
 
+<!-- PACKAGES -->
 <section id="packages">
-<h2>🔥 Combo Package</h2>
+
+<h2>🔥 Combo Package (Best Value)</h2>
 <div class="package-row">
 <div class="pricing-card popular">
 <h3>Photo + Drone Combo</h3>
 <div class="price">RM280</div>
+<p>
+Perfect for small events that need both ground and aerial coverage.
+Includes photography highlights and a cinematic drone video with smooth movement and color grading.
+</p>
 <ul class="details">
-<li>1 hour photography</li>
-<li>30 edited photos</li>
-<li>~60s drone video (4K)</li>
+<li>⏱ 1 hour photography session</li>
+<li>📸 30 professionally edited photos</li>
+<li>🎬 ~60 sec cinematic drone video</li>
+<li>🎥 Drone quality up to 4K</li>
+<li>📱 Portrait & landscape format</li>
 </ul>
 <button class="btn choose-btn" data-package="Photo + Drone Combo – RM280">Choose Package</button>
 </div>
@@ -153,34 +168,138 @@ footer{padding:30px;background:#111;text-align:center;color:#777}
 
 <h2 style="margin-top:60px">Drone Packages</h2>
 <div class="package-row">
+
 <div class="pricing-card">
-<h3>Mini Aerial</h3><div class="price">RM100</div>
-<ul class="details"><li>2.7K • 30–45s</li></ul>
+<h3>Mini Aerial</h3>
+<div class="price">RM100</div>
+<p>
+Quick aerial coverage suitable for location preview, social media, and small venue highlights.
+Clean, simple, and efficient.
+</p>
+<ul class="details">
+<li>⏱ 15–20 minutes flight time</li>
+<li>🎬 30–45 sec edited video</li>
+<li>🎥 2.7K quality</li>
+<li>📱 Portrait or landscape format</li>
+</ul>
 <button class="btn choose-btn" data-package="Mini Aerial – RM100">Choose Package</button>
 </div>
+
 <div class="pricing-card">
-<h3>Standard Promo</h3><div class="price">RM150</div>
-<ul class="details"><li>4K • ~60s</li></ul>
+<h3>Standard Promo</h3>
+<div class="price">RM150</div>
+<p>
+Cinematic drone footage with smooth motion and professional color grading.
+Ideal for events and promotional content.
+</p>
+<ul class="details">
+<li>⏱ 20–30 minutes flight time</li>
+<li>🎬 ~60 sec edited video</li>
+<li>🎥 4K quality</li>
+<li>📱 Portrait or landscape format</li>
+</ul>
 <button class="btn choose-btn" data-package="Standard Promo – RM150">Choose Package</button>
 </div>
+
+<div class="pricing-card">
+<h3>Extended Event</h3>
+<div class="price">RM250–300</div>
+<p>
+Extended aerial coverage with multiple angles and detailed location showcase.
+Best for larger venues or marketing usage.
+</p>
+<ul class="details">
+<li>⏱ Up to 1 hour coverage</li>
+<li>🎬 75–90 sec edited video</li>
+<li>🎥 4K quality</li>
+<li>📱 Portrait & landscape format</li>
+</ul>
+<button class="btn choose-btn" data-package="Extended Event – RM250–300">Choose Package</button>
+</div>
+
 </div>
 
 <h2 style="margin-top:60px">Photography Packages</h2>
 <div class="package-row">
+
 <div class="pricing-card">
-<h3>Basic Session</h3><div class="price">RM120</div>
-<ul class="details"><li>15 edited photos</li></ul>
+<h3>Basic Session</h3>
+<div class="price">RM120</div>
+<p>
+Short photography session for small gatherings, birthday parties,
+or simple personal events with clean and natural editing.
+</p>
+<ul class="details">
+<li>⏱ 30–45 minutes session</li>
+<li>📸 15 edited photos</li>
+<li>🎨 Basic color correction</li>
+</ul>
 <button class="btn choose-btn" data-package="Basic Session – RM120">Choose Package</button>
 </div>
+
 <div class="pricing-card popular">
-<h3>Standard Event</h3><div class="price">RM200</div>
-<ul class="details"><li>30 edited photos</li></ul>
+<h3>Standard Event</h3>
+<div class="price">RM200</div>
+<p>
+Balanced coverage for birthdays, engagements, graduations, and pre-events.
+Focused on capturing meaningful moments with consistent editing style.
+</p>
+<ul class="details">
+<li>⏱ 1–1.5 hour session</li>
+<li>📸 30 edited photos</li>
+<li>🎨 Professional color grading</li>
+</ul>
 <button class="btn choose-btn" data-package="Standard Event – RM200">Choose Package</button>
 </div>
+
+<div class="pricing-card">
+<h3>Premium Small Event</h3>
+<div class="price">RM300</div>
+<p>
+Extended photography coverage for clients who want fuller storytelling
+and more moments preserved.
+</p>
+<ul class="details">
+<li>⏱ Up to 2 hours session</li>
+<li>📸 50 edited photos</li>
+<li>🎨 Full professional color grading</li>
+</ul>
+<button class="btn choose-btn" data-package="Premium Small Event – RM300">Choose Package</button>
+</div>
+
+</div>
+
+</section>
+
+<!-- HOW BOOKING WORKS -->
+<section>
+<h2>How Booking Works</h2>
+<div class="info-grid">
+<div class="info-card">1️⃣ Choose a package</div>
+<div class="info-card">2️⃣ Select date & location</div>
+<div class="info-card">3️⃣ Confirm via WhatsApp</div>
 </div>
 </section>
 
-<!-- MODAL -->
+<!-- SERVICE INFO -->
+<section>
+<h2>Service Info</h2>
+<div class="info-grid">
+<div class="info-card"><strong>📍 Coverage Area</strong><p>Kota Kinabalu – Tamparuli</p></div>
+<div class="info-card"><strong>⏱ Delivery Time</strong><p>Photo: 3–5 days<br>Drone: 5–7 days</p></div>
+<div class="info-card"><strong>➕ Add-ons</strong><p>Extra edited photos: RM5/photo</p></div>
+</div>
+</section>
+
+<!-- FAQ -->
+<section>
+<h2>FAQ</h2>
+<div class="faq-item"><strong>Do you work on Saturdays?</strong> No, due to Sabbath.</div>
+<div class="faq-item"><strong>Can I choose portrait or landscape?</strong> Yes, both formats are available.</div>
+<div class="faq-item"><strong>What if weather is bad?</strong> Rescheduling is available.</div>
+</section>
+
+<!-- BOOKING MODAL -->
 <div class="modal" id="bookingModal">
 <div class="modal-content">
 <span class="close-btn" id="closeModal">✕</span>
@@ -193,13 +312,13 @@ footer{padding:30px;background:#111;text-align:center;color:#777}
 </div>
 
 <a href="https://wa.me/601139346782" class="floating-wa">💬</a>
+
 <footer>© 2026 Kichil Captures</footer>
 
 <script>
 document.addEventListener("DOMContentLoaded",()=>{
-const modal=document.getElementById("bookingModal");
-const selectedPackage=document.getElementById("selectedPackage");
 
+/* Portfolio tabs */
 document.querySelectorAll(".portfolio-tabs button").forEach(btn=>{
 btn.onclick=()=>{
 document.querySelectorAll(".portfolio-tabs button").forEach(b=>b.classList.remove("active"));
@@ -209,6 +328,10 @@ document.getElementById(btn.dataset.album).classList.add("active");
 };
 });
 
+/* Booking modal */
+const modal=document.getElementById("bookingModal");
+const selectedPackage=document.getElementById("selectedPackage");
+
 document.querySelectorAll(".choose-btn").forEach(btn=>{
 btn.onclick=()=>{
 selectedPackage.innerText=btn.dataset.package;
@@ -217,13 +340,19 @@ modal.style.display="flex";
 });
 
 document.getElementById("closeModal").onclick=()=>modal.style.display="none";
+window.onclick=e=>{if(e.target===modal)modal.style.display="none";};
 
 document.getElementById("confirmBtn").onclick=()=>{
 const msg=`Hello Kichil Captures,
-Package: ${selectedPackage.innerText}`;
+
+Package: ${selectedPackage.innerText}
+Name: ${clientName.value}
+Location: ${eventLocation.value}
+Date: ${eventDate.value}`;
 window.open(`https://wa.me/601139346782?text=${encodeURIComponent(msg)}`,"_blank");
 modal.style.display="none";
 };
+
 });
 </script>
 
