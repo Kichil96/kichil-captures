@@ -37,6 +37,7 @@ h1, h2 {
 h2 {
   margin-bottom: 25px;
   font-size: 28px;
+  text-align: center;
 }
 
 p {
@@ -66,7 +67,7 @@ p {
 }
 
 .btn {
-  margin-top: 30px;
+  margin-top: 20px;
   padding: 12px 30px;
   background: #25D366;
   color: white;
@@ -74,16 +75,12 @@ p {
   font-weight: 600;
   text-decoration: none;
   transition: 0.3s ease;
+  display: inline-block;
 }
 
 .btn:hover {
   background: #1ebe5d;
   transform: translateY(-3px);
-}
-
-/* ===== ABOUT ===== */
-.about {
-  text-align: center;
 }
 
 /* ===== SERVICES ===== */
@@ -143,7 +140,6 @@ p {
   grid-template-columns: repeat(2, 1fr);
 }
 
-/* Small phones */
 @media (max-width: 480px) {
   .portfolio-grid {
     grid-template-columns: 1fr;
@@ -159,20 +155,64 @@ p {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: 0.4s ease;
 }
 
-.portfolio-item img:hover {
-  transform: scale(1.08);
-  opacity: 0.9;
+/* ===== PRICING ===== */
+.pricing-grid {
+  display: grid;
+  gap: 25px;
 }
 
-/* Desktop */
+.pricing-card {
+  background: #1a1a1a;
+  padding: 30px;
+  border-radius: 18px;
+  text-align: center;
+  transition: 0.3s ease;
+  position: relative;
+}
+
+.pricing-card:hover {
+  transform: translateY(-8px);
+  background: #222;
+}
+
+.pricing-card.popular {
+  border: 2px solid #25D366;
+}
+
+.popular-badge {
+  position: absolute;
+  top: -12px;
+  right: 20px;
+  background: #25D366;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.price {
+  font-size: 34px;
+  font-weight: 800;
+  margin: 15px 0;
+}
+
+.pricing-card ul {
+  list-style: none;
+  margin: 20px 0;
+  padding: 0;
+}
+
+.pricing-card li {
+  margin-bottom: 10px;
+  color: #cfcfcf;
+  font-size: 14px;
+}
+
 @media(min-width:768px) {
-  .services-grid {
-    grid-template-columns: repeat(3, 1fr);
-  }
-  .portfolio-grid {
+  .services-grid,
+  .pricing-grid {
     grid-template-columns: repeat(3, 1fr);
   }
 }
@@ -202,18 +242,6 @@ footer {
   color: #888;
 }
 
-/* ===== ANIMATION ===== */
-.fade-in {
-  opacity: 0;
-  transform: translateY(30px);
-  transition: 1s ease;
-}
-
-.fade-in.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
 </style>
 </head>
 
@@ -223,92 +251,97 @@ footer {
 <section class="hero">
   <h1>Kichil Captures</h1>
   <p>Drone • Photography • Visual Stories</p>
-  <a href="#contact" class="btn">Book Now</a>
-</section>
-
-<!-- ABOUT -->
-<section class="about fade-in">
-  <h2>About</h2>
-  <p>
-    Kichil Captures is a growing creative portfolio focused on cinematic visuals,
-    aerial storytelling, and small event photography.
-  </p>
+  <a href="#pricing" class="btn">View Packages</a>
 </section>
 
 <!-- SERVICES -->
-<section class="services fade-in">
+<section>
   <h2>Services</h2>
   <div class="services-grid">
     <div class="service-card">
       <h3>Drone Footage</h3>
-      <p>Professional aerial visuals for locations, events, and cinematic storytelling.</p>
+      <p>Aerial visuals for events, marketing & place highlights.</p>
     </div>
     <div class="service-card">
       <h3>Photography</h3>
-      <p>Clean, modern photography for events and creative visuals.</p>
+      <p>Clean modern visuals for creative & business use.</p>
     </div>
     <div class="service-card">
-      <h3>Cinematic Creative</h3>
-      <p>Stylized shots focused on mood and composition.</p>
+      <h3>Cinematic Editing</h3>
+      <p>Basic color grading included in all drone packages.</p>
     </div>
   </div>
 </section>
 
 <!-- PORTFOLIO -->
-<section class="portfolio fade-in">
+<section>
   <h2>Portfolio</h2>
 
   <div class="portfolio-tabs">
     <button class="active" onclick="showAlbum('photo', this)">Photography</button>
-    <button onclick="showAlbum('drone', this)">Drone Footage</button>
+    <button onclick="showAlbum('drone', this)">Drone</button>
   </div>
 
-  <!-- Photography -->
   <div id="photo" class="portfolio-album active portfolio-grid">
-    <div class="portfolio-item">
-      <img src="camera-1.WEBP" alt="Photography 1" loading="lazy">
-    </div>
-    <div class="portfolio-item">
-      <img src="camera-2.WEBP" alt="Photography 2" loading="lazy">
-    </div>
+    <div class="portfolio-item"><img src="camera-1.WEBP" loading="lazy"></div>
+    <div class="portfolio-item"><img src="camera-2.WEBP" loading="lazy"></div>
   </div>
 
-  <!-- Drone -->
   <div id="drone" class="portfolio-album portfolio-grid">
-    <div class="portfolio-item">
-      <img src="drone-1.WEBP" alt="Drone 1" loading="lazy">
-    </div>
-    <div class="portfolio-item">
-      <img src="drone-2.WEBP" alt="Drone 2" loading="lazy">
-    </div>
-    <div class="portfolio-item">
-      <img src="drone-3.WEBP" alt="Drone 3" loading="lazy">
-    </div>
-    <div class="portfolio-item">
-      <img src="drone-4.WEBP" alt="Drone 4" loading="lazy">
-    </div>
+    <div class="portfolio-item"><img src="drone-1.WEBP" loading="lazy"></div>
+    <div class="portfolio-item"><img src="drone-2.WEBP" loading="lazy"></div>
+    <div class="portfolio-item"><img src="drone-3.WEBP" loading="lazy"></div>
+    <div class="portfolio-item"><img src="drone-4.WEBP" loading="lazy"></div>
   </div>
 </section>
 
-<!-- CONTACT -->
-<section class="contact fade-in" id="contact">
-  <h2>Contact</h2>
-  <form id="waForm">
-    <input type="text" id="name" placeholder="Your Name" required>
-    <input type="text" id="phone" placeholder="Phone Number" required>
+<!-- PRICING -->
+<section id="pricing">
+  <h2>Drone Aerial Packages</h2>
 
-    <select id="service" required>
-      <option value="">Select Service</option>
-      <option>Drone Footage</option>
-      <option>Photography</option>
-      <option>Cinematic Creative</option>
-    </select>
+  <div class="pricing-grid">
 
-    <input type="date" id="date" required>
-    <textarea id="message" rows="4" placeholder="Your Message" required></textarea>
+    <div class="pricing-card">
+      <h3>Mini Aerial Shot</h3>
+      <div class="price">RM100</div>
+      <ul>
+        <li>30–45 sec final video</li>
+        <li>1 location</li>
+        <li>Basic color grading</li>
+        <li>Portrait & Landscape</li>
+        <li>2.7K / 4K Quality</li>
+      </ul>
+      <a href="https://wa.me/601139346782?text=Hi%20I%20want%20to%20book%20Mini%20Aerial%20Shot" class="btn">Book Now</a>
+    </div>
 
-    <button type="submit" class="btn">Send Inquiry</button>
-  </form>
+    <div class="pricing-card popular">
+      <div class="popular-badge">Most Popular</div>
+      <h3>Standard Aerial Promo</h3>
+      <div class="price">RM150</div>
+      <ul>
+        <li>~60 sec final video</li>
+        <li>Up to 2 angles</li>
+        <li>Basic color grading</li>
+        <li>Portrait & Landscape</li>
+        <li>2.7K / 4K Quality</li>
+      </ul>
+      <a href="https://wa.me/601139346782?text=Hi%20I%20want%20to%20book%20Standard%20Aerial%20Promo" class="btn">Book Now</a>
+    </div>
+
+    <div class="pricing-card">
+      <h3>Extended Event Promo</h3>
+      <div class="price">RM250–300</div>
+      <ul>
+        <li>75–90 sec final video</li>
+        <li>2–3 locations</li>
+        <li>Basic color grading</li>
+        <li>Portrait & Landscape</li>
+        <li>2.7K / 4K Quality</li>
+      </ul>
+      <a href="https://wa.me/601139346782?text=Hi%20I%20want%20to%20book%20Extended%20Event%20Promo" class="btn">Book Now</a>
+    </div>
+
+  </div>
 </section>
 
 <footer>
@@ -317,40 +350,12 @@ footer {
 
 <script>
 
-/* Fade animation */
-const observer = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if(entry.isIntersecting){
-      entry.target.classList.add('visible');
-    }
-  });
-});
-document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
-
-/* Fixed Portfolio Tabs */
 function showAlbum(album, btn) {
   document.querySelectorAll('.portfolio-album').forEach(a => a.classList.remove('active'));
   document.querySelectorAll('.portfolio-tabs button').forEach(b => b.classList.remove('active'));
-
   document.getElementById(album).classList.add('active');
   btn.classList.add('active');
 }
-
-/* WhatsApp form */
-document.getElementById("waForm").addEventListener("submit", function(e){
-  e.preventDefault();
-
-  const text =
-`Hello Kichil Captures,
-
-Name: ${name.value}
-Phone: ${phone.value}
-Service: ${service.value}
-Event Date: ${date.value}
-Message: ${message.value}`;
-
-  window.open(`https://wa.me/601139346782?text=${encodeURIComponent(text)}`, "_blank");
-});
 
 </script>
 
