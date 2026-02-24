@@ -32,27 +32,60 @@ font-weight:600;border:none;cursor:pointer;text-decoration:none
 }
 
 /* PORTFOLIO */
-.portfolio-tabs{display:flex;justify-content:center;gap:12px;margin-bottom:30px}
+.portfolio-tabs{
+display:flex;justify-content:center;gap:12px;margin-bottom:25px
+}
 .portfolio-tabs button{
 padding:10px 26px;border-radius:30px;border:none;
 background:#1a1a1a;color:#bbb;font-weight:600;cursor:pointer
 }
 .portfolio-tabs button.active{background:#25D366;color:#fff}
+
 .portfolio-album{display:none}
-.portfolio-album.active{display:grid}
+.portfolio-album.active{display:block}
 
-.photo-grid{grid-template-columns:repeat(2,1fr);gap:18px}
-.drone-grid{grid-template-columns:1fr;gap:22px}
-
-@media(min-width:768px){
-.photo-grid{grid-template-columns:repeat(3,1fr)}
-.drone-grid{grid-template-columns:repeat(2,1fr)}
+/* Horizontal scroll container */
+.portfolio-scroll{
+display:flex;
+gap:18px;
+overflow-x:auto;
+padding-bottom:10px;
+scroll-snap-type:x mandatory;
 }
 
-.portfolio-item{border-radius:18px;overflow:hidden;background:#111}
-.photo-grid .portfolio-item{aspect-ratio:3/4}
-.drone-grid .portfolio-item{aspect-ratio:16/9}
-.portfolio-item img{width:100%;height:100%;object-fit:cover}
+.portfolio-scroll::-webkit-scrollbar{
+height:6px;
+}
+.portfolio-scroll::-webkit-scrollbar-thumb{
+background:#333;
+border-radius:10px;
+}
+
+/* Portfolio cards */
+.portfolio-item{
+flex-shrink:0;
+border-radius:18px;
+overflow:hidden;
+background:#111;
+scroll-snap-align:start;
+}
+
+.photo .portfolio-item{
+width:220px;
+aspect-ratio:3/4;
+}
+
+.drone .portfolio-item{
+width:320px;
+aspect-ratio:16/9;
+}
+
+.portfolio-item img{
+width:100%;
+height:100%;
+object-fit:cover;
+display:block;
+}
 
 /* PACKAGE SCROLL */
 .package-row{
@@ -68,16 +101,10 @@ border-radius:22px;text-align:center;scroll-snap-align:start
 .pricing-card ul{list-style:none;margin:18px 0}
 .pricing-card li{margin-bottom:8px;color:#ccc;font-size:14px}
 
-/* INFO SECTIONS */
-.info-grid{
-display:grid;gap:25px
-}
-.info-card{
-background:#1a1a1a;padding:28px;border-radius:22px
-}
-@media(min-width:768px){
-.info-grid{grid-template-columns:repeat(3,1fr)}
-}
+/* INFO */
+.info-grid{display:grid;gap:25px}
+.info-card{background:#1a1a1a;padding:28px;border-radius:22px}
+@media(min-width:768px){.info-grid{grid-template-columns:repeat(3,1fr)}}
 
 /* FAQ */
 .faq-item{margin-bottom:15px}
@@ -129,22 +156,30 @@ text-align:center;color:#777;font-size:14px
 <!-- PORTFOLIO -->
 <section>
 <h2>Portfolio</h2>
+
 <div class="portfolio-tabs">
 <button class="active" onclick="showAlbum('photo',this)">Photography</button>
 <button onclick="showAlbum('drone',this)">Drone</button>
 </div>
 
-<div id="photo" class="portfolio-album active photo-grid">
+<!-- Photography -->
+<div id="photo" class="portfolio-album active photo">
+<div class="portfolio-scroll">
 <div class="portfolio-item"><img src="camera-1.WEBP" loading="lazy"></div>
 <div class="portfolio-item"><img src="camera-2.WEBP" loading="lazy"></div>
 </div>
+</div>
 
-<div id="drone" class="portfolio-album drone-grid">
+<!-- Drone -->
+<div id="drone" class="portfolio-album drone">
+<div class="portfolio-scroll">
 <div class="portfolio-item"><img src="drone-1.WEBP" loading="lazy"></div>
 <div class="portfolio-item"><img src="drone-2.WEBP" loading="lazy"></div>
 <div class="portfolio-item"><img src="drone-3.WEBP" loading="lazy"></div>
 <div class="portfolio-item"><img src="drone-4.WEBP" loading="lazy"></div>
 </div>
+</div>
+
 </section>
 
 <!-- PACKAGES -->
@@ -158,7 +193,6 @@ text-align:center;color:#777;font-size:14px
 <ul>
 <li>1 Hour Photography (30 photos)</li>
 <li>~60 sec Drone Video</li>
-<li>Portrait & Landscape</li>
 </ul>
 <button class="btn" onclick="openModal('Photo + Drone Combo – RM280')">Choose Package</button>
 </div>
@@ -209,26 +243,26 @@ text-align:center;color:#777;font-size:14px
 <h2>How Booking Works</h2>
 <div class="info-grid">
 <div class="info-card">1️⃣ Choose a package</div>
-<div class="info-card">2️⃣ Select your date & location</div>
+<div class="info-card">2️⃣ Select date & location</div>
 <div class="info-card">3️⃣ Confirm via WhatsApp</div>
 </div>
 </section>
 
-<!-- COVERAGE & DELIVERY -->
+<!-- INFO -->
 <section>
 <h2>Service Info</h2>
 <div class="info-grid">
 <div class="info-card">
 <strong>📍 Coverage Area</strong>
-<p>Kota Kinabalu – Tamparuli<br>Travel charges may apply outside area.</p>
+<p>Kota Kinabalu – Tamparuli</p>
 </div>
 <div class="info-card">
 <strong>⏱ Delivery Timeline</strong>
-<p>Photography: 3–5 working days<br>Drone: 5–7 working days</p>
+<p>Photo: 3–5 days<br>Drone: 5–7 days</p>
 </div>
 <div class="info-card">
 <strong>➕ Add-ons</strong>
-<p>Additional edited photos: RM5/photo</p>
+<p>Extra edited photos: RM5/photo</p>
 </div>
 </div>
 </section>
@@ -236,18 +270,8 @@ text-align:center;color:#777;font-size:14px
 <!-- FAQ -->
 <section>
 <h2>FAQ</h2>
-<div class="faq-item">
-<strong>Do you work on Saturdays?</strong>
-No. Bookings are unavailable on Saturdays (Sabbath).
-</div>
-<div class="faq-item">
-<strong>Can I choose portrait or landscape?</strong>
-Yes, both formats are available.
-</div>
-<div class="faq-item">
-<strong>What if weather is bad?</strong>
-We can reschedule to another available date.
-</div>
+<div class="faq-item"><strong>Do you work on Saturdays?</strong>No (Sabbath).</div>
+<div class="faq-item"><strong>Bad weather?</strong>Reschedule available.</div>
 </section>
 
 <!-- MODAL -->
@@ -263,12 +287,9 @@ We can reschedule to another available date.
 
 <a href="https://wa.me/601139346782" class="floating-wa">💬</a>
 
-<footer>
-© 2026 Kichil Captures
-</footer>
+<footer>© 2026 Kichil Captures</footer>
 
 <script>
-
 function showAlbum(album,btn){
 document.querySelectorAll('.portfolio-album').forEach(a=>a.classList.remove('active'));
 document.querySelectorAll('.portfolio-tabs button').forEach(b=>b.classList.remove('active'));
@@ -292,19 +313,12 @@ this.value="";
 });
 
 function sendWhatsApp(){
-const name=clientName.value;
-const location=eventLocation.value;
-const date=eventDate.value;
-if(!name||!location||!date)return;
-
 const msg=`Hello Kichil Captures,
 
 Package: ${selectedPackage}
-Name: ${name}
-Location: ${location}
-Event Date: ${date}
-
-Please confirm availability.`;
+Name: ${clientName.value}
+Location: ${eventLocation.value}
+Date: ${eventDate.value}`;
 
 window.open(`https://wa.me/601139346782?text=${encodeURIComponent(msg)}`,"_blank");
 document.getElementById("bookingModal").style.display="none";
