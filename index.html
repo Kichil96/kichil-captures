@@ -15,86 +15,82 @@ h1,h2,h3{font-weight:800}
 h2{text-align:center;font-size:28px;margin-bottom:25px}
 p{color:#ccc;font-size:15px}
 
-/* HERO */
 .hero{
-  min-height:100vh;
-  background:linear-gradient(rgba(0,0,0,.65),rgba(0,0,0,.9)),
-  url("https://images.unsplash.com/photo-1500530855697-b586d89ba3ee") center/cover no-repeat;
-  display:flex;align-items:center;justify-content:center;text-align:center
+min-height:100vh;
+background:linear-gradient(rgba(0,0,0,.65),rgba(0,0,0,.9)),
+url("https://images.unsplash.com/photo-1500530855697-b586d89ba3ee") center/cover no-repeat;
+display:flex;align-items:center;justify-content:center;text-align:center
 }
 .hero h1{font-size:42px}
-.hero p{margin-top:12px}
 .btn{
-  display:inline-block;margin-top:18px;padding:12px 32px;
-  background:#25D366;color:#fff;border-radius:30px;
-  font-weight:600;border:none;cursor:pointer;text-decoration:none
+display:inline-block;margin-top:18px;padding:12px 32px;
+background:#25D366;color:#fff;border-radius:30px;
+font-weight:600;border:none;cursor:pointer;text-decoration:none
 }
 .btn.disabled{background:#444;cursor:not-allowed}
 
-/* PORTFOLIO */
+/* Portfolio */
 .portfolio-tabs{display:flex;justify-content:center;gap:12px;margin-bottom:25px}
 .portfolio-tabs button{
-  padding:10px 26px;border-radius:30px;border:none;
-  background:#1a1a1a;color:#bbb;font-weight:600;cursor:pointer
+padding:10px 26px;border-radius:30px;border:none;
+background:#1a1a1a;color:#bbb;font-weight:600;cursor:pointer
 }
 .portfolio-tabs button.active{background:#25D366;color:#fff}
 .portfolio-album{display:none}
 .portfolio-album.active{display:block}
-.portfolio-scroll{
-  display:flex;gap:18px;overflow-x:auto;padding-bottom:10px
-}
+.portfolio-scroll{display:flex;gap:18px;overflow-x:auto;padding-bottom:10px}
 .portfolio-item{
-  flex-shrink:0;border-radius:18px;overflow:hidden;background:#111;
-  max-width:260px
+flex-shrink:0;border-radius:18px;overflow:hidden;background:#111;
+max-width:260px
 }
 .portfolio-item img{width:100%;height:auto;display:block}
 
-/* PACKAGE SCROLL */
+/* Packages */
 .package-row{display:flex;gap:20px;overflow-x:auto;padding-bottom:10px}
 .pricing-card{
-  min-width:260px;background:#1a1a1a;padding:26px;
-  border-radius:22px;text-align:center
+min-width:260px;background:#1a1a1a;padding:26px;
+border-radius:22px;text-align:center
 }
 .pricing-card.popular{border:2px solid #25D366}
 .price{font-size:32px;margin:15px 0}
 
-/* INFO / FAQ */
+/* Info */
 .info-grid{display:grid;gap:25px}
 .info-card{background:#1a1a1a;padding:28px;border-radius:22px}
 @media(min-width:768px){.info-grid{grid-template-columns:repeat(3,1fr)}}
 .faq-item{margin-bottom:15px}
 .faq-item strong{display:block;margin-bottom:5px}
 
-/* MODAL */
+/* Modal */
 .modal{
-  display:none;position:fixed;inset:0;
-  background:rgba(0,0,0,.85);
-  align-items:center;justify-content:center;z-index:999
+display:none;position:fixed;inset:0;
+background:rgba(0,0,0,.85);
+align-items:center;justify-content:center;z-index:999
 }
 .modal-content{
-  position:relative;background:#1a1a1a;padding:28px;
-  border-radius:20px;width:90%;max-width:380px
+position:relative;background:#1a1a1a;padding:28px;
+border-radius:20px;width:90%;max-width:380px
 }
 .modal-content label{font-size:13px;color:#aaa;display:block;margin-top:12px}
 .modal-content input{
-  width:100%;padding:12px;margin-top:6px;
-  border-radius:8px;border:none;font-size:14px
+width:100%;padding:12px;margin-top:6px;
+border-radius:8px;border:none;font-size:14px
 }
 .modal-note{font-size:12px;color:#777;margin-top:4px}
 .close-btn{
-  position:absolute;top:14px;right:16px;
-  font-size:20px;cursor:pointer;color:#aaa
+position:absolute;top:14px;right:16px;
+font-size:20px;cursor:pointer;color:#aaa
 }
 .close-btn:hover{color:#fff}
 
-/* FLOATING WA */
+/* Floating WA */
 .floating-wa{
-  position:fixed;bottom:20px;right:20px;
-  width:60px;height:60px;border-radius:50%;
-  background:#25D366;display:flex;align-items:center;
-  justify-content:center;font-size:28px;color:#fff;
-  text-decoration:none;box-shadow:0 4px 15px rgba(0,0,0,.4);
-  z-index:1000
+position:fixed;bottom:20px;right:20px;
+width:60px;height:60px;border-radius:50%;
+background:#25D366;display:flex;align-items:center;
+justify-content:center;font-size:28px;color:#fff;
+text-decoration:none;box-shadow:0 4px 15px rgba(0,0,0,.4);
+z-index:1000
 }
 
 footer{padding:30px;background:#111;text-align:center;color:#777}
@@ -139,7 +135,6 @@ footer{padding:30px;background:#111;text-align:center;color:#777}
 
 <!-- PACKAGES -->
 <section id="packages">
-
 <h2>🔥 Combo Package</h2>
 <div class="package-row">
 <div class="pricing-card popular">
@@ -148,55 +143,6 @@ footer{padding:30px;background:#111;text-align:center;color:#777}
 <button class="btn" onclick="openModal('Photo + Drone Combo – RM280')">Choose Package</button>
 </div>
 </div>
-
-<h2 style="margin-top:60px">Drone Packages</h2>
-<div class="package-row">
-<div class="pricing-card"><h3>Mini Aerial</h3><div class="price">RM100</div>
-<button class="btn" onclick="openModal('Mini Aerial – RM100')">Choose Package</button></div>
-<div class="pricing-card"><h3>Standard Promo</h3><div class="price">RM150</div>
-<button class="btn" onclick="openModal('Standard Promo – RM150')">Choose Package</button></div>
-<div class="pricing-card"><h3>Extended Event</h3><div class="price">RM250–300</div>
-<button class="btn" onclick="openModal('Extended Event – RM250–300')">Choose Package</button></div>
-</div>
-
-<h2 style="margin-top:60px">Photography Packages</h2>
-<div class="package-row">
-<div class="pricing-card"><h3>Basic Session</h3><div class="price">RM120</div>
-<button class="btn" onclick="openModal('Basic Session – RM120')">Choose Package</button></div>
-<div class="pricing-card popular"><h3>Standard Event</h3><div class="price">RM200</div>
-<button class="btn" onclick="openModal('Standard Event – RM200')">Choose Package</button></div>
-<div class="pricing-card"><h3>Premium Small Event</h3><div class="price">RM300</div>
-<button class="btn" onclick="openModal('Premium Small Event – RM300')">Choose Package</button></div>
-</div>
-
-</section>
-
-<!-- HOW BOOKING WORKS -->
-<section>
-<h2>How Booking Works</h2>
-<div class="info-grid">
-<div class="info-card">1️⃣ Choose a package</div>
-<div class="info-card">2️⃣ Select date & location</div>
-<div class="info-card">3️⃣ Confirm via WhatsApp</div>
-</div>
-</section>
-
-<!-- SERVICE INFO -->
-<section>
-<h2>Service Info</h2>
-<div class="info-grid">
-<div class="info-card"><strong>📍 Coverage</strong><p>Kota Kinabalu – Tamparuli</p></div>
-<div class="info-card"><strong>⏱ Delivery</strong><p>Photo: 3–5 days<br>Drone: 5–7 days</p></div>
-<div class="info-card"><strong>➕ Add-ons</strong><p>Extra edited photos: RM5/photo</p></div>
-</div>
-</section>
-
-<!-- FAQ -->
-<section>
-<h2>FAQ</h2>
-<div class="faq-item"><strong>Do you work on Saturdays?</strong>No (Sabbath).</div>
-<div class="faq-item"><strong>Can I choose format?</strong>Yes, portrait & landscape.</div>
-<div class="faq-item"><strong>Bad weather?</strong>We can reschedule.</div>
 </section>
 
 <!-- MODAL -->
@@ -207,8 +153,10 @@ footer{padding:30px;background:#111;text-align:center;color:#777}
 
 <label>Your Name</label>
 <input id="clientName">
+
 <label>Event Location</label>
 <input id="eventLocation">
+
 <label>Event Date</label>
 <input type="date" id="eventDate">
 <div class="modal-note">Saturday unavailable (Sabbath)</div>
@@ -222,6 +170,17 @@ footer{padding:30px;background:#111;text-align:center;color:#777}
 <footer>© 2026 Kichil Captures</footer>
 
 <script>
+
+/* Fix: Proper element reference */
+const bookingModal = document.getElementById("bookingModal");
+const selectedPackageEl = document.getElementById("selectedPackage");
+const clientName = document.getElementById("clientName");
+const eventLocation = document.getElementById("eventLocation");
+const eventDate = document.getElementById("eventDate");
+const confirmBtn = document.getElementById("confirmBtn");
+
+let selectedPackage = "";
+
 function showAlbum(album,btn){
 document.querySelectorAll('.portfolio-album').forEach(a=>a.classList.remove('active'));
 document.querySelectorAll('.portfolio-tabs button').forEach(b=>b.classList.remove('active'));
@@ -229,29 +188,37 @@ document.getElementById(album).classList.add('active');
 btn.classList.add('active');
 }
 
-let selectedPackage="";
 function openModal(pkg){
-selectedPackage=pkg;
-selectedPackageEl.innerText=pkg;
-bookingModal.style.display="flex";
+selectedPackage = pkg;
+selectedPackageEl.innerText = pkg;
+bookingModal.style.display = "flex";
 validateForm();
 }
 
-function closeModal(){bookingModal.style.display="none";}
+function closeModal(){
+bookingModal.style.display = "none";
+}
 
+/* Block Saturday */
 eventDate.addEventListener("change",()=>{
 const d=new Date(eventDate.value);
-if(d.getDay()===6){alert("Saturday unavailable.");eventDate.value="";}
+if(d.getDay()===6){
+alert("Saturday unavailable.");
+eventDate.value="";
+}
 validateForm();
 });
+
 clientName.addEventListener("input",validateForm);
 eventLocation.addEventListener("input",validateForm);
 
 function validateForm(){
 if(clientName.value && eventLocation.value && eventDate.value){
-confirmBtn.disabled=false;confirmBtn.classList.remove("disabled");
+confirmBtn.disabled=false;
+confirmBtn.classList.remove("disabled");
 }else{
-confirmBtn.disabled=true;confirmBtn.classList.add("disabled");
+confirmBtn.disabled=true;
+confirmBtn.classList.add("disabled");
 }
 }
 
@@ -262,9 +229,17 @@ Package: ${selectedPackage}
 Name: ${clientName.value}
 Location: ${eventLocation.value}
 Date: ${eventDate.value}`;
+
 window.open(`https://wa.me/601139346782?text=${encodeURIComponent(msg)}`,"_blank");
 closeModal();
 }
+
+window.onclick = function(e){
+if(e.target === bookingModal){
+closeModal();
+}
+}
+
 </script>
 
 </body>
