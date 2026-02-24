@@ -29,7 +29,7 @@ font-weight:600;border:none;cursor:pointer;text-decoration:none
 }
 .btn.disabled{background:#444;cursor:not-allowed}
 
-/* Portfolio */
+/* PORTFOLIO */
 .portfolio-tabs{display:flex;justify-content:center;gap:12px;margin-bottom:25px}
 .portfolio-tabs button{
 padding:10px 26px;border-radius:30px;border:none;
@@ -45,7 +45,7 @@ max-width:260px
 }
 .portfolio-item img{width:100%;height:auto;display:block}
 
-/* Packages */
+/* PACKAGES */
 .package-row{display:flex;gap:20px;overflow-x:auto;padding-bottom:10px}
 .pricing-card{
 min-width:260px;background:#1a1a1a;padding:26px;
@@ -54,14 +54,14 @@ border-radius:22px;text-align:center
 .pricing-card.popular{border:2px solid #25D366}
 .price{font-size:32px;margin:15px 0}
 
-/* Info */
+/* INFO / FAQ */
 .info-grid{display:grid;gap:25px}
 .info-card{background:#1a1a1a;padding:28px;border-radius:22px}
 @media(min-width:768px){.info-grid{grid-template-columns:repeat(3,1fr)}}
 .faq-item{margin-bottom:15px}
 .faq-item strong{display:block;margin-bottom:5px}
 
-/* Modal */
+/* MODAL */
 .modal{
 display:none;position:fixed;inset:0;
 background:rgba(0,0,0,.85);
@@ -83,7 +83,7 @@ font-size:20px;cursor:pointer;color:#aaa
 }
 .close-btn:hover{color:#fff}
 
-/* Floating WA */
+/* FLOATING WA */
 .floating-wa{
 position:fixed;bottom:20px;right:20px;
 width:60px;height:60px;border-radius:50%;
@@ -135,7 +135,8 @@ footer{padding:30px;background:#111;text-align:center;color:#777}
 
 <!-- PACKAGES -->
 <section id="packages">
-<h2>🔥 Combo Package</h2>
+
+<h2>🔥 Combo Package (Best Value)</h2>
 <div class="package-row">
 <div class="pricing-card popular">
 <h3>Photo + Drone Combo</h3>
@@ -143,6 +144,67 @@ footer{padding:30px;background:#111;text-align:center;color:#777}
 <button class="btn" onclick="openModal('Photo + Drone Combo – RM280')">Choose Package</button>
 </div>
 </div>
+
+<h2 style="margin-top:60px">Drone Packages</h2>
+<div class="package-row">
+<div class="pricing-card">
+<h3>Mini Aerial</h3><div class="price">RM100</div>
+<button class="btn" onclick="openModal('Mini Aerial – RM100')">Choose Package</button>
+</div>
+<div class="pricing-card">
+<h3>Standard Promo</h3><div class="price">RM150</div>
+<button class="btn" onclick="openModal('Standard Promo – RM150')">Choose Package</button>
+</div>
+<div class="pricing-card">
+<h3>Extended Event</h3><div class="price">RM250–300</div>
+<button class="btn" onclick="openModal('Extended Event – RM250–300')">Choose Package</button>
+</div>
+</div>
+
+<h2 style="margin-top:60px">Photography Packages</h2>
+<div class="package-row">
+<div class="pricing-card">
+<h3>Basic Session</h3><div class="price">RM120</div>
+<button class="btn" onclick="openModal('Basic Session – RM120')">Choose Package</button>
+</div>
+<div class="pricing-card popular">
+<h3>Standard Event</h3><div class="price">RM200</div>
+<button class="btn" onclick="openModal('Standard Event – RM200')">Choose Package</button>
+</div>
+<div class="pricing-card">
+<h3>Premium Small Event</h3><div class="price">RM300</div>
+<button class="btn" onclick="openModal('Premium Small Event – RM300')">Choose Package</button>
+</div>
+</div>
+
+</section>
+
+<!-- HOW BOOKING WORKS -->
+<section>
+<h2>How Booking Works</h2>
+<div class="info-grid">
+<div class="info-card">1️⃣ Choose a package</div>
+<div class="info-card">2️⃣ Select date & location</div>
+<div class="info-card">3️⃣ Confirm via WhatsApp</div>
+</div>
+</section>
+
+<!-- SERVICE INFO -->
+<section>
+<h2>Service Info</h2>
+<div class="info-grid">
+<div class="info-card"><strong>📍 Coverage Area</strong><p>Kota Kinabalu – Tamparuli</p></div>
+<div class="info-card"><strong>⏱ Delivery Time</strong><p>Photo: 3–5 days<br>Drone: 5–7 days</p></div>
+<div class="info-card"><strong>➕ Add-ons</strong><p>Extra edited photos: RM5/photo</p></div>
+</div>
+</section>
+
+<!-- FAQ -->
+<section>
+<h2>FAQ</h2>
+<div class="faq-item"><strong>Do you work on Saturdays?</strong>No, Sabbath.</div>
+<div class="faq-item"><strong>Can I choose format?</strong>Yes, portrait & landscape.</div>
+<div class="faq-item"><strong>Bad weather?</strong>Reschedule available.</div>
 </section>
 
 <!-- MODAL -->
@@ -170,8 +232,6 @@ footer{padding:30px;background:#111;text-align:center;color:#777}
 <footer>© 2026 Kichil Captures</footer>
 
 <script>
-
-/* Fix: Proper element reference */
 const bookingModal = document.getElementById("bookingModal");
 const selectedPackageEl = document.getElementById("selectedPackage");
 const clientName = document.getElementById("clientName");
@@ -179,7 +239,7 @@ const eventLocation = document.getElementById("eventLocation");
 const eventDate = document.getElementById("eventDate");
 const confirmBtn = document.getElementById("confirmBtn");
 
-let selectedPackage = "";
+let selectedPackage="";
 
 function showAlbum(album,btn){
 document.querySelectorAll('.portfolio-album').forEach(a=>a.classList.remove('active'));
@@ -189,17 +249,14 @@ btn.classList.add('active');
 }
 
 function openModal(pkg){
-selectedPackage = pkg;
-selectedPackageEl.innerText = pkg;
-bookingModal.style.display = "flex";
+selectedPackage=pkg;
+selectedPackageEl.innerText=pkg;
+bookingModal.style.display="flex";
 validateForm();
 }
 
-function closeModal(){
-bookingModal.style.display = "none";
-}
+function closeModal(){bookingModal.style.display="none";}
 
-/* Block Saturday */
 eventDate.addEventListener("change",()=>{
 const d=new Date(eventDate.value);
 if(d.getDay()===6){
@@ -229,17 +286,13 @@ Package: ${selectedPackage}
 Name: ${clientName.value}
 Location: ${eventLocation.value}
 Date: ${eventDate.value}`;
-
 window.open(`https://wa.me/601139346782?text=${encodeURIComponent(msg)}`,"_blank");
 closeModal();
 }
 
-window.onclick = function(e){
-if(e.target === bookingModal){
-closeModal();
+window.onclick=e=>{
+if(e.target===bookingModal){closeModal();}
 }
-}
-
 </script>
 
 </body>
