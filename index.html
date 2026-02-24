@@ -15,41 +15,42 @@ h1,h2,h3{font-weight:800}
 h2{text-align:center;font-size:28px;margin-bottom:25px}
 p{color:#ccc;font-size:15px}
 
+/* HERO */
 .hero{
-min-height:100vh;
-background:linear-gradient(rgba(0,0,0,.65),rgba(0,0,0,.9)),
-url("https://images.unsplash.com/photo-1500530855697-b586d89ba3ee") center/cover no-repeat;
-display:flex;align-items:center;justify-content:center;text-align:center
+  min-height:100vh;
+  background:linear-gradient(rgba(0,0,0,.65),rgba(0,0,0,.9)),
+  url("https://images.unsplash.com/photo-1500530855697-b586d89ba3ee") center/cover no-repeat;
+  display:flex;align-items:center;justify-content:center;text-align:center
 }
 .hero h1{font-size:42px}
 .btn{
-display:inline-block;margin-top:18px;padding:12px 32px;
-background:#25D366;color:#fff;border-radius:30px;
-font-weight:600;border:none;cursor:pointer;text-decoration:none
+  display:inline-block;margin-top:18px;padding:12px 32px;
+  background:#25D366;color:#fff;border-radius:30px;
+  font-weight:600;border:none;cursor:pointer;text-decoration:none
 }
 .btn.disabled{background:#444;cursor:not-allowed}
 
 /* PORTFOLIO */
 .portfolio-tabs{display:flex;justify-content:center;gap:12px;margin-bottom:25px}
 .portfolio-tabs button{
-padding:10px 26px;border-radius:30px;border:none;
-background:#1a1a1a;color:#bbb;font-weight:600;cursor:pointer
+  padding:10px 26px;border-radius:30px;border:none;
+  background:#1a1a1a;color:#bbb;font-weight:600;cursor:pointer
 }
 .portfolio-tabs button.active{background:#25D366;color:#fff}
 .portfolio-album{display:none}
 .portfolio-album.active{display:block}
 .portfolio-scroll{display:flex;gap:18px;overflow-x:auto;padding-bottom:10px}
 .portfolio-item{
-flex-shrink:0;border-radius:18px;overflow:hidden;background:#111;
-max-width:260px
+  flex-shrink:0;border-radius:18px;overflow:hidden;background:#111;
+  max-width:260px
 }
 .portfolio-item img{width:100%;height:auto;display:block}
 
 /* PACKAGES */
 .package-row{display:flex;gap:20px;overflow-x:auto;padding-bottom:10px}
 .pricing-card{
-min-width:260px;background:#1a1a1a;padding:26px;
-border-radius:22px;text-align:center
+  min-width:260px;background:#1a1a1a;padding:26px;
+  border-radius:22px;text-align:center
 }
 .pricing-card.popular{border:2px solid #25D366}
 .price{font-size:32px;margin:15px 0}
@@ -63,34 +64,34 @@ border-radius:22px;text-align:center
 
 /* MODAL */
 .modal{
-display:none;position:fixed;inset:0;
-background:rgba(0,0,0,.85);
-align-items:center;justify-content:center;z-index:999
+  display:none;position:fixed;inset:0;
+  background:rgba(0,0,0,.85);
+  align-items:center;justify-content:center;z-index:999
 }
 .modal-content{
-position:relative;background:#1a1a1a;padding:28px;
-border-radius:20px;width:90%;max-width:380px
+  position:relative;background:#1a1a1a;padding:28px;
+  border-radius:20px;width:90%;max-width:380px
 }
 .modal-content label{font-size:13px;color:#aaa;display:block;margin-top:12px}
 .modal-content input{
-width:100%;padding:12px;margin-top:6px;
-border-radius:8px;border:none;font-size:14px
+  width:100%;padding:12px;margin-top:6px;
+  border-radius:8px;border:none;font-size:14px
 }
 .modal-note{font-size:12px;color:#777;margin-top:4px}
 .close-btn{
-position:absolute;top:14px;right:16px;
-font-size:20px;cursor:pointer;color:#aaa
+  position:absolute;top:14px;right:16px;
+  font-size:20px;cursor:pointer;color:#aaa
 }
 .close-btn:hover{color:#fff}
 
 /* FLOATING WA */
 .floating-wa{
-position:fixed;bottom:20px;right:20px;
-width:60px;height:60px;border-radius:50%;
-background:#25D366;display:flex;align-items:center;
-justify-content:center;font-size:28px;color:#fff;
-text-decoration:none;box-shadow:0 4px 15px rgba(0,0,0,.4);
-z-index:1000
+  position:fixed;bottom:20px;right:20px;
+  width:60px;height:60px;border-radius:50%;
+  background:#25D366;display:flex;align-items:center;
+  justify-content:center;font-size:28px;color:#fff;
+  text-decoration:none;box-shadow:0 4px 15px rgba(0,0,0,.4);
+  z-index:1000
 }
 
 footer{padding:30px;background:#111;text-align:center;color:#777}
@@ -112,8 +113,8 @@ footer{padding:30px;background:#111;text-align:center;color:#777}
 <section>
 <h2>Portfolio</h2>
 <div class="portfolio-tabs">
-<button class="active" onclick="showAlbum('photo',this)">Photography</button>
-<button onclick="showAlbum('drone',this)">Drone</button>
+<button class="active" data-album="photo">Photography</button>
+<button data-album="drone">Drone</button>
 </div>
 
 <div id="photo" class="portfolio-album active">
@@ -141,7 +142,7 @@ footer{padding:30px;background:#111;text-align:center;color:#777}
 <div class="pricing-card popular">
 <h3>Photo + Drone Combo</h3>
 <div class="price">RM280</div>
-<button class="btn" onclick="openModal('Photo + Drone Combo – RM280')">Choose Package</button>
+<button class="btn choose-btn" data-package="Photo + Drone Combo – RM280">Choose Package</button>
 </div>
 </div>
 
@@ -149,15 +150,15 @@ footer{padding:30px;background:#111;text-align:center;color:#777}
 <div class="package-row">
 <div class="pricing-card">
 <h3>Mini Aerial</h3><div class="price">RM100</div>
-<button class="btn" onclick="openModal('Mini Aerial – RM100')">Choose Package</button>
+<button class="btn choose-btn" data-package="Mini Aerial – RM100">Choose Package</button>
 </div>
 <div class="pricing-card">
 <h3>Standard Promo</h3><div class="price">RM150</div>
-<button class="btn" onclick="openModal('Standard Promo – RM150')">Choose Package</button>
+<button class="btn choose-btn" data-package="Standard Promo – RM150">Choose Package</button>
 </div>
 <div class="pricing-card">
 <h3>Extended Event</h3><div class="price">RM250–300</div>
-<button class="btn" onclick="openModal('Extended Event – RM250–300')">Choose Package</button>
+<button class="btn choose-btn" data-package="Extended Event – RM250–300">Choose Package</button>
 </div>
 </div>
 
@@ -165,15 +166,15 @@ footer{padding:30px;background:#111;text-align:center;color:#777}
 <div class="package-row">
 <div class="pricing-card">
 <h3>Basic Session</h3><div class="price">RM120</div>
-<button class="btn" onclick="openModal('Basic Session – RM120')">Choose Package</button>
+<button class="btn choose-btn" data-package="Basic Session – RM120">Choose Package</button>
 </div>
 <div class="pricing-card popular">
 <h3>Standard Event</h3><div class="price">RM200</div>
-<button class="btn" onclick="openModal('Standard Event – RM200')">Choose Package</button>
+<button class="btn choose-btn" data-package="Standard Event – RM200">Choose Package</button>
 </div>
 <div class="pricing-card">
 <h3>Premium Small Event</h3><div class="price">RM300</div>
-<button class="btn" onclick="openModal('Premium Small Event – RM300')">Choose Package</button>
+<button class="btn choose-btn" data-package="Premium Small Event – RM300">Choose Package</button>
 </div>
 </div>
 
@@ -210,7 +211,7 @@ footer{padding:30px;background:#111;text-align:center;color:#777}
 <!-- MODAL -->
 <div class="modal" id="bookingModal">
 <div class="modal-content">
-<span class="close-btn" onclick="closeModal()">✕</span>
+<span class="close-btn" id="closeModal">✕</span>
 <h3 id="selectedPackage"></h3>
 
 <label>Your Name</label>
@@ -223,7 +224,7 @@ footer{padding:30px;background:#111;text-align:center;color:#777}
 <input type="date" id="eventDate">
 <div class="modal-note">Saturday unavailable (Sabbath)</div>
 
-<button id="confirmBtn" class="btn disabled" disabled onclick="sendWhatsApp()">Confirm Booking</button>
+<button id="confirmBtn" class="btn disabled" disabled>Confirm Booking</button>
 </div>
 </div>
 
@@ -232,67 +233,73 @@ footer{padding:30px;background:#111;text-align:center;color:#777}
 <footer>© 2026 Kichil Captures</footer>
 
 <script>
-const bookingModal = document.getElementById("bookingModal");
+document.addEventListener("DOMContentLoaded", () => {
+
+const modal = document.getElementById("bookingModal");
 const selectedPackageEl = document.getElementById("selectedPackage");
-const clientName = document.getElementById("clientName");
-const eventLocation = document.getElementById("eventLocation");
-const eventDate = document.getElementById("eventDate");
+const nameInput = document.getElementById("clientName");
+const locationInput = document.getElementById("eventLocation");
+const dateInput = document.getElementById("eventDate");
 const confirmBtn = document.getElementById("confirmBtn");
 
-let selectedPackage="";
+let selectedPackage = "";
 
-function showAlbum(album,btn){
-document.querySelectorAll('.portfolio-album').forEach(a=>a.classList.remove('active'));
-document.querySelectorAll('.portfolio-tabs button').forEach(b=>b.classList.remove('active'));
-document.getElementById(album).classList.add('active');
-btn.classList.add('active');
-}
-
-function openModal(pkg){
-selectedPackage=pkg;
-selectedPackageEl.innerText=pkg;
-bookingModal.style.display="flex";
-validateForm();
-}
-
-function closeModal(){bookingModal.style.display="none";}
-
-eventDate.addEventListener("change",()=>{
-const d=new Date(eventDate.value);
-if(d.getDay()===6){
-alert("Saturday unavailable.");
-eventDate.value="";
-}
-validateForm();
+/* Portfolio tabs */
+document.querySelectorAll(".portfolio-tabs button").forEach(btn=>{
+  btn.addEventListener("click",()=>{
+    document.querySelectorAll(".portfolio-tabs button").forEach(b=>b.classList.remove("active"));
+    document.querySelectorAll(".portfolio-album").forEach(a=>a.classList.remove("active"));
+    btn.classList.add("active");
+    document.getElementById(btn.dataset.album).classList.add("active");
+  });
 });
 
-clientName.addEventListener("input",validateForm);
-eventLocation.addEventListener("input",validateForm);
+/* Choose package */
+document.querySelectorAll(".choose-btn").forEach(btn=>{
+  btn.addEventListener("click",()=>{
+    selectedPackage = btn.dataset.package;
+    selectedPackageEl.innerText = selectedPackage;
+    modal.style.display="flex";
+    validate();
+  });
+});
 
-function validateForm(){
-if(clientName.value && eventLocation.value && eventDate.value){
-confirmBtn.disabled=false;
-confirmBtn.classList.remove("disabled");
-}else{
-confirmBtn.disabled=true;
-confirmBtn.classList.add("disabled");
-}
+/* Close modal */
+document.getElementById("closeModal").onclick=()=>modal.style.display="none";
+window.onclick=e=>{if(e.target===modal)modal.style.display="none";};
+
+/* Saturday block */
+dateInput.addEventListener("change",()=>{
+  const d=new Date(dateInput.value);
+  if(d.getDay()===6){alert("Saturday unavailable.");dateInput.value="";}
+  validate();
+});
+
+/* Validation */
+[nameInput,locationInput].forEach(i=>i.addEventListener("input",validate));
+function validate(){
+  if(nameInput.value && locationInput.value && dateInput.value){
+    confirmBtn.disabled=false;
+    confirmBtn.classList.remove("disabled");
+  }else{
+    confirmBtn.disabled=true;
+    confirmBtn.classList.add("disabled");
+  }
 }
 
-function sendWhatsApp(){
-const msg=`Hello Kichil Captures,
+/* WhatsApp */
+confirmBtn.onclick=()=>{
+  const msg=`Hello Kichil Captures,
 
 Package: ${selectedPackage}
-Name: ${clientName.value}
-Location: ${eventLocation.value}
-Date: ${eventDate.value}`;
-window.open(`https://wa.me/601139346782?text=${encodeURIComponent(msg)}`,"_blank");
-closeModal();
-}
+Name: ${nameInput.value}
+Location: ${locationInput.value}
+Date: ${dateInput.value}`;
+  window.open(`https://wa.me/601139346782?text=${encodeURIComponent(msg)}`,"_blank");
+  modal.style.display="none";
+};
 
-window.onclick=e=>{
-if(e.target===bookingModal){closeModal();}
-}
+});
 </script>
 
 </body>
