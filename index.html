@@ -214,6 +214,21 @@ cursor:pointer;z-index:3;opacity:.8
   text-align:left
 }
 
+/* ⭐ PACKAGE FOCUS ANIMATION (ADD THIS) */
+.pricing-card {
+  transition:
+    transform 0.35s ease,
+    box-shadow 0.35s ease;
+}
+
+.pricing-card.in-view {
+  transform: scale(1.06);
+  box-shadow:
+    0 12px 30px rgba(0,0,0,0.4),
+    0 0 20px rgba(37,211,102,0.35);
+  z-index: 2;
+}
+
 .pricing-card.selected{
   border: 2px solid #25D366;
   box-shadow: 0 0 0 2px rgba(37, 211, 102, 0.3);
@@ -758,7 +773,26 @@ document.querySelectorAll(".slider-wrapper").forEach(wrapper=>{
   };
 
 });
+/* PACKAGE SCROLL FOCUS EFFECT */
+const packageObserver = new IntersectionObserver(
+  (entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("in-view");
+      } else {
+        entry.target.classList.remove("in-view");
+      }
+    });
+  },
+  {
+    root: null,
+    threshold: 0.6
+  }
+);
 
+document.querySelectorAll(".pricing-card").forEach(card => {
+  packageObserver.observe(card);
+});
 });
 </script>
 
