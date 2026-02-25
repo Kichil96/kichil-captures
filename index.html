@@ -437,7 +437,29 @@ and more moments preserved.
 
 <script>
 document.addEventListener("DOMContentLoaded",()=>{
+/* BOOKING MODAL – OPEN */
+const modal = document.getElementById("bookingModal");
+const selectedPackage = document.getElementById("selectedPackage");
+const closeModal = document.getElementById("closeModal");
 
+document.querySelectorAll(".choose-btn").forEach(btn=>{
+  btn.addEventListener("click", ()=>{
+    selectedPackage.textContent = btn.dataset.package;
+    modal.style.display = "flex";
+  });
+});
+
+/* CLOSE MODAL */
+closeModal.addEventListener("click", ()=>{
+  modal.style.display = "none";
+});
+
+/* CLOSE WHEN CLICK OUTSIDE */
+modal.addEventListener("click", (e)=>{
+  if(e.target === modal){
+    modal.style.display = "none";
+  }
+});
 /* Tabs */
 document.querySelectorAll(".portfolio-tabs button").forEach(btn=>{
   btn.onclick=()=>{
