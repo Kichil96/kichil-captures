@@ -336,30 +336,70 @@ border-radius:8px;border:none
 }
 /* ================= BUTTON STYLE ================= */
 
+/* ===== HERO / CTA BUTTON ===== */
 .btn{
-  display: block;
-  width: 100%;
-  margin-top: 18px;
-  padding: 14px 0;
-  background: #1f1f1f;
-  color: #fff;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  min-width: 260px;
+  padding: 16px 36px;
+
+  font-size: 18px;
+  font-weight: 700;
+  text-decoration: none;        /* 🔥 remove underline */
+  color: #ffffff;
+
+  background: rgba(0,0,0,0.55);
   border-radius: 999px;
-  font-weight: 600;
-  font-size: 16px;
   border: 2px solid #25D366;
+
+  position: relative;
+  overflow: hidden;
+
   cursor: pointer;
-  transition: all 0.25s ease;
+  transition: 
+    transform 0.25s ease,
+    background 0.25s ease,
+    color 0.25s ease;
+
+  /* Neon glow */
+  box-shadow:
+    0 0 12px rgba(37,211,102,0.6),
+    0 0 30px rgba(37,211,102,0.4);
+
+  animation: neonPulse 2.5s ease-in-out infinite;
 }
 
-/* Hover (desktop only effect) */
+/* ✨ Animated glow */
+@keyframes neonPulse {
+  0% {
+    box-shadow:
+      0 0 10px rgba(37,211,102,0.6),
+      0 0 25px rgba(37,211,102,0.35);
+  }
+  50% {
+    box-shadow:
+      0 0 18px rgba(37,211,102,1),
+      0 0 45px rgba(37,211,102,0.8);
+  }
+  100% {
+    box-shadow:
+      0 0 10px rgba(37,211,102,0.6),
+      0 0 25px rgba(37,211,102,0.35);
+  }
+}
+
+/* 🖱 Hover (desktop) */
 .btn:hover{
   background: #25D366;
   color: #000;
+  transform: scale(1.08);
 }
 
-/* Click animation */
+/* 👆 Click / Tap */
 .btn:active{
-  transform: scale(0.97);
+  transform: scale(0.96);
 }
 
 /* Selected package button turns green */
