@@ -232,19 +232,6 @@ cursor:pointer;z-index:3;opacity:.8
 }
 
 /* ⭐ PACKAGE FOCUS ANIMATION (ADD THIS) */
-.pricing-card {
-  transition:
-    transform 0.35s ease,
-    box-shadow 0.35s ease;
-}
-
-.pricing-card.in-view {
-  transform: scale(1.06);
-  box-shadow:
-    0 12px 30px rgba(0,0,0,0.4),
-    0 0 20px rgba(37,211,102,0.35);
-  z-index: 2;
-}
 
 .pricing-card.selected{
   border: 2px solid #25D366;
@@ -255,7 +242,29 @@ cursor:pointer;z-index:3;opacity:.8
 .price{font-size:30px;margin:10px 0}
 .details{margin:12px 0 16px 18px}
 .details li{font-size:13px;color:#bbb;margin-bottom:6px}
+/* 🌫 NON-FOCUSED PACKAGE STATE */
+.pricing-card {
+  transition:
+    transform 0.35s ease,
+    box-shadow 0.35s ease,
+    filter 0.35s ease,
+    opacity 0.35s ease;
+}
 
+/* Blur + dim cards that are NOT focused */
+.pricing-card:not(.in-view) {
+  filter: blur(1.5px);
+  opacity: 0.55;
+}
+
+/* ✨ FOCUSED CARD – soft premium glow */
+.pricing-card.in-view {
+  filter: blur(0);
+  opacity: 1;
+  box-shadow:
+    0 14px 35px rgba(0,0,0,0.45),
+    0 0 26px rgba(37,211,102,0.45);
+}
 /* INFO */
 .info-grid{display:grid;gap:25px}
 .info-card{background:#1a1a1a;padding:28px;border-radius:22px}
