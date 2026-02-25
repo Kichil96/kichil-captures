@@ -440,34 +440,56 @@ document.addEventListener("DOMContentLoaded",()=>{
 
 /* Tabs */
 document.querySelectorAll(".portfolio-tabs button").forEach(btn=>{
-btn.onclick=()=>{
-document.querySelectorAll(".portfolio-tabs button").forEach(b=>b.classList.remove("active"));
-document.querySelectorAll(".portfolio-album").forEach(a=>a.classList.remove("active"));
-btn.classList.add("active");
-document.getElementById(btn.dataset.album).classList.add("active");
-};
+  btn.onclick=()=>{
+    document.querySelectorAll(".portfolio-tabs button").forEach(b=>b.classList.remove("active"));
+    document.querySelectorAll(".portfolio-album").forEach(a=>a.classList.remove("active"));
+    btn.classList.add("active");
+    document.getElementById(btn.dataset.album).classList.add("active");
+  };
 });
 
-/* Auto infinite scroll */
+/* AUTO SCROLL — SUPPORT MULTIPLE ROWS */
 document.querySelectorAll(".slider-wrapper").forEach(wrapper=>{
-const track=wrapper.querySelector(".portfolio-scroll");
-track.innerHTML+=track.innerHTML;
-let auto=true,scroll=0;
 
-function loop(){
-if(auto){
-scroll+=0.5;
-if(scroll>=track.scrollWidth/2)scroll=0;
-track.scrollLeft=scroll;
-}
-requestAnimationFrame(loop);
-}
-loop();
+  const tracks = wrapper.querySelectorAll(".portfolio-scroll");
+  let auto = true;
+  let scroll = 0;
 
-wrapper.addEventListener("mouseenter",()=>auto=false);
-wrapper.addEventListener("mouseleave",()=>auto=true);
-wrapper.querySelector(".arrow-left").onclick=()=>track.scrollBy({left:-300,behavior:"smooth"});
-wrapper.querySelector(".arrow-right").onclick=()=>track.scrollBy({left:300,behavior:"smooth"});
+  /* duplicate items for infinite loop */
+  tracks.forEach(track=>{
+    track.innerHTML += track.innerHTML;
+  });
+
+  function loop(){
+    if(auto){
+      scroll += 0.4;
+      tracks.forEach(track=>{
+        if(scroll >= track.scrollWidth / 2) scroll = 0;
+        track.scrollLeft = scroll;
+      });
+    }
+    requestAnimationFrame(loop);
+  }
+  loop();
+
+  wrapper.addEventListener("mouseenter",()=>auto=false);
+  wrapper.addEventListener("mouseleave",()=>auto=true);
+
+  const left = wrapper.querySelector(".arrow-left");
+  const right = wrapper.querySelector(".arrow-right");
+
+  left.onclick = ()=>{
+    tracks.forEach(track=>{
+      track.scrollBy({ left:-300, behavior:"smooth" });
+    });
+  };
+
+  right.onclick = ()=>{
+    tracks.forEach(track=>{
+      track.scrollBy({ left:300, behavior:"smooth" });
+    });
+  };
+
 });
 
 });
