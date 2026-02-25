@@ -127,8 +127,17 @@ cursor:pointer;z-index:3;opacity:.8
 /* PACKAGES */
 .package-row{display:flex;gap:20px;overflow-x:auto}
 .pricing-card{
-min-width:260px;background:#1a1a1a;padding:26px;
-border-radius:22px;text-align:left
+  min-width:260px;
+  background:#1a1a1a;
+  padding:26px;
+  border-radius:22px;
+  text-align:left
+}
+
+.pricing-card.selected{
+  border: 2px solid #25D366;
+  box-shadow: 0 0 0 2px rgba(37, 211, 102, 0.3);
+  transform: translateY(-2px);
 }
 .pricing-card.popular{border:2px solid #25D366}
 .price{font-size:30px;margin:10px 0}
@@ -507,6 +516,17 @@ const closeModal = document.getElementById("closeModal");
 
 document.querySelectorAll(".choose-btn").forEach(btn=>{
   btn.addEventListener("click", ()=>{
+
+    // REMOVE selected state from all pricing cards
+    document.querySelectorAll(".pricing-card").forEach(card=>{
+      card.classList.remove("selected");
+    });
+
+    // ADD selected state to the clicked package card
+    const card = btn.closest(".pricing-card");
+    card.classList.add("selected");
+
+    // Set selected package text
     selectedPackage.textContent = btn.dataset.package;
 
     // reset form
