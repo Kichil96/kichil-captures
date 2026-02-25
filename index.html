@@ -427,7 +427,14 @@ and more moments preserved.
 <label>Name</label><input id="clientName">
 <label>Location</label><input id="eventLocation">
 <label>Date</label><input type="date" id="eventDate">
-<button class="btn" id="confirmBtn">Confirm Booking</button>
+<button
+  class="btn"
+  id="confirmBtn"
+  disabled
+  style="opacity:.5;cursor:not-allowed;"
+>
+  Confirm Booking
+</button>
 </div>
 </div>
 
@@ -437,6 +444,62 @@ and more moments preserved.
 
 <script>
 document.addEventListener("DOMContentLoaded",()=>{
+  /* =========================
+   BOOKING VALIDATION LOGIC
+========================= */
+
+const nameInput = document.getElementById("clientName");
+const locationInput = document.getElementById("eventLocation");
+const dateInput = document.getElementById("eventDate");
+const confirmBtn = document.getElementById("confirmBtn");
+
+/* Disable Saturdays */
+dateInput.addEventListener("input", () => {
+  const selectedDate = new Date(dateInput.value);
+  if (selectedDate.getDay() === 6) { // 6 = Saturday
+    alert("Saturday is not available due to Sabbath day.");
+    dateInput.value = "";
+  }
+  validateForm();
+});
+
+/* Validate form fields */
+function validateForm() {
+  if (
+    nameInput.value.trim() !== "" &&
+    locationInput.value.trim() !== "" &&
+    dateInput.value !== ""
+  ) {
+    confirmBtn.disabled = false;
+    confirmBtn.style.opacity = "1";
+    confirmBtn.style.cursor = "pointer";
+    confirmBtn.style.background = "#25D366";
+  } else {
+    confirmBtn.disabled = true;
+    confirmBtn.style.opacity = ".5";
+    confirmBtn.style.cursor = "not-allowed";
+  }
+}
+
+nameInput.addEventListener("input", validateForm);
+locationInput.addEventListener("input", validateForm);
+
+/* WhatsApp Send */
+confirmBtn.addEventListener("click", () => {
+  const message = `
+Hello Kichil Captures 👋
+
+📦 Package: ${selectedPackage.textContent}
+👤 Name: ${nameInput.value}
+📍 Location: ${locationInput.value}
+📅 Date: ${dateInput.value}
+
+Looking forward to your confirmation 😊
+`;
+
+  const encodedMessage = encodeURIComponent(message);
+  window.open(`https://wa.me/601139346782?text=${encodedMessage}`, "_blank");
+});
 /* BOOKING MODAL – OPEN */
 const modal = document.getElementById("bookingModal");
 const selectedPackage = document.getElementById("selectedPackage");
@@ -445,6 +508,15 @@ const closeModal = document.getElementById("closeModal");
 document.querySelectorAll(".choose-btn").forEach(btn=>{
   btn.addEventListener("click", ()=>{
     selectedPackage.textContent = btn.dataset.package;
+
+    // reset form
+    nameInput.value = "";
+    locationInput.value = "";
+    dateInput.value = "";
+    confirmBtn.disabled = true;
+    confirmBtn.style.opacity = ".5";
+    confirmBtn.style.cursor = "not-allowed";
+
     modal.style.display = "flex";
   });
 });
