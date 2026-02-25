@@ -370,6 +370,47 @@ border-radius:8px;border:none
 
   animation: neonPulse 2.5s ease-in-out infinite;
 }
+  /* ===== PACKAGE CARD BUTTON POLISH ===== */
+
+.package-btn{
+  width: 100%;
+  padding: 14px 0;
+  font-size: 15px;
+
+  background: rgba(20,20,20,0.9);
+  border: 2px solid rgba(37,211,102,0.6);
+
+  box-shadow: none;               /* remove heavy neon */
+  animation: none;                /* stop pulse */
+}
+.package-btn{
+  margin-top: 18px;
+  background: linear-gradient(
+    to bottom,
+    rgba(30,30,30,0.95),
+    rgba(15,15,15,0.95)
+  );
+}
+/* subtle hover */
+.package-btn:hover{
+  background: #25D366;
+  color: #000;
+  transform: scale(1.04);
+}
+
+/* subtle click */
+.package-btn:active{
+  transform: scale(0.98);
+}
+
+/* selected state inside card */
+.pricing-card.selected .package-btn{
+  background: #25D366;
+  color: #000;
+  border-color: #25D366;
+  box-shadow:
+    0 0 12px rgba(37,211,102,0.6);
+}
 
 /* ✨ Animated glow */
 @keyframes neonPulse {
@@ -524,7 +565,7 @@ Includes photography highlights and a cinematic drone video with smooth movement
 <li>🎥 Drone quality up to 4K</li>
 <li>📱 Portrait & landscape format</li>
 </ul>
-<button class="btn choose-btn" data-package="Photo + Drone Combo – RM280">Choose Package</button>
+<button class="btn package-btn choose-btn" data-package="Photo + Drone Combo – RM280">Choose Package</button>
 </div>
 </div>
 
@@ -544,7 +585,7 @@ Includes photography highlights and a cinematic drone video with smooth movement
       <li>🎥 2.7K resolution</li>
       <li>📱 Portrait or landscape (choose one)</li>
     </ul>
-    <button class="btn choose-btn" data-package="Starter Aerial (Raw) – RM100">
+    <button class="btn package-btn choose-btn" data-package="Starter Aerial (Raw) – RM100">
       Choose Package
     </button>
   </div>
@@ -562,7 +603,7 @@ Clean, simple, and efficient.
 <li>🎥 2.7K quality</li>
 <li>📱 Portrait or landscape format</li>
 </ul>
-<button class="btn choose-btn" data-package="Mini Aerial – RM150">Choose Package</button>
+<button class="btn package-btn choose-btn" data-package="Mini Aerial – RM150">Choose Package</button>
 </div>
 
 <div class="pricing-card">
@@ -578,7 +619,7 @@ Ideal for events and promotional content.
 <li>🎥 4K quality</li>
 <li>📱 Portrait or landscape format</li>
 </ul>
-<button class="btn choose-btn" data-package="Standard Promo – RM200">Choose Package</button>
+<button class="btn package-btn choose-btn" data-package="Standard Promo – RM200">Choose Package</button>
 </div>
 
 <div class="pricing-card">
@@ -594,7 +635,7 @@ Best for larger venues or marketing usage.
 <li>🎥 4K quality</li>
 <li>📱 Portrait & landscape format</li>
 </ul>
-<button class="btn choose-btn" data-package="Extended Event – RM300–350">Choose Package</button>
+<button class="btn package-btn choose-btn" data-package="Extended Event – RM300–350">Choose Package</button>
 </div>
 
 </div>
@@ -614,7 +655,7 @@ or simple personal events with clean and natural editing.
 <li>📸 15 edited photos</li>
 <li>🎨 Basic color correction</li>
 </ul>
-<button class="btn choose-btn" data-package="Basic Session – RM100">Choose Package</button>
+<button class="btn package-btn choose-btn" data-package="Basic Session – RM100">Choose Package</button>
 </div>
 
 <div class="pricing-card popular">
@@ -629,7 +670,7 @@ Focused on capturing meaningful moments with consistent editing style.
 <li>📸 30 edited photos</li>
 <li>🎨 Professional color grading</li>
 </ul>
-<button class="btn choose-btn" data-package="Standard Event – RM200">Choose Package</button>
+<button class="btn package-btn choose-btn" data-package="Standard Event – RM200">Choose Package</button>
 </div>
 
 <div class="pricing-card">
@@ -644,7 +685,7 @@ and more moments preserved.
 <li>📸 50 edited photos</li>
 <li>🎨 Full professional color grading</li>
 </ul>
-<button class="btn choose-btn" data-package="Premium Small Event – RM300">Choose Package</button>
+<button class="btn package-btn choose-btn" data-package="Premium Small Event – RM300">Choose Package</button>
 </div>
 
 </div>
