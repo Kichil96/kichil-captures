@@ -513,7 +513,22 @@ Looking forward to your confirmation 😊
 const modal = document.getElementById("bookingModal");
 const selectedPackage = document.getElementById("selectedPackage");
 const closeModal = document.getElementById("closeModal");
+// TAP PACKAGE CARD TO SELECT (without opening modal)
+document.querySelectorAll(".pricing-card").forEach(card=>{
+  card.addEventListener("click", (e)=>{
 
+    // Prevent double trigger when clicking the button
+    if (e.target.classList.contains("choose-btn")) return;
+
+    // Remove selected from all cards
+    document.querySelectorAll(".pricing-card").forEach(c=>{
+      c.classList.remove("selected");
+    });
+
+    // Add selected to tapped card
+    card.classList.add("selected");
+  });
+});
 document.querySelectorAll(".choose-btn").forEach(btn=>{
   btn.addEventListener("click", ()=>{
 
