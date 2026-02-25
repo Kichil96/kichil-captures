@@ -334,7 +334,41 @@ border-radius:8px;border:none
     transform: scale(1);
   }
 }
+/* ================= BUTTON STYLE ================= */
 
+.btn{
+  display: block;
+  width: 100%;
+  margin-top: 18px;
+  padding: 14px 0;
+  background: #1f1f1f;
+  color: #fff;
+  border-radius: 999px;
+  font-weight: 600;
+  font-size: 16px;
+  border: 2px solid #25D366;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+/* Hover (desktop only effect) */
+.btn:hover{
+  background: #25D366;
+  color: #000;
+}
+
+/* Click animation */
+.btn:active{
+  transform: scale(0.97);
+}
+
+/* Selected package button turns green */
+.pricing-card.selected .btn{
+  background: #25D366;
+  color: #000;
+  border-color: #25D366;
+  box-shadow: 0 0 12px rgba(37,211,102,0.6);
+}
 footer{padding:30px;background:#111;text-align:center;color:#777}
 </style>
 </head>
