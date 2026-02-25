@@ -224,7 +224,13 @@ cursor:pointer;z-index:3;opacity:.8
   padding:26px;
   border-radius:22px;
   text-align:left;
-  position: relative;   /* ⭐ ADD THIS LINE */
+  position: relative;
+
+  display: flex;              /* ⭐ ADD */
+  flex-direction: column;     /* ⭐ ADD */
+}
+  .pricing-card .package-btn{
+  margin-top: auto;   /* ⭐ MAGIC LINE */
 }
 
 /* ⭐ PACKAGE FOCUS ANIMATION (ADD THIS) */
