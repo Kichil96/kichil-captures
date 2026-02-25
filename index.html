@@ -8,9 +8,28 @@
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
 
 <style>
+  html {
+  scroll-behavior: smooth;
+}
+
+@media (max-width: 768px) {
+  html {
+    scroll-behavior: auto; /* smoother on mobile */
+  }
+}
+  /* PERFORMANCE HINTS */
+* {
+  backface-visibility: hidden;
+}
+
+.portfolio-scroll,
+.pricing-card,
+.floating-wa {
+  will-change: transform;
+}
   /* WHITE GLOW TITLE (for Kichil Captures) */
 .glow-title-white{
-  font-size: 46px;          /* slightly bigger than Portfolio */
+  font-size: 46px;          /* slightly bigger than Portfolio */  
   font-weight: 800;
   text-align: center;
   color: #ffffff;
@@ -548,6 +567,7 @@ and more moments preserved.
 <footer>© 2026 Kichil Captures</footer>
 
 <script>
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 document.addEventListener("DOMContentLoaded",()=>{
   /* =========================
    BOOKING VALIDATION LOGIC
@@ -686,7 +706,7 @@ document.querySelectorAll(".slider-wrapper").forEach(wrapper=>{
   });
 
   function loop(){
-    if(auto){
+   if(auto && !prefersReducedMotion){
       scroll += 0.4;
       tracks.forEach(track=>{
         if(scroll >= track.scrollWidth / 2) scroll = 0;
