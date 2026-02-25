@@ -100,6 +100,11 @@
   -webkit-overflow-scrolling: touch;
 }
 /* PERFORMANCE: limit image rendering cost */
+.portfolio-item img {
+  max-width: 100%;
+  height: auto;
+  object-fit: contain;
+}
   *{margin:0;padding:0;box-sizing:border-box}
 body{font-family:'Poppins',sans-serif;background:#0e0e0e;color:#fff;line-height:1.6}
 section{
@@ -224,13 +229,7 @@ cursor:pointer;z-index:3;opacity:.8
   padding:26px;
   border-radius:22px;
   text-align:left;
-  position: relative;
-
-  display: flex;              /* ⭐ ADD */
-  flex-direction: column;     /* ⭐ ADD */
-}
-  .pricing-card .package-btn{
-  margin-top: auto;   /* ⭐ MAGIC LINE */
+  position: relative;   /* ⭐ ADD THIS LINE */
 }
 
 /* ⭐ PACKAGE FOCUS ANIMATION (ADD THIS) */
@@ -335,119 +334,7 @@ border-radius:8px;border:none
     transform: scale(1);
   }
 }
-/* ================= BUTTON STYLE ================= */
 
-/* ===== HERO / CTA BUTTON ===== */
-.btn{
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-
-  min-width: 260px;
-  padding: 16px 36px;
-
-  font-size: 18px;
-  font-weight: 700;
-  text-decoration: none;        /* 🔥 remove underline */
-  color: #ffffff;
-
-  background: rgba(0,0,0,0.55);
-  border-radius: 999px;
-  border: 2px solid #25D366;
-
-  position: relative;
-  overflow: hidden;
-
-  cursor: pointer;
-  transition: 
-    transform 0.25s ease,
-    background 0.25s ease,
-    color 0.25s ease;
-
-  /* Neon glow */
-  box-shadow:
-    0 0 12px rgba(37,211,102,0.6),
-    0 0 30px rgba(37,211,102,0.4);
-
-  animation: neonPulse 2.5s ease-in-out infinite;
-}
-  /* ===== PACKAGE CARD BUTTON POLISH ===== */
-
-.package-btn{
-  width: 100%;
-  padding: 14px 0;
-  font-size: 15px;
-  margin-top: 18px;
-
-  background: linear-gradient(
-    to bottom,
-    rgba(30,30,30,0.95),
-    rgba(15,15,15,0.95)
-  );
-
-  border: 2px solid rgba(37,211,102,0.6);
-  box-shadow: none;
-  animation: none;
-}
-/* subtle hover */
-.package-btn:hover{
-  background: #25D366;
-  color: #000;
-  transform: scale(1.04);
-}
-
-/* subtle click */
-.package-btn:active{
-  transform: scale(0.98);
-}
-
-/* selected state inside card */
-.pricing-card.selected .package-btn{
-  background: #25D366;
-  color: #000;
-  border-color: #25D366;
-  box-shadow:
-    0 0 12px rgba(37,211,102,0.6);
-}
-
-/* ✨ Animated glow */
-@keyframes neonPulse {
-  0% {
-    box-shadow:
-      0 0 10px rgba(37,211,102,0.6),
-      0 0 25px rgba(37,211,102,0.35);
-  }
-  50% {
-    box-shadow:
-      0 0 18px rgba(37,211,102,1),
-      0 0 45px rgba(37,211,102,0.8);
-  }
-  100% {
-    box-shadow:
-      0 0 10px rgba(37,211,102,0.6),
-      0 0 25px rgba(37,211,102,0.35);
-  }
-}
-
-/* 🖱 Hover (desktop) */
-.btn:hover{
-  background: #25D366;
-  color: #000;
-  transform: scale(1.08);
-}
-
-/* 👆 Click / Tap */
-.btn:active{
-  transform: scale(0.96);
-}
-
-/* Selected package button turns green */
-.pricing-card.selected .btn{
-  background: #25D366;
-  color: #000;
-  border-color: #25D366;
-  box-shadow: 0 0 12px rgba(37,211,102,0.6);
-}
 footer{padding:30px;background:#111;text-align:center;color:#777}
 </style>
 </head>
@@ -563,7 +450,7 @@ Includes photography highlights and a cinematic drone video with smooth movement
 <li>🎥 Drone quality up to 4K</li>
 <li>📱 Portrait & landscape format</li>
 </ul>
-<button class="btn package-btn choose-btn" data-package="Photo + Drone Combo – RM280">Choose Package</button>
+<button class="btn choose-btn" data-package="Photo + Drone Combo – RM280">Choose Package</button>
 </div>
 </div>
 
@@ -583,7 +470,7 @@ Includes photography highlights and a cinematic drone video with smooth movement
       <li>🎥 2.7K resolution</li>
       <li>📱 Portrait or landscape (choose one)</li>
     </ul>
-    <button class="btn package-btn choose-btn" data-package="Starter Aerial (Raw) – RM100">
+    <button class="btn choose-btn" data-package="Starter Aerial (Raw) – RM100">
       Choose Package
     </button>
   </div>
@@ -601,7 +488,7 @@ Clean, simple, and efficient.
 <li>🎥 2.7K quality</li>
 <li>📱 Portrait or landscape format</li>
 </ul>
-<button class="btn package-btn choose-btn" data-package="Mini Aerial – RM150">Choose Package</button>
+<button class="btn choose-btn" data-package="Mini Aerial – RM150">Choose Package</button>
 </div>
 
 <div class="pricing-card">
@@ -617,7 +504,7 @@ Ideal for events and promotional content.
 <li>🎥 4K quality</li>
 <li>📱 Portrait or landscape format</li>
 </ul>
-<button class="btn package-btn choose-btn" data-package="Standard Promo – RM200">Choose Package</button>
+<button class="btn choose-btn" data-package="Standard Promo – RM200">Choose Package</button>
 </div>
 
 <div class="pricing-card">
@@ -633,7 +520,7 @@ Best for larger venues or marketing usage.
 <li>🎥 4K quality</li>
 <li>📱 Portrait & landscape format</li>
 </ul>
-<button class="btn package-btn choose-btn" data-package="Extended Event – RM300–350">Choose Package</button>
+<button class="btn choose-btn" data-package="Extended Event – RM300–350">Choose Package</button>
 </div>
 
 </div>
@@ -653,7 +540,7 @@ or simple personal events with clean and natural editing.
 <li>📸 15 edited photos</li>
 <li>🎨 Basic color correction</li>
 </ul>
-<button class="btn package-btn choose-btn" data-package="Basic Session – RM100">Choose Package</button>
+<button class="btn choose-btn" data-package="Basic Session – RM100">Choose Package</button>
 </div>
 
 <div class="pricing-card popular">
@@ -668,7 +555,7 @@ Focused on capturing meaningful moments with consistent editing style.
 <li>📸 30 edited photos</li>
 <li>🎨 Professional color grading</li>
 </ul>
-<button class="btn package-btn choose-btn" data-package="Standard Event – RM200">Choose Package</button>
+<button class="btn choose-btn" data-package="Standard Event – RM200">Choose Package</button>
 </div>
 
 <div class="pricing-card">
@@ -683,7 +570,7 @@ and more moments preserved.
 <li>📸 50 edited photos</li>
 <li>🎨 Full professional color grading</li>
 </ul>
-<button class="btn package-btn choose-btn" data-package="Premium Small Event – RM300">Choose Package</button>
+<button class="btn choose-btn" data-package="Premium Small Event – RM300">Choose Package</button>
 </div>
 
 </div>
@@ -816,28 +703,21 @@ document.querySelectorAll(".pricing-card").forEach(card=>{
     if (e.target.classList.contains("choose-btn")) return;
 
     // Remove selected from all cards
-   document.querySelectorAll(".pricing-card").forEach(c=>{
-  c.classList.remove("selected");
-  const b = c.querySelector(".choose-btn");
-  if (b) b.textContent = "Choose Package";
-});
+    document.querySelectorAll(".pricing-card").forEach(c=>{
+      c.classList.remove("selected");
+    });
 
     // Add selected to tapped card
     card.classList.add("selected");
-
-const btn = card.querySelector(".choose-btn");
-if (btn) btn.textContent = "Selected ✓";
   });
 });
 document.querySelectorAll(".choose-btn").forEach(btn=>{
   btn.addEventListener("click", ()=>{
 
     // REMOVE selected state from all pricing cards
-    document.querySelectorAll(".pricing-card").forEach(c=>{
-  c.classList.remove("selected");
-  const b = c.querySelector(".choose-btn");
-  if (b) b.textContent = "Choose Package";
-});
+    document.querySelectorAll(".pricing-card").forEach(card=>{
+      card.classList.remove("selected");
+    });
 
     // ADD selected state to the clicked package card
     const card = btn.closest(".pricing-card");
