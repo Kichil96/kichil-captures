@@ -107,7 +107,17 @@
 }
   *{margin:0;padding:0;box-sizing:border-box}
 body{font-family:'Poppins',sans-serif;background:#0e0e0e;color:#fff;line-height:1.6}
-section{padding:80px 20px;max-width:1100px;margin:auto}
+section{
+  padding:100px 20px;   /* ⬅️ increased vertical space */
+  max-width:1100px;
+  margin:auto;
+  overflow: visible;    /* ⭐ allow children to scale */
+}
+  #packages{
+  overflow: visible;
+  padding-top: 120px;
+  padding-bottom: 120px;
+}
 h1,h2,h3{font-weight:800}
 h2{text-align:center;font-size:28px;margin-bottom:25px}
 p{color:#ccc;font-size:14px}
@@ -205,13 +215,20 @@ cursor:pointer;z-index:3;opacity:.8
 .arrow-right{right:10px}
 
 /* PACKAGES */
-.package-row{display:flex;gap:20px;overflow-x:auto}
+.package-row{
+  display:flex;
+  gap:20px;
+  overflow-x:auto;
+  overflow-y: visible;      /* ⭐ allow scaling vertically */
+  padding: 20px 0;          /* ⭐ breathing space for scale */
+}
 .pricing-card{
   min-width:260px;
   background:#1a1a1a;
   padding:26px;
   border-radius:22px;
-  text-align:left
+  text-align:left;
+  position: relative;   /* ⭐ ADD THIS LINE */
 }
 
 /* ⭐ PACKAGE FOCUS ANIMATION (ADD THIS) */
