@@ -100,11 +100,6 @@
   -webkit-overflow-scrolling: touch;
 }
 /* PERFORMANCE: limit image rendering cost */
-.portfolio-item img {
-  max-width: 100%;
-  height: auto;
-  object-fit: contain;
-}
   *{margin:0;padding:0;box-sizing:border-box}
 body{font-family:'Poppins',sans-serif;background:#0e0e0e;color:#fff;line-height:1.6}
 section{
@@ -376,20 +371,17 @@ border-radius:8px;border:none
   width: 100%;
   padding: 14px 0;
   font-size: 15px;
-
-  background: rgba(20,20,20,0.9);
-  border: 2px solid rgba(37,211,102,0.6);
-
-  box-shadow: none;               /* remove heavy neon */
-  animation: none;                /* stop pulse */
-}
-.package-btn{
   margin-top: 18px;
+
   background: linear-gradient(
     to bottom,
     rgba(30,30,30,0.95),
     rgba(15,15,15,0.95)
   );
+
+  border: 2px solid rgba(37,211,102,0.6);
+  box-shadow: none;
+  animation: none;
 }
 /* subtle hover */
 .package-btn:hover{
@@ -818,21 +810,28 @@ document.querySelectorAll(".pricing-card").forEach(card=>{
     if (e.target.classList.contains("choose-btn")) return;
 
     // Remove selected from all cards
-    document.querySelectorAll(".pricing-card").forEach(c=>{
-      c.classList.remove("selected");
-    });
+   document.querySelectorAll(".pricing-card").forEach(c=>{
+  c.classList.remove("selected");
+  const b = c.querySelector(".choose-btn");
+  if (b) b.textContent = "Choose Package";
+});
 
     // Add selected to tapped card
     card.classList.add("selected");
+
+const btn = card.querySelector(".choose-btn");
+if (btn) btn.textContent = "Selected ✓";
   });
 });
 document.querySelectorAll(".choose-btn").forEach(btn=>{
   btn.addEventListener("click", ()=>{
 
     // REMOVE selected state from all pricing cards
-    document.querySelectorAll(".pricing-card").forEach(card=>{
-      card.classList.remove("selected");
-    });
+    document.querySelectorAll(".pricing-card").forEach(c=>{
+  c.classList.remove("selected");
+  const b = c.querySelector(".choose-btn");
+  if (b) b.textContent = "Choose Package";
+});
 
     // ADD selected state to the clicked package card
     const card = btn.closest(".pricing-card");
