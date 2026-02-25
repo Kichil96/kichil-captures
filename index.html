@@ -8,7 +8,18 @@
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
 
 <style>
-*{margin:0;padding:0;box-sizing:border-box}
+  /* PERFORMANCE: smoother scrolling */
+.portfolio-scroll {
+  will-change: transform;
+  -webkit-overflow-scrolling: touch;
+}
+/* PERFORMANCE: limit image rendering cost */
+.portfolio-item img {
+  max-width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+  *{margin:0;padding:0;box-sizing:border-box}
 body{font-family:'Poppins',sans-serif;background:#0e0e0e;color:#fff;line-height:1.6}
 section{padding:80px 20px;max-width:1100px;margin:auto}
 h1,h2,h3{font-weight:800}
@@ -160,8 +171,8 @@ footer{padding:30px;background:#111;text-align:center;color:#777}
 <div class="slider-arrow arrow-left">‹</div>
 <div class="slider-arrow arrow-right">›</div>
 <div class="portfolio-scroll">
-<div class="portfolio-item"><img src="camera-1.WEBP"></div>
-<div class="portfolio-item"><img src="camera-2.WEBP"></div>
+<div class="portfolio-item"><img src="camera-1.WEBP" loading="lazy" decoding="async">
+<div class="portfolio-item"><img src="camera-2.WEBP" loading="lazy" decoding="async">
 </div>
 </div>
 </div>
@@ -173,10 +184,10 @@ footer{padding:30px;background:#111;text-align:center;color:#777}
 <div class="slider-arrow arrow-left">‹</div>
 <div class="slider-arrow arrow-right">›</div>
 <div class="portfolio-scroll">
-<div class="portfolio-item"><img src="drone-1.WEBP"></div>
-<div class="portfolio-item"><img src="drone-2.WEBP"></div>
-<div class="portfolio-item"><img src="drone-3.WEBP"></div>
-<div class="portfolio-item"><img src="drone-4.WEBP"></div>
+<div class="portfolio-item"><img src="drone-1.WEBP"> loading="lazy" decoding="async">
+<div class="portfolio-item"><img src="drone-2.WEBP"> loading="lazy" decoding="async">
+<div class="portfolio-item"><img src="drone-3.WEBP"> loading="lazy" decoding="async">
+<div class="portfolio-item"><img src="drone-4.WEBP"> loading="lazy" decoding="async">
 </div>
 </div>
 </div>
