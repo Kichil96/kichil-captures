@@ -863,20 +863,21 @@ locationInput.addEventListener("input", validateForm);
 
 /* WhatsApp Send */
 confirmBtn.addEventListener("click", () => {
-  const message = `
-Hello Kichil Captures 👋
 
-📦 Package: ${selectedPackage.textContent}
-👤 Name: ${nameInput.value}
-📍 Location: ${locationInput.value}
-📅 Date: ${dateInput.value}
-
-Looking forward to your confirmation 😊
-`;
+  const message =
+    "Hello Kichil Captures\n\n" +
+    "Package: " + selectedPackage.textContent + "\n" +
+    "Name: " + nameInput.value + "\n" +
+    "Location: " + locationInput.value + "\n" +
+    "Date: " + dateInput.value + "\n\n" +
+    "Looking forward to your confirmation.";
 
   const encodedMessage = encodeURIComponent(message);
-  window.open(`https://wa.me/601139346782?text=${encodedMessage}`, "_blank");
+
+  window.location.href =
+    `https://api.whatsapp.com/send?phone=601139346782&text=${encodedMessage}`;
 });
+ 
 /* BOOKING MODAL – OPEN */
 const modal = document.getElementById("bookingModal");
 const selectedPackage = document.getElementById("selectedPackage");
