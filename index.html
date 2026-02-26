@@ -246,7 +246,48 @@ cursor:pointer;z-index:3;opacity:.8
   text-align:left;
   position: relative;   /* ⭐ ADD THIS LINE */
 }
+/* ===== PRICING CARD BUTTON (ONLY) ===== */
+/* ===== PRICING CARD BUTTON (ONLY) ===== */
+.pricing-card .btn{
+  display: block;
+  width: 100%;
+  padding: 18px 0;          /* ⬅️ slightly taller */
+  margin-top: 24px;         /* ⬅️ more breathing space */
 
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+
+  color: #ffffff;
+  background: linear-gradient(
+    180deg,
+    #1f1f1f,
+    #151515
+  );
+
+  border-radius: 999px;
+  border: 2px solid rgba(37,211,102,0.85);
+
+  cursor: pointer;
+  transition: all 0.25s ease;
+
+  box-shadow:
+    0 0 12px rgba(37,211,102,0.35);
+}
+/* Hover */
+.pricing-card .btn:hover{
+  background: #25D366;
+  color: #000;
+  box-shadow:
+    0 0 18px rgba(37,211,102,0.9),
+    0 0 40px rgba(37,211,102,0.6);
+  transform: translateY(-1px);
+}
+
+/* Click */
+.pricing-card .btn:active{
+  transform: scale(0.97);
+}
 /* ⭐ PACKAGE FOCUS ANIMATION (ADD THIS) */
 
 .pricing-card.selected{
@@ -282,6 +323,11 @@ cursor:pointer;z-index:3;opacity:.8
   box-shadow:
     0 14px 35px rgba(0,0,0,0.45),
     0 0 26px rgba(37,211,102,0.45);
+}
+  .pricing-card.in-view .btn{
+  box-shadow:
+    0 0 18px rgba(37,211,102,0.8),
+    0 0 40px rgba(37,211,102,0.5);
 }
 /* INFO */
 .info-grid{display:grid;gap:25px}
