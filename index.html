@@ -473,6 +473,56 @@ box-shadow:
   transform: scale(0.96);
 }
 footer{padding:30px;background:#111;text-align:center;color:#777}
+  /* ===== MOBILE PACKAGE CARD POLISH ===== */
+@media (max-width: 768px){
+
+  /* Make card more compact */
+  .pricing-card{
+    padding: 20px;
+  }
+
+  /* Reduce scale so card fits screen better */
+  .pricing-card.in-view{
+    transform: scale(1.02);
+  }
+
+  /* Title & price feel more centered */
+  .pricing-card h3{
+    text-align: center;
+    font-size: 18px;
+  }
+
+  .pricing-card .price{
+    text-align: center;
+    font-size: 26px;
+    margin-bottom: 8px;
+  }
+
+  /* Description easier to read */
+  .pricing-card p{
+    font-size: 13px;
+    line-height: 1.55;
+    text-align: center;
+    margin-bottom: 14px;
+  }
+
+  /* Bullet list stays readable */
+  .pricing-card .details{
+    margin-left: 14px;
+    margin-bottom: 14px;
+  }
+
+  .pricing-card .details li{
+    font-size: 12.5px;
+  }
+
+  /* Button slightly tighter on mobile */
+  .pricing-card .btn{
+    padding: 15px 0;
+    margin-top: 18px;
+    font-size: 15px;
+  }
+}
 </style>
 </head>
 
