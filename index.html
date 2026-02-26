@@ -11,7 +11,22 @@
   html {
   scroll-behavior: smooth;
 }
+/* ===== COMBO PACKAGE DESKTOP FIX ===== */
+.combo-row{
+  justify-content: center;
+}
 
+.combo-card{
+  width: 100%;
+  max-width: 520px;   /* 👈 controls desktop width */
+}
+
+/* Desktop-only polish */
+@media (min-width: 768px){
+  .combo-card{
+    padding: 36px;
+  }
+}
 @media (max-width: 768px) {
   html {
     scroll-behavior: auto; /* smoother on mobile */
@@ -472,10 +487,10 @@ footer{padding:30px;background:#111;text-align:center;color:#777}
 
 <!-- PACKAGES -->
 <section id="packages">
-
+  
 <h2> COMBO PACKAGE (BEST VALUE)</h2>
-<div class="package-row">
-<div class="pricing-card popular">
+<div class="package-row combo-row">
+  <div class="pricing-card popular combo-card">
 <h3>Photo + Drone Combo</h3>
 <div class="price">RM280</div>
 <p>
