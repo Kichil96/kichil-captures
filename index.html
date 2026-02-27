@@ -222,8 +222,8 @@ animation:bounce 1.8s infinite
 .package-tabs-wrapper {
   display: flex;
   justify-content: center;
-  margin-top: 60px;
-  margin-bottom: 30px;
+  margin-top: 10px;
+  margin-bottom: 20px;
 }
 .package-tabs {
   display: inline-flex;
@@ -253,6 +253,23 @@ animation:bounce 1.8s infinite
   color: #000;
   box-shadow: 0 4px 15px rgba(37,211,102,0.3);
 }
+
+/* SWIPE HINT FOR MOBILE */
+.swipe-hint {
+  display: none; /* hidden on desktop */
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  color: #a1a1a6;
+  font-size: 13px;
+  font-weight: 500;
+  margin-bottom: 10px;
+}
+.swipe-hint .arrow-left { display: inline-block; animation: swipeLeft 1s infinite alternate; }
+.swipe-hint .arrow-right { display: inline-block; animation: swipeRight 1s infinite alternate; }
+
+@keyframes swipeLeft { 0% { transform: translateX(0); } 100% { transform: translateX(-4px); } }
+@keyframes swipeRight { 0% { transform: translateX(0); } 100% { transform: translateX(4px); } }
 
 /* APPLE-STYLE PACKAGES REDESIGN */
 .package-row{
@@ -438,6 +455,9 @@ footer{padding:40px;background:#000;text-align:center;color:#777; font-size: 14p
   /* Scale down portfolio images on mobile */
   .portfolio-scroll.landscape .portfolio-item { width: 260px; height: 160px; }
   .portfolio-scroll.portrait .portfolio-item { width: 180px; height: 280px; }
+  
+  /* Show Swipe Hint on Mobile */
+  .swipe-hint { display: flex; }
 
   /* Snap Scrolling for Mobile Packages */
   .package-row {
@@ -527,29 +547,17 @@ footer{padding:40px;background:#000;text-align:center;color:#777; font-size: 14p
 
 <section id="packages">
   
-<h2>COMBO PACKAGE</h2>
-<div class="package-row combo-row">
-  <div class="pricing-card combo-card in-view">
-    <span class="badge">Best Value</span>
-    <h3>Photo + Drone Combo</h3>
-    <div class="price">RM280</div>
-    <p>Perfect for small events that need both ground and aerial coverage. Includes photography highlights and a cinematic drone video.</p>
-    <ul class="details">
-      <li>⏱ 1 hour photography session</li>
-      <li>📸 30 professionally edited photos</li>
-      <li>🎬 ~60 sec cinematic drone video</li>
-      <li>🎥 Drone quality up to 4K</li>
-      <li>📱 Portrait & landscape format</li>
-    </ul>
-    <button class="btn choose-btn" data-package="Photo + Drone Combo – RM280">Choose Package</button>
-  </div>
-</div>
+<h2 class="glow-title">Our Packages</h2>
 
 <div class="package-tabs-wrapper">
   <div class="package-tabs">
     <button class="active" data-pkg="drone-packages">Drone</button>
     <button data-pkg="photo-packages">Photography</button>
   </div>
+</div>
+
+<div class="swipe-hint">
+  <span class="arrow-left">←</span> Swipe to explore <span class="arrow-right">→</span>
 </div>
 
 <div id="drone-packages" class="package-group active">
@@ -652,6 +660,24 @@ footer{padding:40px;background:#000;text-align:center;color:#777; font-size: 14p
   </div>
 </div>
 
+<h2 style="margin-top: 80px;">The Ultimate Combo</h2>
+<div class="package-row combo-row">
+  <div class="pricing-card combo-card in-view">
+    <span class="badge">Best Value</span>
+    <h3>Photo + Drone Combo</h3>
+    <div class="price">RM280</div>
+    <p>Perfect for small events that need both ground and aerial coverage. Includes photography highlights and a cinematic drone video.</p>
+    <ul class="details">
+      <li>⏱ 1 hour photography session</li>
+      <li>📸 30 professionally edited photos</li>
+      <li>🎬 ~60 sec cinematic drone video</li>
+      <li>🎥 Drone quality up to 4K</li>
+      <li>📱 Portrait & landscape format</li>
+    </ul>
+    <button class="btn choose-btn" data-package="Photo + Drone Combo – RM280">Choose Package</button>
+  </div>
+</div>
+
 </section>
 
 <section>
@@ -749,14 +775,12 @@ document.querySelectorAll(".faq-question").forEach(button => {
   button.addEventListener("click", () => {
     const item = button.parentElement;
     
-    // Close all other open FAQs
     document.querySelectorAll(".faq-item").forEach(otherItem => {
       if (otherItem !== item) {
         otherItem.classList.remove("active");
       }
     });
 
-    // Toggle the clicked FAQ
     item.classList.toggle("active");
   });
 });
