@@ -200,7 +200,7 @@ animation:bounce 1.8s infinite
 
 .portfolio-item{
   flex-shrink:0; border-radius:24px; overflow:hidden;
-  background:#111; position:relative;
+  background:#111; position:relative; width:260px; height:340px;
 }
 .portfolio-item img{width:100%;height:100%;object-fit:cover;display:block;}
 .portfolio-scroll.landscape .portfolio-item{width:320px;height:200px;}
@@ -410,8 +410,34 @@ footer{padding:40px;background:#000;text-align:center;color:#777; font-size: 14p
 
 /* ===== MOBILE RESPONSIVENESS ===== */
 @media (max-width: 768px){
+  /* Adjust Navbar for mobile */
+  html { scroll-padding-top: 90px; }
+  .navbar {
+    flex-wrap: wrap; 
+    justify-content: center; 
+    padding: 12px 5%;
+    gap: 8px;
+  }
+  .nav-logo {
+    width: 100%;
+    text-align: center;
+    font-size: 20px;
+  }
+  .nav-links {
+    width: 100%;
+    justify-content: center;
+    gap: 15px;
+  }
+  .nav-links a {
+    font-size: 13px;
+  }
+
   .glow-title-white { font-size: 36px; }
   .glow-title { font-size: 32px; }
+
+  /* Scale down portfolio images on mobile */
+  .portfolio-scroll.landscape .portfolio-item { width: 260px; height: 160px; }
+  .portfolio-scroll.portrait .portfolio-item { width: 180px; height: 280px; }
 
   /* Snap Scrolling for Mobile Packages */
   .package-row {
@@ -486,7 +512,7 @@ footer{padding:40px;background:#000;text-align:center;color:#777; font-size: 14p
     <div class="slider-arrow arrow-left">‹</div>
     <div class="slider-arrow arrow-right">›</div>
 
-    <div class="portfolio-scroll">
+    <div class="portfolio-scroll landscape">
       <div class="portfolio-item"><img src="drone-1.WEBP" loading="lazy" decoding="async" alt="Drone 1"></div>
       <div class="portfolio-item"><img src="drone-2.WEBP" loading="lazy" decoding="async" alt="Drone 2"></div>
       <div class="portfolio-item"><img src="drone-3.WEBP" loading="lazy" decoding="async" alt="Drone 3"></div>
