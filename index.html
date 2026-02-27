@@ -10,7 +10,7 @@
 <style>
   html {
   scroll-behavior: smooth;
-  scroll-padding-top: 70px; /* Prevents anchor links from hiding behind the navbar */
+  scroll-padding-top: 70px; 
 }
 
 /* ===== NAVBAR ===== */
@@ -54,12 +54,10 @@
   color: #25D366;
 }
 
-/* ===== MODAL BACKGROUND LOCK ===== */
 body.no-scroll {
   overflow: hidden;
 }
 
-/* PERFORMANCE HINTS */
 * {
   backface-visibility: hidden;
 }
@@ -69,79 +67,37 @@ body.no-scroll {
 .floating-wa {
   will-change: transform;
 }
-  /* WHITE GLOW TITLE (for Kichil Captures) */
+
+/* GLOWING TITLES */
 .glow-title-white{
   font-size: 46px;          
   font-weight: 800;
   text-align: center;
   color: #ffffff;
-  text-shadow:
-    0 0 8px rgba(255,255,255,0.6),
-    0 0 18px rgba(255,255,255,0.4);
+  text-shadow: 0 0 8px rgba(255,255,255,0.6), 0 0 18px rgba(255,255,255,0.4);
   animation: glowWhite 4.5s ease-in-out infinite;
 }
 
 @keyframes glowWhite {
-  0% {
-    text-shadow:
-      0 0 6px rgba(255,255,255,0.4),
-      0 0 12px rgba(255,255,255,0.3);
-  }
-  50% {
-    text-shadow:
-      0 0 14px rgba(255,255,255,1),
-      0 0 30px rgba(255,255,255,0.8);
-  }
-  100% {
-    text-shadow:
-      0 0 6px rgba(255,255,255,0.4),
-      0 0 12px rgba(255,255,255,0.3);
-  }
+  0% { text-shadow: 0 0 6px rgba(255,255,255,0.4), 0 0 12px rgba(255,255,255,0.3); }
+  50% { text-shadow: 0 0 14px rgba(255,255,255,1), 0 0 30px rgba(255,255,255,0.8); }
+  100% { text-shadow: 0 0 6px rgba(255,255,255,0.4), 0 0 12px rgba(255,255,255,0.3); }
 }
-  /* GLOWING TITLE */
+
 .glow-title{
   font-size: 42px;                 
   font-weight: 800;
   text-align: center;
   color: #ffffff;
   position: relative;
-  text-shadow:
-    0 0 8px rgba(37, 211, 102, 0.6),
-    0 0 18px rgba(37, 211, 102, 0.4);
+  text-shadow: 0 0 8px rgba(37, 211, 102, 0.6), 0 0 18px rgba(37, 211, 102, 0.4);
   animation: glowMove 3s ease-in-out infinite;
 }
 
 @keyframes glowMove {
-  0% {
-    text-shadow:
-      0 0 6px rgba(37, 211, 102, 0.4),
-      0 0 12px rgba(37, 211, 102, 0.3);
-  }
-  50% {
-    text-shadow:
-      0 0 12px rgba(37, 211, 102, 0.9),
-      0 0 28px rgba(37, 211, 102, 0.6);
-  }
-  100% {
-    text-shadow:
-      0 0 6px rgba(37, 211, 102, 0.4),
-      0 0 12px rgba(37, 211, 102, 0.3);
-  }
-}
-
-.portfolio-double{
-  display:flex;
-  flex-direction:column;
-  gap:16px;
-}
-.portfolio-scroll {
-  will-change: transform;
-  -webkit-overflow-scrolling: touch;
-}
-.portfolio-item img {
-  max-width: 100%;
-  height: auto;
-  object-fit: contain;
+  0% { text-shadow: 0 0 6px rgba(37, 211, 102, 0.4), 0 0 12px rgba(37, 211, 102, 0.3); }
+  50% { text-shadow: 0 0 12px rgba(37, 211, 102, 0.9), 0 0 28px rgba(37, 211, 102, 0.6); }
+  100% { text-shadow: 0 0 6px rgba(37, 211, 102, 0.4), 0 0 12px rgba(37, 211, 102, 0.3); }
 }
 
 *{margin:0;padding:0;box-sizing:border-box}
@@ -152,31 +108,22 @@ section{
   margin:auto;
   overflow: visible;    
 }
-#packages{
-  padding-top: 120px;
-  padding-bottom: 120px;
-}
-h1,h2,h3{font-weight:800}
-h2{text-align:center;font-size:28px;margin-bottom:25px}
-p{color:#a1a1a6;font-size:14px} /* Apple-style muted text */
+#packages{ padding-top: 120px; padding-bottom: 120px; }
+h1,h2,h3,h4{font-weight:800}
+h2{text-align:center;font-size:32px;margin-bottom:40px}
+p{color:#a1a1a6;font-size:14px} 
 
 /* HERO */
 .hero{
   position: relative;
   min-height: 100vh;
-  background:
-    linear-gradient(
-      rgba(0,0,0,0.35),
-      rgba(0,0,0,0.65)
-    ),
-    url("Background.webp") center / cover no-repeat;
+  background: linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.65)), url("Background.webp") center / cover no-repeat;
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
 }
 
-/* SCROLL ARROW */
 .scroll-down{
 position:absolute;bottom:30px;left:50%;
 transform:translateX(-50%);
@@ -189,24 +136,46 @@ animation:bounce 1.8s infinite
 60%{transform:translate(-50%,-5px)}
 }
 
-/* PORTFOLIO & PACKAGE TABS */
-.portfolio-tabs, .package-tabs{display:flex;justify-content:center;gap:12px;margin-bottom:25px}
-.package-tabs{margin-top: 50px;}
-.portfolio-tabs button, .package-tabs button{
-padding:10px 26px;border-radius:30px;border:none;
-background:rgba(255,255,255,0.08);color:#bbb;font-weight:600;cursor:pointer;
-backdrop-filter: blur(10px);
--webkit-backdrop-filter: blur(10px);
-transition: all 0.3s ease;
+/* =======================================
+   1. PORTFOLIO TABS (Apple Minimalist Underline)
+======================================= */
+.portfolio-tabs {
+  display: flex;
+  justify-content: center;
+  gap: 35px;
+  margin-bottom: 40px;
 }
-.portfolio-tabs button:hover, .package-tabs button:hover{
-  background: rgba(255,255,255,0.15);
+.portfolio-tabs button {
+  background: transparent;
+  color: #a1a1a6;
+  font-size: 16px;
+  font-weight: 600;
+  border: none;
+  padding-bottom: 8px;
+  position: relative;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+.portfolio-tabs button:hover {
   color: #fff;
 }
-.portfolio-tabs button.active, .package-tabs button.active{
-  background:#25D366;
-  color:#000;
-  box-shadow: 0 4px 15px rgba(37,211,102,0.3);
+.portfolio-tabs button::after {
+  content: '';
+  position: absolute;
+  bottom: 0; 
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0; 
+  height: 2px;
+  background: #25D366;
+  transition: width 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+  box-shadow: 0 0 8px rgba(37,211,102,0.8);
+}
+.portfolio-tabs button.active {
+  color: #fff;
+}
+.portfolio-tabs button.active::after {
+  width: 100%;
 }
 
 .portfolio-album, .package-group{display:none;position:relative}
@@ -217,290 +186,208 @@ transition: all 0.3s ease;
   to { opacity: 1; transform: translateY(0); }
 }
 
-/* SLIDER */
+/* PORTFOLIO SLIDER */
 .slider-wrapper{position:relative;overflow:hidden}
-.fade-left,.fade-right{
-position:absolute;top:0;bottom:0;width:60px;z-index:2;pointer-events:none
-}
+.fade-left,.fade-right{position:absolute;top:0;bottom:0;width:60px;z-index:2;pointer-events:none}
 .fade-left{left:0;background:linear-gradient(to right,#0e0e0e,transparent)}
 .fade-right{right:0;background:linear-gradient(to left,#0e0e0e,transparent)}
-
+.portfolio-double{display:flex;flex-direction:column;gap:16px;}
 .portfolio-scroll{
-display:flex;gap:18px;
-overflow-x:auto;scroll-behavior:smooth;
-padding-bottom:10px
+  display:flex;gap:18px;overflow-x:auto;scroll-behavior:smooth;
+  padding-bottom:10px; will-change: transform; -webkit-overflow-scrolling: touch;
 }
 .portfolio-scroll::-webkit-scrollbar{display:none}
 
 .portfolio-item{
-  flex-shrink:0;
-  border-radius:24px;
-  overflow:hidden;
-  background:#111;
-  width:260px;
-  height:340px;   
-  position:relative;
+  flex-shrink:0; border-radius:24px; overflow:hidden;
+  background:#111; position:relative;
 }
+.portfolio-item img{width:100%;height:100%;object-fit:cover;display:block;}
+.portfolio-scroll.landscape .portfolio-item{width:320px;height:200px;}
+.portfolio-scroll.portrait .portfolio-item{width:220px;height:360px;}
 
-.portfolio-item img{
-  width:100%;
-  height:100%;
-  object-fit:cover;   
-  display:block;
-}
-.portfolio-scroll.landscape .portfolio-item{
-  width:320px;
-  height:200px;
-}
-.portfolio-scroll.portrait .portfolio-item{
-  width:220px;
-  height:360px;
-}
 .slider-arrow{
-position:absolute;top:50%;transform:translateY(-50%);
-width:40px;height:40px;border-radius:50%;
-background:rgba(255,255,255,0.1);
-backdrop-filter: blur(10px);
--webkit-backdrop-filter: blur(10px);
-color:#fff;
-display:flex;align-items:center;justify-content:center;
-cursor:pointer;z-index:3;opacity:.8;
-border: 1px solid rgba(255,255,255,0.2);
+  position:absolute;top:50%;transform:translateY(-50%);
+  width:40px;height:40px;border-radius:50%;
+  background:rgba(255,255,255,0.1); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+  color:#fff; display:flex;align-items:center;justify-content:center;
+  cursor:pointer;z-index:3;opacity:.8; border: 1px solid rgba(255,255,255,0.2);
 }
 .slider-arrow:hover{opacity:1; background:rgba(255,255,255,0.2);}
-.arrow-left{left:10px}
-.arrow-right{right:10px}
+.arrow-left{left:10px} .arrow-right{right:10px}
 
 /* =======================================
-   APPLE-STYLE PACKAGES REDESIGN
+   2. PACKAGE TABS (iOS Segmented Control)
 ======================================= */
+.package-tabs-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-top: 60px;
+  margin-bottom: 30px;
+}
+.package-tabs {
+  display: inline-flex;
+  background: rgba(255,255,255,0.05);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  padding: 6px;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,0.08);
+}
+.package-tabs button {
+  background: transparent;
+  color: #a1a1a6;
+  font-weight: 600;
+  font-size: 14px;
+  padding: 10px 32px;
+  border-radius: 999px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.package-tabs button:hover {
+  color: #fff;
+}
+.package-tabs button.active {
+  background: #25D366;
+  color: #000;
+  box-shadow: 0 4px 15px rgba(37,211,102,0.3);
+}
 
+/* APPLE-STYLE PACKAGES REDESIGN */
 .package-row{
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 24px;
   padding: 20px 0;
 }
+.combo-row { display: flex; justify-content: center; }
+.combo-card { width: 100%; max-width: 500px; }
 
-/* The Combo card is special, make it centered if alone */
-.combo-row {
-  display: flex;
-  justify-content: center;
-}
-
-.combo-card {
-  width: 100%;
-  max-width: 500px;
-}
-
-/* Glassmorphism Card Design */
 .pricing-card{
-  background: rgba(30, 30, 32, 0.5); /* Semi-transparent dark gray */
-  backdrop-filter: blur(24px);       /* Frosted glass blur */
+  background: rgba(30, 30, 32, 0.5); 
+  backdrop-filter: blur(24px);       
   -webkit-backdrop-filter: blur(24px);
-  border: 1px solid rgba(255, 255, 255, 0.08); /* Subtle light border */
-  border-radius: 32px;               /* Apple-like roundness */
+  border: 1px solid rgba(255, 255, 255, 0.08); 
+  border-radius: 32px;               
   padding: 36px 28px;
-  display: flex;
-  flex-direction: column;
-  position: relative;
+  display: flex; flex-direction: column; position: relative;
   transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
-
-/* Special styling for Best Value/Popular */
 .pricing-card.combo-card, .pricing-card.popular {
   background: linear-gradient(145deg, rgba(37,211,102,0.08) 0%, rgba(30,30,32,0.6) 100%);
   border: 1px solid rgba(37, 211, 102, 0.3);
 }
 
-/* Badge for Combo */
 .badge {
-  position: absolute;
-  top: -14px;
-  left: 50%;
-  transform: translateX(-50%);
-  background: #25D366;
-  color: #000;
-  font-size: 12px;
-  font-weight: 800;
-  padding: 6px 16px;
-  border-radius: 999px;
-  letter-spacing: 0.5px;
-  text-transform: uppercase;
-  box-shadow: 0 4px 15px rgba(37,211,102,0.4);
+  position: absolute; top: -14px; left: 50%; transform: translateX(-50%);
+  background: #25D366; color: #000; font-size: 12px; font-weight: 800;
+  padding: 6px 16px; border-radius: 999px; letter-spacing: 0.5px;
+  text-transform: uppercase; box-shadow: 0 4px 15px rgba(37,211,102,0.4);
 }
 
-/* Apple Typography for Pricing */
-.pricing-card h3{
-  font-size: 20px;
-  font-weight: 600;
-  margin-bottom: 8px;
-  color: #fff;
-}
+.pricing-card h3{ font-size: 20px; font-weight: 600; margin-bottom: 8px; color: #fff; }
+.price{ font-size: 44px; font-weight: 600; letter-spacing: -1.5px; margin: 10px 0 16px; color: #fff; }
+.pricing-card p{ font-size: 14px; line-height: 1.5; color: #a1a1a6; margin-bottom: 24px; min-height: 60px; }
+.details{ list-style: none; margin: 0 0 30px 0; padding: 0; flex-grow: 1; }
+.details li{ font-size: 14px; color: #f5f5f7; margin-bottom: 12px; display: flex; gap: 10px; align-items: flex-start; line-height: 1.4; }
 
-.price{
-  font-size: 44px; /* Big, clean numbers */
-  font-weight: 600;
-  letter-spacing: -1.5px;
-  margin: 10px 0 16px;
-  color: #fff;
-}
-
-.pricing-card p{
-  font-size: 14px;
-  line-height: 1.5;
-  color: #a1a1a6;
-  margin-bottom: 24px;
-  min-height: 60px; /* keeps cards aligned */
-}
-
-/* Clean list without default bullets */
-.details{
-  list-style: none;
-  margin: 0 0 30px 0;
-  padding: 0;
-  flex-grow: 1; /* pushes button to bottom */
-}
-
-.details li{
-  font-size: 14px;
-  color: #f5f5f7;
-  margin-bottom: 12px;
-  display: flex;
-  gap: 10px;
-  align-items: flex-start;
-  line-height: 1.4;
-}
-
-/* ===== NEW APPLE STYLE BUTTONS ===== */
 .pricing-card .btn{
-  display: block;
-  width: 100%;
-  padding: 16px 0;
-  font-size: 15px;
-  font-weight: 600;
-  border-radius: 999px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  margin-top: auto;
-  
-  /* Default Standard Button (Glassy Outline) */
-  background: rgba(255, 255, 255, 0.05);
-  color: #fff;
-  border: 1px solid rgba(255,255,255,0.15);
+  display: block; width: 100%; padding: 16px 0; font-size: 15px; font-weight: 600;
+  border-radius: 999px; cursor: pointer; transition: all 0.3s ease; margin-top: auto;
+  background: rgba(255, 255, 255, 0.05); color: #fff; border: 1px solid rgba(255,255,255,0.15);
 }
+.pricing-card .btn:hover{ background: #fff; color: #000; border-color: #fff; transform: scale(1.02); }
 
-.pricing-card .btn:hover{
-  background: #fff;
-  color: #000;
-  border-color: #fff;
-  transform: scale(1.02);
-}
-
-/* Featured Button (Solid Green) */
 .combo-card .btn, .pricing-card.popular .btn {
-  background: #25D366;
-  color: #000;
-  border: none;
-  box-shadow: 0 4px 15px rgba(37,211,102,0.3);
+  background: #25D366; color: #000; border: none; box-shadow: 0 4px 15px rgba(37,211,102,0.3);
 }
-
 .combo-card .btn:hover, .pricing-card.popular .btn:hover {
-  background: #20b858; /* slightly darker green */
-  box-shadow: 0 6px 20px rgba(37,211,102,0.5);
+  background: #20b858; box-shadow: 0 6px 20px rgba(37,211,102,0.5);
 }
-
-/* Selected state via JS */
 .pricing-card.selected{
-  border: 2px solid #25D366;
-  transform: translateY(-4px);
+  border: 2px solid #25D366; transform: translateY(-4px);
   box-shadow: 0 12px 30px rgba(0,0,0,0.5), 0 0 20px rgba(37,211,102,0.15);
 }
 
-/* INFO / FAQ */
-.info-grid{display:grid;gap:25px}
+/* =======================================
+   3. INFO & SERVICE GRIDS (Glassy Cards)
+======================================= */
+.info-grid{display:grid;gap:20px}
 .info-card{
   background: rgba(30, 30, 32, 0.5);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   border: 1px solid rgba(255, 255, 255, 0.05);
-  padding:28px;
-  border-radius:28px;
+  padding: 32px;
+  border-radius: 28px;
+  text-align: center;
+  transition: transform 0.3s ease;
 }
+.info-card:hover { transform: translateY(-3px); }
+.info-icon { font-size: 36px; margin-bottom: 12px; }
+.info-card h4 { font-size: 18px; color: #fff; margin-bottom: 8px; }
 @media(min-width:768px){.info-grid{grid-template-columns:repeat(3,1fr)}}
-.faq-item{
-  margin-bottom:15px;
-  background: rgba(30, 30, 32, 0.4);
-  padding: 20px;
-  border-radius: 20px;
+
+/* =======================================
+   4. INTERACTIVE FAQ ACCORDION
+======================================= */
+.faq-accordion { max-width: 800px; margin: 0 auto; }
+.faq-item {
+  background: rgba(30, 30, 32, 0.5);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
   border: 1px solid rgba(255,255,255,0.05);
+  border-radius: 20px;
+  margin-bottom: 16px;
+  overflow: hidden;
 }
+.faq-question {
+  width: 100%; text-align: left; padding: 24px;
+  background: transparent; border: none; color: #fff;
+  font-weight: 600; font-size: 16px; font-family: 'Poppins', sans-serif;
+  cursor: pointer; display: flex; justify-content: space-between; align-items: center;
+}
+.faq-answer {
+  max-height: 0; overflow: hidden; transition: max-height 0.3s ease;
+  padding: 0 24px;
+}
+.faq-answer p { padding-bottom: 24px; color: #a1a1a6; margin: 0;}
+.faq-item.active .faq-answer { max-height: 200px; }
+.faq-icon { font-size: 24px; color: #a1a1a6; transition: transform 0.3s ease; font-weight: 300;}
+.faq-item.active .faq-icon { transform: rotate(45deg); color: #25D366; }
 
 /* MODAL */
 .modal{
-display:none;position:fixed;inset:0;
-background:rgba(0,0,0,.85);
-backdrop-filter: blur(8px);
--webkit-backdrop-filter: blur(8px);
-align-items:center;justify-content:center;z-index:3000; 
+  display:none;position:fixed;inset:0; background:rgba(0,0,0,.85);
+  backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
+  align-items:center;justify-content:center;z-index:3000; 
 }
 .modal-content{
-background:#1c1c1e; /* Apple dark gray */
-border: 1px solid rgba(255,255,255,0.1);
-padding:32px;border-radius:28px;
-width:90%;max-width:380px;position:relative
+  background:#1c1c1e; border: 1px solid rgba(255,255,255,0.1);
+  padding:32px;border-radius:28px; width:90%;max-width:380px;position:relative
 }
 .modal-content label{font-size:13px;color:#a1a1a6;margin-top:16px;display:block}
 .modal-content input{
-width:100%;padding:14px;margin-top:8px;
-border-radius:12px;border:none;
-background: #2c2c2e; color: #fff;
-font-family: 'Poppins', sans-serif;
+  width:100%;padding:14px;margin-top:8px; border-radius:12px;border:none;
+  background: #2c2c2e; color: #fff; font-family: 'Poppins', sans-serif;
 }
-.modal-content input:focus{
-  outline: 2px solid #25D366;
-}
+.modal-content input:focus{ outline: 2px solid #25D366; }
 .modal-content .btn{
-  display: block;
-  margin: 30px auto 0;   
-  padding: 16px 32px;    
-  font-size: 15px;
-  font-weight: 600;
-  color: #000;
-  background: #25D366;
-  border: none;
-  border-radius: 999px;
-  cursor: pointer;
-  transition: all 0.25s ease;
-  width: 100%;
+  display: block; margin: 30px auto 0; padding: 16px 32px; font-size: 15px; font-weight: 600;
+  color: #000; background: #25D366; border: none; border-radius: 999px; cursor: pointer;
+  transition: all 0.25s ease; width: 100%;
 }
-.modal-content .btn:not(:disabled):hover{
-  transform: scale(1.02);
-  background: #20b858;
-}
-.modal-content .btn:disabled{
-  background: #2c2c2e;
-  color: #777;
-}
+.modal-content .btn:not(:disabled):hover{ transform: scale(1.02); background: #20b858; }
+.modal-content .btn:disabled{ background: #2c2c2e; color: #777; }
 .close-btn{position:absolute;top:18px;right:22px;font-size:24px;color:#a1a1a6;cursor:pointer}
 .close-btn:hover{color:#fff;}
 
 /* FLOATING WHATSAPP */
 .floating-wa{
-  position:fixed;
-  bottom:20px;
-  right:20px;
-  width:60px;
-  height:60px;
-  border-radius:50%;
-  background:#25D366;
-  color:#fff;
-  font-size:28px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  text-decoration:none;
-  z-index:1000;
+  position:fixed;bottom:20px;right:20px;width:60px;height:60px;border-radius:50%;
+  background:#25D366;color:#fff;font-size:28px;display:flex;align-items:center;
+  justify-content:center;text-decoration:none;z-index:1000;
   box-shadow: 0 0 10px rgba(37,211,102,0.8), 0 0 25px rgba(37,211,102,0.6);
   animation: waPulse 2.2s ease-in-out infinite;
 }
@@ -512,25 +399,12 @@ font-family: 'Poppins', sans-serif;
 
 /* HERO BUTTON */
 .hero .btn{
-  display: inline-block;
-  padding: 16px 40px;
-  margin-top: 18px;
-  font-weight: 600;
-  font-size: 16px;
-  text-decoration: none;
-  color: #ffffff;
-  border-radius: 999px;
-  border: 1px solid rgba(255,255,255,0.2);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  background: rgba(255,255,255,0.05);
+  display: inline-block; padding: 16px 40px; margin-top: 18px; font-weight: 600; font-size: 16px;
+  text-decoration: none; color: #ffffff; border-radius: 999px; border: 1px solid rgba(255,255,255,0.2);
+  backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); background: rgba(255,255,255,0.05);
   transition: all 0.3s ease;
 }
-.hero .btn:hover{
-  background: #fff;
-  color: #000;
-  transform: scale(1.03);
-}
+.hero .btn:hover{ background: #fff; color: #000; transform: scale(1.03); }
 
 footer{padding:40px;background:#000;text-align:center;color:#777; font-size: 14px;}
 
@@ -539,35 +413,14 @@ footer{padding:40px;background:#000;text-align:center;color:#777; font-size: 14p
   .glow-title-white { font-size: 36px; }
   .glow-title { font-size: 32px; }
 
-  /* iOS Style Horizontal Snap Scrolling for Mobile */
+  /* Snap Scrolling for Mobile Packages */
   .package-row {
-    display: flex;
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
-    padding-bottom: 30px; /* room for shadow */
-    scroll-behavior: smooth;
-    -webkit-overflow-scrolling: touch;
+    display: flex; overflow-x: auto; scroll-snap-type: x mandatory;
+    padding-bottom: 30px; scroll-behavior: smooth; -webkit-overflow-scrolling: touch;
   }
-  
-  .package-row::-webkit-scrollbar {
-    display: none; /* Hide scrollbar for clean UI */
-  }
-
-  .pricing-card {
-    min-width: 85vw; /* Almost full screen width */
-    scroll-snap-align: center;
-    padding: 30px 24px;
-  }
-
-  /* Dim cards that aren't perfectly centered (replaces the old zoom logic) */
-  .pricing-card {
-    opacity: 0.6;
-    transform: scale(0.95);
-  }
-  .pricing-card.in-view {
-    opacity: 1;
-    transform: scale(1);
-  }
+  .package-row::-webkit-scrollbar { display: none; }
+  .pricing-card { min-width: 85vw; scroll-snap-align: center; padding: 30px 24px; opacity: 0.6; transform: scale(0.95); }
+  .pricing-card.in-view { opacity: 1; transform: scale(1); }
 
   .price { font-size: 38px; }
   .pricing-card h3 { font-size: 18px; }
@@ -648,16 +501,13 @@ footer{padding:40px;background:#000;text-align:center;color:#777; font-size: 14p
 
 <section id="packages">
   
-<h2> COMBO PACKAGE</h2>
+<h2>COMBO PACKAGE</h2>
 <div class="package-row combo-row">
   <div class="pricing-card combo-card in-view">
     <span class="badge">Best Value</span>
     <h3>Photo + Drone Combo</h3>
     <div class="price">RM280</div>
-    <p>
-      Perfect for small events that need both ground and aerial coverage.
-      Includes photography highlights and a cinematic drone video with smooth movement and color grading.
-    </p>
+    <p>Perfect for small events that need both ground and aerial coverage. Includes photography highlights and a cinematic drone video.</p>
     <ul class="details">
       <li>⏱ 1 hour photography session</li>
       <li>📸 30 professionally edited photos</li>
@@ -669,9 +519,11 @@ footer{padding:40px;background:#000;text-align:center;color:#777; font-size: 14p
   </div>
 </div>
 
-<div class="package-tabs">
-  <button class="active" data-pkg="drone-packages">Drone</button>
-  <button data-pkg="photo-packages">Photography</button>
+<div class="package-tabs-wrapper">
+  <div class="package-tabs">
+    <button class="active" data-pkg="drone-packages">Drone</button>
+    <button data-pkg="photo-packages">Photography</button>
+  </div>
 </div>
 
 <div id="drone-packages" class="package-group active">
@@ -779,27 +631,70 @@ footer{padding:40px;background:#000;text-align:center;color:#777; font-size: 14p
 <section>
 <h2>How Booking Works</h2>
 <div class="info-grid">
-<div class="info-card"><strong>1️⃣ Choose a package</strong><p>Select the service that fits your event.</p></div>
-<div class="info-card"><strong>2️⃣ Select details</strong><p>Pick your date and location via the booking form.</p></div>
-<div class="info-card"><strong>3️⃣ Confirm</strong><p>Send the automated message to WhatsApp to lock it in.</p></div>
+  <div class="info-card">
+    <div class="info-icon">📦</div>
+    <h4>1. Choose Package</h4>
+    <p>Select the service that fits your event.</p>
+  </div>
+  <div class="info-card">
+    <div class="info-icon">📅</div>
+    <h4>2. Select Details</h4>
+    <p>Pick your date and location via the booking form.</p>
+  </div>
+  <div class="info-card">
+    <div class="info-icon">💬</div>
+    <h4>3. Confirm</h4>
+    <p>Send the automated message to WhatsApp to lock it in.</p>
+  </div>
 </div>
 </section>
 
 <section>
 <h2>Service Info</h2>
 <div class="info-grid">
-<div class="info-card"><strong>📍 Coverage Area</strong><p>Kota Kinabalu – Tamparuli</p></div>
-<div class="info-card"><strong>⏱ Delivery Time</strong><p>Photo: 5–7 Working Days<br>Drone: 3–5 Working Days</p></div>
-<div class="info-card"><strong>➕ Add-ons</strong><p>Extra edited photos: RM5/photo</p></div>
+  <div class="info-card">
+    <div class="info-icon">📍</div>
+    <h4>Coverage Area</h4>
+    <p>Kota Kinabalu – Tamparuli</p>
+  </div>
+  <div class="info-card">
+    <div class="info-icon">⏱</div>
+    <h4>Delivery Time</h4>
+    <p>Photo: 5–7 Working Days<br>Drone: 3–5 Working Days</p>
+  </div>
+  <div class="info-card">
+    <div class="info-icon">➕</div>
+    <h4>Add-ons</h4>
+    <p>Extra edited photos: RM5/photo</p>
+  </div>
 </div>
 </section>
 
 <section id="faq">
 <h2>FAQ</h2>
-<div class="faq-item"><strong>Do you work on Saturdays?</strong><br><span style="color:#a1a1a6">No, due to Sabbath day.</span></div>
-<div class="faq-item"><strong>Can I choose portrait or landscape?</strong><br><span style="color:#a1a1a6">Yes, both formats are available based on your preference.</span></div>
-<div class="faq-item"><strong>What if weather is bad?</strong><br><span style="color:#a1a1a6">Rescheduling is available without penalty.</span></div>
-<div class="faq-item"><strong>How long will my files be available?</strong><br><span style="color:#a1a1a6">Delivered files will be shared via Google Drive and will remain accessible for 14 days only. Please download and back up your files as soon as you receive the link.</span></div>
+<div class="faq-accordion">
+
+  <div class="faq-item">
+    <button class="faq-question">Do you work on Saturdays? <span class="faq-icon">+</span></button>
+    <div class="faq-answer"><p>No, we are closed due to the Sabbath day. We are available for bookings Sunday through Friday!</p></div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-question">Can I choose portrait or landscape format? <span class="faq-icon">+</span></button>
+    <div class="faq-answer"><p>Yes! Both formats are available based on your preference. Just let us know if you need the content tailored for Instagram Reels/TikTok (Portrait) or YouTube/TV (Landscape).</p></div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-question">What happens if the weather is bad? <span class="faq-icon">+</span></button>
+    <div class="faq-answer"><p>Rescheduling is completely available without any penalty. Safe flying for our drones and getting the best lighting for your photos is our top priority.</p></div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-question">How long will my files be available? <span class="faq-icon">+</span></button>
+    <div class="faq-answer"><p>Delivered files will be shared via Google Drive and will remain accessible for <strong>14 days only</strong>. Please download and back up your files as soon as you receive the link, as access will expire after this period.</p></div>
+  </div>
+
+</div>
 </section>
 
 <div class="modal" id="bookingModal">
@@ -820,10 +715,29 @@ footer{padding:40px;background:#000;text-align:center;color:#777; font-size: 14p
 <script>
   const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 document.addEventListener("DOMContentLoaded",()=>{
-  /* =========================
+  
+/* =========================
+   FAQ ACCORDION LOGIC
+========================= */
+document.querySelectorAll(".faq-question").forEach(button => {
+  button.addEventListener("click", () => {
+    const item = button.parentElement;
+    
+    // Close all other open FAQs
+    document.querySelectorAll(".faq-item").forEach(otherItem => {
+      if (otherItem !== item) {
+        otherItem.classList.remove("active");
+      }
+    });
+
+    // Toggle the clicked FAQ
+    item.classList.toggle("active");
+  });
+});
+
+/* =========================
    BOOKING VALIDATION LOGIC
 ========================= */
-
 const nameInput = document.getElementById("clientName");
 const locationInput = document.getElementById("eventLocation");
 const dateInput = document.getElementById("eventDate");
@@ -908,7 +822,7 @@ modal.addEventListener("click", (e)=>{
   }
 });
 
-/* Portfolio Tabs */
+/* Portfolio Tabs (Underline Style) */
 document.querySelectorAll(".portfolio-tabs button").forEach(btn=>{
   btn.onclick=()=>{
     document.querySelectorAll(".portfolio-tabs button").forEach(b=>b.classList.remove("active"));
@@ -918,7 +832,7 @@ document.querySelectorAll(".portfolio-tabs button").forEach(btn=>{
   };
 });
 
-/* Package Tabs */
+/* Package Tabs (Segmented Control Style) */
 document.querySelectorAll(".package-tabs button").forEach(btn=>{
   btn.onclick=()=>{
     document.querySelectorAll(".package-tabs button").forEach(b=>b.classList.remove("active"));
