@@ -427,47 +427,20 @@ footer{padding:40px;background:#000;text-align:center;color:#777; font-size: 14p
 
 /* ===== MOBILE RESPONSIVENESS ===== */
 @media (max-width: 768px){
-  /* Adjust Navbar for mobile */
   html { scroll-padding-top: 90px; }
-  .navbar {
-    flex-wrap: wrap; 
-    justify-content: center; 
-    padding: 12px 5%;
-    gap: 8px;
-  }
-  .nav-logo {
-    width: 100%;
-    text-align: center;
-    font-size: 20px;
-  }
-  .nav-links {
-    width: 100%;
-    justify-content: center;
-    gap: 15px;
-  }
-  .nav-links a {
-    font-size: 13px;
-  }
-
+  .navbar { flex-wrap: wrap; justify-content: center; padding: 12px 5%; gap: 8px; }
+  .nav-logo { width: 100%; text-align: center; font-size: 20px; }
+  .nav-links { width: 100%; justify-content: center; gap: 15px; }
+  .nav-links a { font-size: 13px; }
   .glow-title-white { font-size: 36px; }
   .glow-title { font-size: 32px; }
-
-  /* Scale down portfolio images on mobile */
   .portfolio-scroll.landscape .portfolio-item { width: 260px; height: 160px; }
   .portfolio-scroll.portrait .portfolio-item { width: 180px; height: 280px; }
-  
-  /* Show Swipe Hint on Mobile */
   .swipe-hint { display: flex; }
-
-  /* Snap Scrolling for Mobile Packages */
-  .package-row {
-    display: flex; overflow-x: auto; scroll-snap-type: x mandatory;
-    padding-bottom: 30px; scroll-behavior: smooth; -webkit-overflow-scrolling: touch;
-  }
+  .package-row { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; padding-bottom: 30px; scroll-behavior: smooth; -webkit-overflow-scrolling: touch; }
   .package-row::-webkit-scrollbar { display: none; }
   .pricing-card { min-width: 85vw; scroll-snap-align: center; padding: 30px 24px; opacity: 0.6; transform: scale(0.95); }
   .pricing-card.in-view { opacity: 1; transform: scale(1); }
-
   .price { font-size: 38px; }
   .pricing-card h3 { font-size: 18px; }
   .pricing-card p { font-size: 13px; min-height: auto; }
@@ -498,19 +471,14 @@ footer{padding:40px;background:#000;text-align:center;color:#777; font-size: 14p
 
 <section id="portfolio">
 <h2 class="glow-title">Portfolio</h2>
-
 <div class="portfolio-tabs">
 <button class="active" data-album="photo">Photography</button>
 <button data-album="drone">Drone</button>
 </div>
-
 <div id="photo" class="portfolio-album active">
   <div class="slider-wrapper">
-    <div class="fade-left"></div>
-    <div class="fade-right"></div>
-    <div class="slider-arrow arrow-left">‹</div>
-    <div class="slider-arrow arrow-right">›</div>
-
+    <div class="fade-left"></div><div class="fade-right"></div>
+    <div class="slider-arrow arrow-left">‹</div><div class="slider-arrow arrow-right">›</div>
     <div class="portfolio-double">
       <div class="portfolio-scroll landscape">
         <div class="portfolio-item"><img src="camera-1.WEBP" loading="lazy" decoding="async" alt="Photography 1"></div>
@@ -524,14 +492,10 @@ footer{padding:40px;background:#000;text-align:center;color:#777; font-size: 14p
     </div>
   </div>
 </div>
-
 <div id="drone" class="portfolio-album">
   <div class="slider-wrapper">
-    <div class="fade-left"></div>
-    <div class="fade-right"></div>
-    <div class="slider-arrow arrow-left">‹</div>
-    <div class="slider-arrow arrow-right">›</div>
-
+    <div class="fade-left"></div><div class="fade-right"></div>
+    <div class="slider-arrow arrow-left">‹</div><div class="slider-arrow arrow-right">›</div>
     <div class="portfolio-scroll landscape">
       <div class="portfolio-item"><img src="drone-1.WEBP" loading="lazy" decoding="async" alt="Drone 1"></div>
       <div class="portfolio-item"><img src="drone-2.WEBP" loading="lazy" decoding="async" alt="Drone 2"></div>
@@ -542,121 +506,60 @@ footer{padding:40px;background:#000;text-align:center;color:#777; font-size: 14p
     </div>
   </div>
 </div>
-
 </section>
 
 <section id="packages">
-  
 <h2 class="glow-title">Our Packages</h2>
-
 <div class="package-tabs-wrapper">
   <div class="package-tabs">
     <button class="active" data-pkg="drone-packages">Drone</button>
     <button data-pkg="photo-packages">Photography</button>
   </div>
 </div>
-
-<div class="swipe-hint">
-  <span class="arrow-left">←</span> Swipe to explore <span class="arrow-right">→</span>
-</div>
+<div class="swipe-hint"><span class="arrow-left">←</span> Swipe to explore <span class="arrow-right">→</span></div>
 
 <div id="drone-packages" class="package-group active">
   <div class="package-row">
-
     <div class="pricing-card">
         <h3>Starter Aerial (Raw)</h3>
         <div class="price">RM100</div>
-        <p>Entry-level drone service for clients who only need original footage. Ideal for personal editing.</p>
-        <ul class="details">
-          <li>⏱ 15–20 mins flight time</li>
-          <li>🎬 Raw footage (no editing)</li>
-          <li>🎥 2.7K resolution</li>
-          <li>📱 Portrait or landscape</li>
-        </ul>
+        <p>Entry-level drone service for clients who only need original footage.</p>
+        <ul class="details"><li>⏱ 15–20 mins flight</li><li>🎬 Raw footage</li><li>🎥 2.7K</li><li>📱 Portrait/landscape</li></ul>
         <button class="btn choose-btn" data-package="Starter Aerial (Raw) – RM100">Choose Package</button>
-      </div>
-      
+    </div>
     <div class="pricing-card">
       <h3>Mini Aerial</h3>
       <div class="price">RM150</div>
-      <p>Quick aerial coverage suitable for location preview, social media, and small highlights.</p>
-      <ul class="details">
-        <li>⏱ 15–20 mins flight time</li>
-        <li>🎬 30–45 sec edited video</li>
-        <li>🎥 2.7K quality</li>
-        <li>📱 Portrait or landscape</li>
-      </ul>
+      <p>Quick aerial coverage for social media highlights.</p>
+      <ul class="details"><li>⏱ 15–20 mins flight</li><li>🎬 Edited video</li><li>🎥 2.7K</li><li>📱 Portrait/landscape</li></ul>
       <button class="btn choose-btn" data-package="Mini Aerial – RM150">Choose Package</button>
     </div>
-
     <div class="pricing-card popular">
       <h3>Standard Promo</h3>
       <div class="price">RM200</div>
-      <p>Cinematic drone footage with smooth motion and professional color grading. Ideal for events.</p>
-      <ul class="details">
-        <li>⏱ 20–30 mins flight time</li>
-        <li>🎬 ~60 sec edited video</li>
-        <li>🎥 4K quality</li>
-        <li>📱 Portrait or landscape</li>
-      </ul>
+      <p>Cinematic drone footage with professional grading.</p>
+      <ul class="details"><li>⏱ 20–30 mins flight</li><li>🎬 ~60 sec edit</li><li>🎥 4K</li><li>📱 Portrait/landscape</li></ul>
       <button class="btn choose-btn" data-package="Standard Promo – RM200">Choose Package</button>
     </div>
-
-    <div class="pricing-card">
-      <h3>Extended Event</h3>
-      <div class="price">RM350</div>
-      <p>Extended aerial coverage with multiple angles and detailed location showcase. Best for larger venues.</p>
-      <ul class="details">
-        <li>⏱ Up to 1 hour coverage</li>
-        <li>🎬 75–90 sec edited video</li>
-        <li>🎥 4K quality</li>
-        <li>📱 Portrait & landscape</li>
-      </ul>
-      <button class="btn choose-btn" data-package="Extended Event – RM350">Choose Package</button>
-    </div>
-
   </div>
 </div>
 
 <div id="photo-packages" class="package-group">
   <div class="package-row">
-
     <div class="pricing-card">
       <h3>Basic Session</h3>
       <div class="price">RM100</div>
-      <p>Short photography session for small gatherings, birthday parties, or simple personal events.</p>
-      <ul class="details">
-        <li>⏱ 30–45 minutes session</li>
-        <li>📸 15 edited photos</li>
-        <li>🎨 Basic color correction</li>
-      </ul>
+      <p>Short photography session for small gatherings.</p>
+      <ul class="details"><li>⏱ 45 mins</li><li>📸 15 photos</li><li>🎨 Basic correction</li></ul>
       <button class="btn choose-btn" data-package="Basic Session – RM100">Choose Package</button>
     </div>
-
     <div class="pricing-card popular">
       <h3>Standard Event</h3>
       <div class="price">RM200</div>
-      <p>Balanced coverage for birthdays, engagements, and pre-events. Meaningful moments preserved.</p>
-      <ul class="details">
-        <li>⏱ 1–1.5 hour session</li>
-        <li>📸 30 edited photos</li>
-        <li>🎨 Professional color grading</li>
-      </ul>
+      <p>Balanced coverage for birthdays and engagements.</p>
+      <ul class="details"><li>⏱ 1.5 hour</li><li>📸 30 photos</li><li>🎨 Pro grading</li></ul>
       <button class="btn choose-btn" data-package="Standard Event – RM200">Choose Package</button>
     </div>
-
-    <div class="pricing-card">
-      <h3>Premium Small Event</h3>
-      <div class="price">RM300</div>
-      <p>Extended photography coverage for clients who want fuller storytelling and more moments.</p>
-      <ul class="details">
-        <li>⏱ Up to 2 hours session</li>
-        <li>📸 50 edited photos</li>
-        <li>🎨 Full professional color grading</li>
-      </ul>
-      <button class="btn choose-btn" data-package="Premium Small Event – RM300">Choose Package</button>
-    </div>
-
   </div>
 </div>
 
@@ -666,58 +569,9 @@ footer{padding:40px;background:#000;text-align:center;color:#777; font-size: 14p
     <span class="badge">Best Value</span>
     <h3>Photo + Drone Combo</h3>
     <div class="price">RM280</div>
-    <p>Perfect for small events that need both ground and aerial coverage. Includes photography highlights and a cinematic drone video.</p>
-    <ul class="details">
-      <li>⏱ 1 hour photography session</li>
-      <li>📸 30 professionally edited photos</li>
-      <li>🎬 ~60 sec cinematic drone video</li>
-      <li>🎥 Drone quality up to 4K</li>
-      <li>📱 Portrait & landscape format</li>
-    </ul>
+    <p>Complete ground and aerial coverage for your event.</p>
+    <ul class="details"><li>⏱ 1 hour photo</li><li>📸 30 photos</li><li>🎬 Cinematic drone</li><li>🎥 4K</li></ul>
     <button class="btn choose-btn" data-package="Photo + Drone Combo – RM280">Choose Package</button>
-  </div>
-</div>
-
-</section>
-
-<section>
-<h2>How Booking Works</h2>
-<div class="info-grid">
-  <div class="info-card">
-    <div class="info-icon">📦</div>
-    <h4>1. Choose Package</h4>
-    <p>Select the service that fits your event.</p>
-  </div>
-  <div class="info-card">
-    <div class="info-icon">📅</div>
-    <h4>2. Select Details</h4>
-    <p>Pick your date and location via the booking form.</p>
-  </div>
-  <div class="info-card">
-    <div class="info-icon">💬</div>
-    <h4>3. Confirm</h4>
-    <p>Send the automated message to WhatsApp to lock it in.</p>
-  </div>
-</div>
-</section>
-
-<section>
-<h2>Service Info</h2>
-<div class="info-grid">
-  <div class="info-card">
-    <div class="info-icon">📍</div>
-    <h4>Coverage Area</h4>
-    <p>Kota Kinabalu – Tamparuli</p>
-  </div>
-  <div class="info-card">
-    <div class="info-icon">⏱</div>
-    <h4>Delivery Time</h4>
-    <p>Photo: 5–7 Working Days<br>Drone: 3–5 Working Days</p>
-  </div>
-  <div class="info-card">
-    <div class="info-icon">➕</div>
-    <h4>Add-ons</h4>
-    <p>Extra edited photos: RM5/photo</p>
   </div>
 </div>
 </section>
@@ -725,223 +579,116 @@ footer{padding:40px;background:#000;text-align:center;color:#777; font-size: 14p
 <section id="faq">
 <h2>FAQ</h2>
 <div class="faq-accordion">
-
   <div class="faq-item">
     <button class="faq-question">Do you work on Saturdays? <span class="faq-icon">+</span></button>
-    <div class="faq-answer"><p>No, we are closed due to the Sabbath day. We are available for bookings Sunday through Friday!</p></div>
+    <div class="faq-answer"><p>No, we are closed for the Sabbath day. Sunday-Friday available!</p></div>
   </div>
-
   <div class="faq-item">
-    <button class="faq-question">Can I choose portrait or landscape format? <span class="faq-icon">+</span></button>
-    <div class="faq-answer"><p>Yes! Both formats are available based on your preference. Just let us know if you need the content tailored for Instagram Reels/TikTok (Portrait) or YouTube/TV (Landscape).</p></div>
+    <button class="faq-question">What about bad weather? <span class="faq-icon">+</span></button>
+    <div class="faq-answer"><p>Rescheduling is free! Safety first.</p></div>
   </div>
-
-  <div class="faq-item">
-    <button class="faq-question">What happens if the weather is bad? <span class="faq-icon">+</span></button>
-    <div class="faq-answer"><p>Rescheduling is completely available without any penalty. Safe flying for our drones and getting the best lighting for your photos is our top priority.</p></div>
-  </div>
-
-  <div class="faq-item">
-    <button class="faq-question">How long will my files be available? <span class="faq-icon">+</span></button>
-    <div class="faq-answer"><p>Delivered files will be shared via Google Drive and will remain accessible for <strong>14 days only</strong>. Please download and back up your files as soon as you receive the link, as access will expire after this period.</p></div>
-  </div>
-
 </div>
 </section>
 
 <div class="modal" id="bookingModal">
 <div class="modal-content">
 <span class="close-btn" id="closeModal">✕</span>
-<h3 id="selectedPackage" style="font-size: 20px; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 15px; margin-bottom: 20px;"></h3>
+<h3 id="selectedPackage"></h3>
 <label>Name</label><input id="clientName" placeholder="Your full name">
-<label>Location</label><input id="eventLocation" placeholder="Event location (e.g. Tamparuli)">
+<label>Location</label><input id="eventLocation" placeholder="Event location">
 <label>Date</label><input type="date" id="eventDate">
 <button class="btn" id="confirmBtn" disabled>Confirm Booking</button>
 </div>
 </div>
 
-<a href="https://wa.me/601139346782" target="_blank" rel="noopener noreferrer" class="floating-wa">💬</a>
+<a href="javascript:void(0)" onclick="handleWhatsAppRedirect()" class="floating-wa">💬</a>
 
 <footer>© 2026 Kichil Captures</footer>
 
 <script>
-  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-document.addEventListener("DOMContentLoaded",()=>{
+// MASTER WHATSAPP REDIRECT FUNCTION (TikTok Bypass)
+function handleWhatsAppRedirect(customMessage) {
+  const phone = "601139346782";
+  const defaultMsg = "Hello Kichil Captures, I would like to inquire about your services.";
+  const text = encodeURIComponent(customMessage || defaultMsg);
   
-/* =========================
-   FAQ ACCORDION LOGIC
-========================= */
-document.querySelectorAll(".faq-question").forEach(button => {
-  button.addEventListener("click", () => {
-    const item = button.parentElement;
-    
-    document.querySelectorAll(".faq-item").forEach(otherItem => {
-      if (otherItem !== item) {
-        otherItem.classList.remove("active");
-      }
-    });
+  const waUrl = `https://wa.me/${phone}?text=${text}`;
+  const schemeUrl = `whatsapp://send?phone=${phone}&text=${text}`;
 
-    item.classList.toggle("active");
-  });
-});
+  // Try opening the app scheme first (often works in TikTok/IG when https fails)
+  window.location.assign(schemeUrl);
 
-/* =========================
-   BOOKING VALIDATION LOGIC
-========================= */
-const nameInput = document.getElementById("clientName");
-const locationInput = document.getElementById("eventLocation");
-const dateInput = document.getElementById("eventDate");
-const confirmBtn = document.getElementById("confirmBtn");
-
-/* Disable Saturdays */
-dateInput.addEventListener("input", () => {
-  const selectedDate = new Date(dateInput.value);
-  if (selectedDate.getDay() === 6) { // 6 = Saturday
-    alert("Saturday is not available due to Sabbath day.");
-    dateInput.value = "";
-  }
-  validateForm();
-});
-
-/* Validate form fields */
-function validateForm() {
-  if (
-    nameInput.value.trim() !== "" &&
-    locationInput.value.trim() !== "" &&
-    dateInput.value !== ""
-  ) {
-    confirmBtn.disabled = false;
-    confirmBtn.style.opacity = "1";
-    confirmBtn.style.cursor = "pointer";
-  } else {
-    confirmBtn.disabled = true;
-    confirmBtn.style.cursor = "not-allowed";
-  }
+  // Fallback to web link if the scheme doesn't trigger after 500ms
+  setTimeout(() => {
+    window.open(waUrl, '_blank');
+  }, 500);
 }
 
-nameInput.addEventListener("input", validateForm);
-locationInput.addEventListener("input", validateForm);
+document.addEventListener("DOMContentLoaded",()=>{
+  const nameInput = document.getElementById("clientName");
+  const locationInput = document.getElementById("eventLocation");
+  const dateInput = document.getElementById("eventDate");
+  const confirmBtn = document.getElementById("confirmBtn");
+  const modal = document.getElementById("bookingModal");
+  const selectedPackage = document.getElementById("selectedPackage");
 
-/* WhatsApp Send */
-confirmBtn.addEventListener("click", () => {
-  const message =
-    "Hello Kichil Captures\n\n" +
-    "Package: " + selectedPackage.textContent + "\n" +
-    "Name: " + nameInput.value + "\n" +
-    "Location: " + locationInput.value + "\n" +
-    "Date: " + dateInput.value + "\n\n" +
-    "Looking forward to your confirmation.";
-
-  const encodedMessage = encodeURIComponent(message);
-  // Using window.open with the wa.me format bypasses in-app browser restrictions
-  window.open(`https://wa.me/601139346782?text=${encodedMessage}`, '_blank');
-});
- 
-/* BOOKING MODAL – OPEN */
-const modal = document.getElementById("bookingModal");
-const selectedPackage = document.getElementById("selectedPackage");
-const closeModal = document.getElementById("closeModal");
-
-document.querySelectorAll(".choose-btn").forEach(btn=>{
-  btn.addEventListener("click", ()=>{
-    document.querySelectorAll(".pricing-card").forEach(card=>card.classList.remove("selected"));
-    
-    const card = btn.closest(".pricing-card");
-    card.classList.add("selected");
-    
-    selectedPackage.textContent = btn.dataset.package;
-    nameInput.value = "";
-    locationInput.value = "";
-    dateInput.value = "";
-    confirmBtn.disabled = true;
-    confirmBtn.style.cursor = "not-allowed";
-
-    modal.style.display = "flex";
-    document.body.classList.add("no-scroll");
+  // FAQ logic
+  document.querySelectorAll(".faq-question").forEach(button => {
+    button.addEventListener("click", () => {
+      button.parentElement.classList.toggle("active");
+    });
   });
-});
 
-/* CLOSE MODAL */
-closeModal.addEventListener("click", ()=>{
-  modal.style.display = "none";
-  document.body.classList.remove("no-scroll");
-});
-modal.addEventListener("click", (e)=>{
-  if(e.target === modal){
+  // Date restriction
+  dateInput.addEventListener("input", () => {
+    if (new Date(dateInput.value).getDay() === 6) {
+      alert("Saturday is not available.");
+      dateInput.value = "";
+    }
+    validateForm();
+  });
+
+  function validateForm() {
+    confirmBtn.disabled = !(nameInput.value.trim() && locationInput.value.trim() && dateInput.value);
+  }
+  nameInput.addEventListener("input", validateForm);
+  locationInput.addEventListener("input", validateForm);
+
+  confirmBtn.addEventListener("click", () => {
+    const msg = `Hello Kichil Captures\n\nPackage: ${selectedPackage.textContent}\nName: ${nameInput.value}\nLocation: ${locationInput.value}\nDate: ${dateInput.value}`;
+    handleWhatsAppRedirect(msg);
+  });
+
+  document.querySelectorAll(".choose-btn").forEach(btn=>{
+    btn.addEventListener("click", ()=>{
+      selectedPackage.textContent = btn.dataset.package;
+      modal.style.display = "flex";
+      document.body.classList.add("no-scroll");
+    });
+  });
+
+  document.getElementById("closeModal").onclick = () => {
     modal.style.display = "none";
     document.body.classList.remove("no-scroll");
-  }
-});
-
-/* Portfolio Tabs (Underline Style) */
-document.querySelectorAll(".portfolio-tabs button").forEach(btn=>{
-  btn.onclick=()=>{
-    document.querySelectorAll(".portfolio-tabs button").forEach(b=>b.classList.remove("active"));
-    document.querySelectorAll(".portfolio-album").forEach(a=>a.classList.remove("active"));
-    btn.classList.add("active");
-    document.getElementById(btn.dataset.album).classList.add("active");
   };
-});
 
-/* Package Tabs (Segmented Control Style) */
-document.querySelectorAll(".package-tabs button").forEach(btn=>{
-  btn.onclick=()=>{
-    document.querySelectorAll(".package-tabs button").forEach(b=>b.classList.remove("active"));
-    document.querySelectorAll(".package-group").forEach(g=>g.classList.remove("active"));
-    btn.classList.add("active");
-    document.getElementById(btn.dataset.pkg).classList.add("active");
-    
-    // Reset scroll positions when switching tabs on mobile
-    document.querySelectorAll(".package-row").forEach(row => {
-      row.scrollLeft = 0;
-    });
-  };
-});
-
-/* AUTO SCROLL */
-document.querySelectorAll(".slider-wrapper").forEach(wrapper=>{
-  const tracks = wrapper.querySelectorAll(".portfolio-scroll");
-  let auto = true;
-  let scroll = 0;
-
-  tracks.forEach(track=>{ track.innerHTML += track.innerHTML; });
-
-  function loop(){
-   if(auto && !prefersReducedMotion){
-      scroll += 0.4;
-      tracks.forEach(track=>{
-        if(scroll >= track.scrollWidth / 2) scroll = 0;
-        track.scrollLeft = scroll;
-      });
-    }
-    requestAnimationFrame(loop);
-  }
-  loop();
-
-  wrapper.addEventListener("mouseenter",()=>auto=false);
-  wrapper.addEventListener("mouseleave",()=>auto=true);
-
-  wrapper.querySelector(".arrow-left").onclick = ()=> tracks.forEach(t=>t.scrollBy({left:-300, behavior:"smooth"}));
-  wrapper.querySelector(".arrow-right").onclick = ()=> tracks.forEach(t=>t.scrollBy({left:300, behavior:"smooth"}));
-});
-
-/* MOBILE SCROLL FOCUS EFFECT */
-const packageObserver = new IntersectionObserver(
-  (entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add("in-view");
-      } else {
-        entry.target.classList.remove("in-view");
-      }
-    });
-  },
-  { root: null, threshold: 0.6 }
-);
-
-document.querySelectorAll(".pricing-card").forEach(card => packageObserver.observe(card));
+  // Tab Logic
+  document.querySelectorAll(".portfolio-tabs button").forEach(btn=>{
+    btn.onclick=()=>{
+      document.querySelectorAll(".portfolio-tabs button, .portfolio-album").forEach(el=>el.classList.remove("active"));
+      btn.classList.add("active");
+      document.getElementById(btn.dataset.album).classList.add("active");
+    };
+  });
+  
+  document.querySelectorAll(".package-tabs button").forEach(btn=>{
+    btn.onclick=()=>{
+      document.querySelectorAll(".package-tabs button, .package-group").forEach(el=>el.classList.remove("active"));
+      btn.classList.add("active");
+      document.getElementById(btn.dataset.pkg).classList.add("active");
+    };
+  });
 });
 </script>
-
 </body>
 </html>
