@@ -760,7 +760,7 @@ footer{padding:40px;background:#000;text-align:center;color:#777; font-size: 14p
 </div>
 </div>
 
-<a href="https://wa.me/601139346782" class="floating-wa">💬</a>
+<a href="https://wa.me/601139346782" target="_blank" rel="noopener noreferrer" class="floating-wa">💬</a>
 
 <footer>© 2026 Kichil Captures</footer>
 
@@ -833,7 +833,8 @@ confirmBtn.addEventListener("click", () => {
     "Looking forward to your confirmation.";
 
   const encodedMessage = encodeURIComponent(message);
-  window.location.href = `https://api.whatsapp.com/send?phone=601139346782&text=${encodedMessage}`;
+  // Using window.open with the wa.me format bypasses in-app browser restrictions
+  window.open(`https://wa.me/601139346782?text=${encodedMessage}`, '_blank');
 });
  
 /* BOOKING MODAL – OPEN */
