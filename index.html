@@ -166,15 +166,23 @@ animation:bounce 1.8s infinite
 60%{transform:translate(-50%,-5px)}
 }
 
-/* PORTFOLIO */
-.portfolio-tabs{display:flex;justify-content:center;gap:12px;margin-bottom:25px}
-.portfolio-tabs button{
+/* PORTFOLIO & PACKAGE TABS */
+.portfolio-tabs, .package-tabs{display:flex;justify-content:center;gap:12px;margin-bottom:25px}
+.package-tabs{margin-top: 50px;}
+.portfolio-tabs button, .package-tabs button{
 padding:10px 26px;border-radius:30px;border:none;
-background:#1a1a1a;color:#bbb;font-weight:600;cursor:pointer
+background:#1a1a1a;color:#bbb;font-weight:600;cursor:pointer;
+transition: all 0.3s ease;
 }
-.portfolio-tabs button.active{background:#25D366;color:#fff}
-.portfolio-album{display:none;position:relative}
-.portfolio-album.active{display:block}
+.portfolio-tabs button.active, .package-tabs button.active{background:#25D366;color:#fff}
+
+.portfolio-album, .package-group{display:none;position:relative}
+.portfolio-album.active, .package-group.active{display:block; animation: fadeIn 0.4s ease;}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
 
 /* SLIDER UPGRADE */
 .slider-wrapper{position:relative;overflow:hidden}
@@ -528,7 +536,6 @@ footer{padding:30px;background:#111;text-align:center;color:#777}
 
 <body>
 
-<!-- HERO -->
 <section class="hero">
 <div>
 <h1 class="glow-title-white">Kichil Captures</h1>
@@ -538,8 +545,6 @@ footer{padding:30px;background:#111;text-align:center;color:#777}
 <div class="scroll-down" onclick="document.getElementById('portfolio').scrollIntoView({behavior:'smooth'})">↓</div>
 </section>
 
-<!-- PORTFOLIO -->
-<!-- PORTFOLIO -->
 <section id="portfolio">
 <h2 class="glow-title">Portfolio</h2>
 
@@ -548,7 +553,6 @@ footer{padding:30px;background:#111;text-align:center;color:#777}
 <button data-album="drone">Drone</button>
 </div>
 
-<!-- PHOTOGRAPHY -->
 <div id="photo" class="portfolio-album active">
   <div class="slider-wrapper">
     <div class="fade-left"></div>
@@ -558,7 +562,6 @@ footer{padding:30px;background:#111;text-align:center;color:#777}
 
     <div class="portfolio-double">
 
-      <!-- LANDSCAPE ROW -->
       <div class="portfolio-scroll landscape">
         <div class="portfolio-item">
           <img src="camera-1.WEBP" loading="lazy" decoding="async">
@@ -571,7 +574,6 @@ footer{padding:30px;background:#111;text-align:center;color:#777}
         </div>
       </div>
 
-      <!-- PORTRAIT ROW -->
       <div class="portfolio-scroll portrait">
         <div class="portfolio-item">
           <img src="camera-3.jpg" loading="lazy" decoding="async">
@@ -585,7 +587,6 @@ footer{padding:30px;background:#111;text-align:center;color:#777}
   </div>
 </div>
 
-<!-- DRONE -->
 <div id="drone" class="portfolio-album">
   <div class="slider-wrapper">
     <div class="fade-left"></div>
@@ -618,7 +619,6 @@ footer{padding:30px;background:#111;text-align:center;color:#777}
 
 </section>
 
-<!-- PACKAGES -->
 <section id="packages">
   
 <h2> COMBO PACKAGE (BEST VALUE)</h2>
@@ -641,130 +641,136 @@ Includes photography highlights and a cinematic drone video with smooth movement
 </div>
 </div>
 
-<h2 style="margin-top:60px">Drone Packages</h2>
-<div class="package-row">
+<div class="package-tabs">
+  <button class="active" data-pkg="drone-packages">Drone</button>
+  <button data-pkg="photo-packages">Photography</button>
+</div>
 
-<div class="pricing-card">
-    <h3>Starter Aerial (Raw)</h3>
-    <div class="price">RM100</div>
+<div id="drone-packages" class="package-group active">
+  <div class="package-row">
+
+    <div class="pricing-card">
+        <h3>Starter Aerial (Raw)</h3>
+        <div class="price">RM100</div>
+        <p>
+          Entry-level drone service for clients who only need original footage.
+          Ideal for previews, documentation, or personal editing.
+        </p>
+        <ul class="details">
+          <li>⏱ 15–20 minutes flight time</li>
+          <li>🎬 Raw footage (no editing, no color grading)</li>
+          <li>🎥 2.7K resolution</li>
+          <li>📱 Portrait or landscape (choose one)</li>
+        </ul>
+        <button class="btn choose-btn" data-package="Starter Aerial (Raw) – RM100">
+          Choose Package
+        </button>
+      </div>
+      
+    <div class="pricing-card">
+    <h3>Mini Aerial</h3>
+    <div class="price">RM150</div>
     <p>
-      Entry-level drone service for clients who only need original footage.
-      Ideal for previews, documentation, or personal editing.
+    Quick aerial coverage suitable for location preview, social media, and small venue highlights.
+    Clean, simple, and efficient.
     </p>
     <ul class="details">
-      <li>⏱ 15–20 minutes flight time</li>
-      <li>🎬 Raw footage (no editing, no color grading)</li>
-      <li>🎥 2.7K resolution</li>
-      <li>📱 Portrait or landscape (choose one)</li>
+    <li>⏱ 15–20 minutes flight time</li>
+    <li>🎬 30–45 sec edited video</li>
+    <li>🎥 2.7K quality</li>
+    <li>📱 Portrait or landscape format</li>
     </ul>
-    <button class="btn choose-btn" data-package="Starter Aerial (Raw) – RM100">
-      Choose Package
-    </button>
+    <button class="btn choose-btn" data-package="Mini Aerial – RM150">Choose Package</button>
+    </div>
+
+    <div class="pricing-card">
+    <h3>Standard Promo</h3>
+    <div class="price">RM200</div>
+    <p>
+    Cinematic drone footage with smooth motion and professional color grading.
+    Ideal for events and promotional content.
+    </p>
+    <ul class="details">
+    <li>⏱ 20–30 minutes flight time</li>
+    <li>🎬 ~60 sec edited video</li>
+    <li>🎥 4K quality</li>
+    <li>📱 Portrait or landscape format</li>
+    </ul>
+    <button class="btn choose-btn" data-package="Standard Promo – RM200">Choose Package</button>
+    </div>
+
+    <div class="pricing-card">
+    <h3>Extended Event</h3>
+    <div class="price">RM300–350</div>
+    <p>
+    Extended aerial coverage with multiple angles and detailed location showcase.
+    Best for larger venues or marketing usage.
+    </p>
+    <ul class="details">
+    <li>⏱ Up to 1 hour coverage</li>
+    <li>🎬 75–90 sec edited video</li>
+    <li>🎥 4K quality</li>
+    <li>📱 Portrait & landscape format</li>
+    </ul>
+    <button class="btn choose-btn" data-package="Extended Event – RM300–350">Choose Package</button>
+    </div>
+
   </div>
-  
-<div class="pricing-card">
-<h3>Mini Aerial</h3>
-<div class="price">RM150</div>
-<p>
-Quick aerial coverage suitable for location preview, social media, and small venue highlights.
-Clean, simple, and efficient.
-</p>
-<ul class="details">
-<li>⏱ 15–20 minutes flight time</li>
-<li>🎬 30–45 sec edited video</li>
-<li>🎥 2.7K quality</li>
-<li>📱 Portrait or landscape format</li>
-</ul>
-<button class="btn choose-btn" data-package="Mini Aerial – RM150">Choose Package</button>
 </div>
 
-<div class="pricing-card">
-<h3>Standard Promo</h3>
-<div class="price">RM200</div>
-<p>
-Cinematic drone footage with smooth motion and professional color grading.
-Ideal for events and promotional content.
-</p>
-<ul class="details">
-<li>⏱ 20–30 minutes flight time</li>
-<li>🎬 ~60 sec edited video</li>
-<li>🎥 4K quality</li>
-<li>📱 Portrait or landscape format</li>
-</ul>
-<button class="btn choose-btn" data-package="Standard Promo – RM200">Choose Package</button>
-</div>
+<div id="photo-packages" class="package-group">
+  <div class="package-row">
 
-<div class="pricing-card">
-<h3>Extended Event</h3>
-<div class="price">RM300–350</div>
-<p>
-Extended aerial coverage with multiple angles and detailed location showcase.
-Best for larger venues or marketing usage.
-</p>
-<ul class="details">
-<li>⏱ Up to 1 hour coverage</li>
-<li>🎬 75–90 sec edited video</li>
-<li>🎥 4K quality</li>
-<li>📱 Portrait & landscape format</li>
-</ul>
-<button class="btn choose-btn" data-package="Extended Event – RM300–350">Choose Package</button>
-</div>
+    <div class="pricing-card">
+    <h3>Basic Session</h3>
+    <div class="price">RM100</div>
+    <p>
+    Short photography session for small gatherings, birthday parties,
+    or simple personal events with clean and natural editing.
+    </p>
+    <ul class="details">
+    <li>⏱ 30–45 minutes session</li>
+    <li>📸 15 edited photos</li>
+    <li>🎨 Basic color correction</li>
+    </ul>
+    <button class="btn choose-btn" data-package="Basic Session – RM100">Choose Package</button>
+    </div>
 
-</div>
+    <div class="pricing-card popular">
+    <h3>Standard Event</h3>
+    <div class="price">RM200</div>
+    <p>
+    Balanced coverage for birthdays, engagements, graduations, and pre-events.
+    Focused on capturing meaningful moments with consistent editing style.
+    </p>
+    <ul class="details">
+    <li>⏱ 1–1.5 hour session</li>
+    <li>📸 30 edited photos</li>
+    <li>🎨 Professional color grading</li>
+    </ul>
+    <button class="btn choose-btn" data-package="Standard Event – RM200">Choose Package</button>
+    </div>
 
-<h2 style="margin-top:60px">Photography Packages</h2>
-<div class="package-row">
+    <div class="pricing-card">
+    <h3>Premium Small Event</h3>
+    <div class="price">RM300</div>
+    <p>
+    Extended photography coverage for clients who want fuller storytelling
+    and more moments preserved.
+    </p>
+    <ul class="details">
+    <li>⏱ Up to 2 hours session</li>
+    <li>📸 50 edited photos</li>
+    <li>🎨 Full professional color grading</li>
+    </ul>
+    <button class="btn choose-btn" data-package="Premium Small Event – RM300">Choose Package</button>
+    </div>
 
-<div class="pricing-card">
-<h3>Basic Session</h3>
-<div class="price">RM100</div>
-<p>
-Short photography session for small gatherings, birthday parties,
-or simple personal events with clean and natural editing.
-</p>
-<ul class="details">
-<li>⏱ 30–45 minutes session</li>
-<li>📸 15 edited photos</li>
-<li>🎨 Basic color correction</li>
-</ul>
-<button class="btn choose-btn" data-package="Basic Session – RM100">Choose Package</button>
-</div>
-
-<div class="pricing-card popular">
-<h3>Standard Event</h3>
-<div class="price">RM200</div>
-<p>
-Balanced coverage for birthdays, engagements, graduations, and pre-events.
-Focused on capturing meaningful moments with consistent editing style.
-</p>
-<ul class="details">
-<li>⏱ 1–1.5 hour session</li>
-<li>📸 30 edited photos</li>
-<li>🎨 Professional color grading</li>
-</ul>
-<button class="btn choose-btn" data-package="Standard Event – RM200">Choose Package</button>
-</div>
-
-<div class="pricing-card">
-<h3>Premium Small Event</h3>
-<div class="price">RM300</div>
-<p>
-Extended photography coverage for clients who want fuller storytelling
-and more moments preserved.
-</p>
-<ul class="details">
-<li>⏱ Up to 2 hours session</li>
-<li>📸 50 edited photos</li>
-<li>🎨 Full professional color grading</li>
-</ul>
-<button class="btn choose-btn" data-package="Premium Small Event – RM300">Choose Package</button>
-</div>
-
+  </div>
 </div>
 
 </section>
 
-<!-- HOW BOOKING WORKS -->
 <section>
 <h2>How Booking Works</h2>
 <div class="info-grid">
@@ -774,7 +780,6 @@ and more moments preserved.
 </div>
 </section>
 
-<!-- SERVICE INFO -->
 <section>
 <h2>Service Info</h2>
 <div class="info-grid">
@@ -784,7 +789,6 @@ and more moments preserved.
 </div>
 </section>
 
-<!-- FAQ -->
 <section>
 <h2>FAQ</h2>
 <div class="faq-item"><strong>Do you work on Saturdays?</strong> No, due to Sabbath day.</div>
@@ -796,7 +800,6 @@ Please download and back up your files as soon as you receive the link, as acces
 </div>
 </section>
 
-<!-- BOOKING MODAL -->
 <div class="modal" id="bookingModal">
 <div class="modal-content">
 <span class="close-btn" id="closeModal">✕</span>
@@ -936,13 +939,24 @@ modal.addEventListener("click", (e)=>{
     modal.style.display = "none";
   }
 });
-/* Tabs */
+
+/* Portfolio Tabs */
 document.querySelectorAll(".portfolio-tabs button").forEach(btn=>{
   btn.onclick=()=>{
     document.querySelectorAll(".portfolio-tabs button").forEach(b=>b.classList.remove("active"));
     document.querySelectorAll(".portfolio-album").forEach(a=>a.classList.remove("active"));
     btn.classList.add("active");
     document.getElementById(btn.dataset.album).classList.add("active");
+  };
+});
+
+/* Package Tabs */
+document.querySelectorAll(".package-tabs button").forEach(btn=>{
+  btn.onclick=()=>{
+    document.querySelectorAll(".package-tabs button").forEach(b=>b.classList.remove("active"));
+    document.querySelectorAll(".package-group").forEach(g=>g.classList.remove("active"));
+    btn.classList.add("active");
+    document.getElementById(btn.dataset.pkg).classList.add("active");
   };
 });
 
