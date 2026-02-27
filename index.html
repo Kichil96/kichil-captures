@@ -10,7 +10,55 @@
 <style>
   html {
   scroll-behavior: smooth;
+  scroll-padding-top: 70px; /* Prevents anchor links from hiding behind the navbar */
 }
+
+/* ===== NAVBAR ===== */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: rgba(14, 14, 14, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  z-index: 2000;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 5%;
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+.nav-logo {
+  font-weight: 800;
+  font-size: 22px;
+  color: #fff;
+  text-decoration: none;
+  letter-spacing: 1px;
+}
+.nav-logo span {
+  color: #25D366;
+}
+.nav-links {
+  display: flex;
+  gap: 20px;
+}
+.nav-links a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+.nav-links a:hover {
+  color: #25D366;
+}
+
+/* ===== MODAL BACKGROUND LOCK ===== */
+body.no-scroll {
+  overflow: hidden;
+}
+
 /* ===== COMBO PACKAGE DESKTOP FIX ===== */
 .combo-row{
   justify-content: center;
@@ -346,7 +394,7 @@ cursor:pointer;z-index:3;opacity:.8
 .modal{
 display:none;position:fixed;inset:0;
 background:rgba(0,0,0,.85);
-align-items:center;justify-content:center;z-index:999
+align-items:center;justify-content:center;z-index:3000; /* Increased to stay above navbar */
 }
 .modal-content{
 background:#1a1a1a;padding:28px;border-radius:20px;
@@ -481,8 +529,16 @@ box-shadow:
   transform: scale(0.96);
 }
 footer{padding:30px;background:#111;text-align:center;color:#777}
-  /* ===== MOBILE PACKAGE CARD POLISH ===== */
+  /* ===== MOBILE PACKAGE CARD POLISH & TEXT SCALE ===== */
 @media (max-width: 768px){
+
+  /* Scale down glowing titles for small screens */
+  .glow-title-white {
+    font-size: 36px;
+  }
+  .glow-title {
+    font-size: 32px;
+  }
 
   /* Make card more compact */
   .pricing-card{
@@ -536,6 +592,15 @@ footer{padding:30px;background:#111;text-align:center;color:#777}
 
 <body>
 
+<nav class="navbar">
+  <a href="#" class="nav-logo">Kichil<span>Captures</span></a>
+  <div class="nav-links">
+    <a href="#portfolio">Portfolio</a>
+    <a href="#packages">Packages</a>
+    <a href="#faq">FAQ</a>
+  </div>
+</nav>
+
 <section class="hero">
 <div>
 <h1 class="glow-title-white">Kichil Captures</h1>
@@ -564,22 +629,22 @@ footer{padding:30px;background:#111;text-align:center;color:#777}
 
       <div class="portfolio-scroll landscape">
         <div class="portfolio-item">
-          <img src="camera-1.WEBP" loading="lazy" decoding="async">
+          <img src="camera-1.WEBP" loading="lazy" decoding="async" alt="Professional event photography landscape shot 1">
         </div>
         <div class="portfolio-item">
-          <img src="camera-2.WEBP" loading="lazy" decoding="async">
+          <img src="camera-2.WEBP" loading="lazy" decoding="async" alt="Professional event photography landscape shot 2">
         </div>
         <div class="portfolio-item">
-          <img src="camera-5.jpg" loading="lazy" decoding="async">
+          <img src="camera-5.jpg" loading="lazy" decoding="async" alt="Professional event photography landscape shot 3">
         </div>
       </div>
 
       <div class="portfolio-scroll portrait">
         <div class="portfolio-item">
-          <img src="camera-3.jpg" loading="lazy" decoding="async">
+          <img src="camera-3.jpg" loading="lazy" decoding="async" alt="Professional event photography portrait shot 1">
         </div>
         <div class="portfolio-item">
-          <img src="camera-4.jpg" loading="lazy" decoding="async">
+          <img src="camera-4.jpg" loading="lazy" decoding="async" alt="Professional event photography portrait shot 2">
         </div>
       </div>
 
@@ -596,22 +661,22 @@ footer{padding:30px;background:#111;text-align:center;color:#777}
 
     <div class="portfolio-scroll">
       <div class="portfolio-item">
-        <img src="drone-1.WEBP" loading="lazy" decoding="async">
+        <img src="drone-1.WEBP" loading="lazy" decoding="async" alt="Cinematic drone aerial photography shot 1">
       </div>
       <div class="portfolio-item">
-        <img src="drone-2.WEBP" loading="lazy" decoding="async">
+        <img src="drone-2.WEBP" loading="lazy" decoding="async" alt="Cinematic drone aerial photography shot 2">
       </div>
       <div class="portfolio-item">
-        <img src="drone-3.WEBP" loading="lazy" decoding="async">
+        <img src="drone-3.WEBP" loading="lazy" decoding="async" alt="Cinematic drone aerial photography shot 3">
       </div>
       <div class="portfolio-item">
-        <img src="drone-4.WEBP" loading="lazy" decoding="async">
+        <img src="drone-4.WEBP" loading="lazy" decoding="async" alt="Cinematic drone aerial photography shot 4">
       </div>
       <div class="portfolio-item">
-        <img src="drone-5.jpg" loading="lazy" decoding="async">
+        <img src="drone-5.jpg" loading="lazy" decoding="async" alt="Cinematic drone aerial photography shot 5">
       </div>
       <div class="portfolio-item">
-        <img src="drone-6.jpg" loading="lazy" decoding="async">
+        <img src="drone-6.jpg" loading="lazy" decoding="async" alt="Cinematic drone aerial photography shot 6">
       </div>
     </div>
   </div>
@@ -789,7 +854,7 @@ Includes photography highlights and a cinematic drone video with smooth movement
 </div>
 </section>
 
-<section>
+<section id="faq">
 <h2>FAQ</h2>
 <div class="faq-item"><strong>Do you work on Saturdays?</strong> No, due to Sabbath day.</div>
 <div class="faq-item"><strong>Can I choose portrait or landscape?</strong> Yes, both formats are available.</div>
@@ -901,6 +966,7 @@ document.querySelectorAll(".pricing-card").forEach(card=>{
     card.classList.add("selected");
   });
 });
+
 document.querySelectorAll(".choose-btn").forEach(btn=>{
   btn.addEventListener("click", ()=>{
 
@@ -925,18 +991,21 @@ document.querySelectorAll(".choose-btn").forEach(btn=>{
     confirmBtn.style.cursor = "not-allowed";
 
     modal.style.display = "flex";
+    document.body.classList.add("no-scroll"); /* LOCK BACKGROUND SCROLL */
   });
 });
 
 /* CLOSE MODAL */
 closeModal.addEventListener("click", ()=>{
   modal.style.display = "none";
+  document.body.classList.remove("no-scroll"); /* UNLOCK BACKGROUND SCROLL */
 });
 
 /* CLOSE WHEN CLICK OUTSIDE */
 modal.addEventListener("click", (e)=>{
   if(e.target === modal){
     modal.style.display = "none";
+    document.body.classList.remove("no-scroll"); /* UNLOCK BACKGROUND SCROLL */
   }
 });
 
