@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Kichil Captures | Drone & Photography</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;800&display=swap" rel="stylesheet">
 
 <style>
   html {
@@ -59,28 +59,7 @@ body.no-scroll {
   overflow: hidden;
 }
 
-/* ===== COMBO PACKAGE DESKTOP FIX ===== */
-.combo-row{
-  justify-content: center;
-}
-
-.combo-card{
-  width: 100%;
-  max-width: 520px;   /* 👈 controls desktop width */
-}
-
-/* Desktop-only polish */
-@media (min-width: 768px){
-  .combo-card{
-    padding: 36px;
-  }
-}
-@media (max-width: 768px) {
-  html {
-    scroll-behavior: auto; /* smoother on mobile */
-  }
-}
-  /* PERFORMANCE HINTS */
+/* PERFORMANCE HINTS */
 * {
   backface-visibility: hidden;
 }
@@ -92,7 +71,7 @@ body.no-scroll {
 }
   /* WHITE GLOW TITLE (for Kichil Captures) */
 .glow-title-white{
-  font-size: 46px;          /* slightly bigger than Portfolio */  
+  font-size: 46px;          
   font-weight: 800;
   text-align: center;
   color: #ffffff;
@@ -102,7 +81,6 @@ body.no-scroll {
   animation: glowWhite 4.5s ease-in-out infinite;
 }
 
-/* White glow animation */
 @keyframes glowWhite {
   0% {
     text-shadow:
@@ -122,7 +100,7 @@ body.no-scroll {
 }
   /* GLOWING TITLE */
 .glow-title{
-  font-size: 42px;                 /* bigger text */
+  font-size: 42px;                 
   font-weight: 800;
   text-align: center;
   color: #ffffff;
@@ -133,7 +111,6 @@ body.no-scroll {
   animation: glowMove 3s ease-in-out infinite;
 }
 
-/* Glow animation */
 @keyframes glowMove {
   0% {
     text-shadow:
@@ -151,39 +128,37 @@ body.no-scroll {
       0 0 12px rgba(37, 211, 102, 0.3);
   }
 }
-  /* STACK LANDSCAPE + PORTRAIT ROWS */
+
 .portfolio-double{
   display:flex;
   flex-direction:column;
   gap:16px;
 }
-  /* PERFORMANCE: smoother scrolling */
 .portfolio-scroll {
   will-change: transform;
   -webkit-overflow-scrolling: touch;
 }
-/* PERFORMANCE: limit image rendering cost */
 .portfolio-item img {
   max-width: 100%;
   height: auto;
   object-fit: contain;
 }
-  *{margin:0;padding:0;box-sizing:border-box}
+
+*{margin:0;padding:0;box-sizing:border-box}
 body{font-family:'Poppins',sans-serif;background:#0e0e0e;color:#fff;line-height:1.6}
 section{
-  padding:100px 20px;   /* ⬅️ increased vertical space */
+  padding:100px 20px;   
   max-width:1100px;
   margin:auto;
-  overflow: visible;    /* ⭐ allow children to scale */
+  overflow: visible;    
 }
-  #packages{
-  overflow: visible;
+#packages{
   padding-top: 120px;
   padding-bottom: 120px;
 }
 h1,h2,h3{font-weight:800}
 h2{text-align:center;font-size:28px;margin-bottom:25px}
-p{color:#ccc;font-size:14px}
+p{color:#a1a1a6;font-size:14px} /* Apple-style muted text */
 
 /* HERO */
 .hero{
@@ -219,10 +194,20 @@ animation:bounce 1.8s infinite
 .package-tabs{margin-top: 50px;}
 .portfolio-tabs button, .package-tabs button{
 padding:10px 26px;border-radius:30px;border:none;
-background:#1a1a1a;color:#bbb;font-weight:600;cursor:pointer;
+background:rgba(255,255,255,0.08);color:#bbb;font-weight:600;cursor:pointer;
+backdrop-filter: blur(10px);
+-webkit-backdrop-filter: blur(10px);
 transition: all 0.3s ease;
 }
-.portfolio-tabs button.active, .package-tabs button.active{background:#25D366;color:#fff}
+.portfolio-tabs button:hover, .package-tabs button:hover{
+  background: rgba(255,255,255,0.15);
+  color: #fff;
+}
+.portfolio-tabs button.active, .package-tabs button.active{
+  background:#25D366;
+  color:#000;
+  box-shadow: 0 4px 15px rgba(37,211,102,0.3);
+}
 
 .portfolio-album, .package-group{display:none;position:relative}
 .portfolio-album.active, .package-group.active{display:block; animation: fadeIn 0.4s ease;}
@@ -232,7 +217,7 @@ transition: all 0.3s ease;
   to { opacity: 1; transform: translateY(0); }
 }
 
-/* SLIDER UPGRADE */
+/* SLIDER */
 .slider-wrapper{position:relative;overflow:hidden}
 .fade-left,.fade-right{
 position:absolute;top:0;bottom:0;width:60px;z-index:2;pointer-events:none
@@ -249,203 +234,258 @@ padding-bottom:10px
 
 .portfolio-item{
   flex-shrink:0;
-  border-radius:18px;
+  border-radius:24px;
   overflow:hidden;
   background:#111;
   width:260px;
-  height:340px;   /* controls card height */
+  height:340px;   
   position:relative;
 }
 
 .portfolio-item img{
   width:100%;
   height:100%;
-  object-fit:cover;   /* THIS is the key */
+  object-fit:cover;   
   display:block;
 }
-/* LANDSCAPE ROW (top row) */
 .portfolio-scroll.landscape .portfolio-item{
   width:320px;
   height:200px;
 }
-
-/* PORTRAIT ROW (bottom row) */
 .portfolio-scroll.portrait .portfolio-item{
   width:220px;
   height:360px;
 }
-/* ARROWS */
 .slider-arrow{
 position:absolute;top:50%;transform:translateY(-50%);
 width:40px;height:40px;border-radius:50%;
-background:#1a1a1a;color:#fff;
+background:rgba(255,255,255,0.1);
+backdrop-filter: blur(10px);
+-webkit-backdrop-filter: blur(10px);
+color:#fff;
 display:flex;align-items:center;justify-content:center;
-cursor:pointer;z-index:3;opacity:.8
+cursor:pointer;z-index:3;opacity:.8;
+border: 1px solid rgba(255,255,255,0.2);
 }
-.slider-arrow:hover{opacity:1}
+.slider-arrow:hover{opacity:1; background:rgba(255,255,255,0.2);}
 .arrow-left{left:10px}
 .arrow-right{right:10px}
 
-/* PACKAGES */
+/* =======================================
+   APPLE-STYLE PACKAGES REDESIGN
+======================================= */
+
 .package-row{
-  display:flex;
-  gap:20px;
-  overflow-x:auto;
-  overflow-y: visible;      /* ⭐ allow scaling vertically */
-  padding: 20px 0;          /* ⭐ breathing space for scale */
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+  padding: 20px 0;
 }
+
+/* The Combo card is special, make it centered if alone */
+.combo-row {
+  display: flex;
+  justify-content: center;
+}
+
+.combo-card {
+  width: 100%;
+  max-width: 500px;
+}
+
+/* Glassmorphism Card Design */
 .pricing-card{
-  min-width:260px;
-  background:#1a1a1a;
-  padding:26px;
-  border-radius:22px;
-  text-align:left;
-  position: relative;   /* ⭐ ADD THIS LINE */
+  background: rgba(30, 30, 32, 0.5); /* Semi-transparent dark gray */
+  backdrop-filter: blur(24px);       /* Frosted glass blur */
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(255, 255, 255, 0.08); /* Subtle light border */
+  border-radius: 32px;               /* Apple-like roundness */
+  padding: 36px 28px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
-/* ===== PRICING CARD BUTTON (ONLY) ===== */
+
+/* Special styling for Best Value/Popular */
+.pricing-card.combo-card, .pricing-card.popular {
+  background: linear-gradient(145deg, rgba(37,211,102,0.08) 0%, rgba(30,30,32,0.6) 100%);
+  border: 1px solid rgba(37, 211, 102, 0.3);
+}
+
+/* Badge for Combo */
+.badge {
+  position: absolute;
+  top: -14px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #25D366;
+  color: #000;
+  font-size: 12px;
+  font-weight: 800;
+  padding: 6px 16px;
+  border-radius: 999px;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  box-shadow: 0 4px 15px rgba(37,211,102,0.4);
+}
+
+/* Apple Typography for Pricing */
+.pricing-card h3{
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: #fff;
+}
+
+.price{
+  font-size: 44px; /* Big, clean numbers */
+  font-weight: 600;
+  letter-spacing: -1.5px;
+  margin: 10px 0 16px;
+  color: #fff;
+}
+
+.pricing-card p{
+  font-size: 14px;
+  line-height: 1.5;
+  color: #a1a1a6;
+  margin-bottom: 24px;
+  min-height: 60px; /* keeps cards aligned */
+}
+
+/* Clean list without default bullets */
+.details{
+  list-style: none;
+  margin: 0 0 30px 0;
+  padding: 0;
+  flex-grow: 1; /* pushes button to bottom */
+}
+
+.details li{
+  font-size: 14px;
+  color: #f5f5f7;
+  margin-bottom: 12px;
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  line-height: 1.4;
+}
+
+/* ===== NEW APPLE STYLE BUTTONS ===== */
 .pricing-card .btn{
   display: block;
   width: 100%;
-  padding: 18px 0;          /* ⬅️ slightly taller */
-  margin-top: 24px;         /* ⬅️ more breathing space */
-
-  font-size: 16px;
+  padding: 16px 0;
+  font-size: 15px;
   font-weight: 600;
-  letter-spacing: 0.5px;
-
-  color: #ffffff;
-  background: linear-gradient(
-    180deg,
-    #1f1f1f,
-    #151515
-  );
-
   border-radius: 999px;
-  border: 2px solid rgba(37,211,102,0.85);
-
   cursor: pointer;
-  transition: all 0.25s ease;
-
-  box-shadow:
-    0 0 12px rgba(37,211,102,0.35);
+  transition: all 0.3s ease;
+  margin-top: auto;
+  
+  /* Default Standard Button (Glassy Outline) */
+  background: rgba(255, 255, 255, 0.05);
+  color: #fff;
+  border: 1px solid rgba(255,255,255,0.15);
 }
-/* Hover */
+
 .pricing-card .btn:hover{
+  background: #fff;
+  color: #000;
+  border-color: #fff;
+  transform: scale(1.02);
+}
+
+/* Featured Button (Solid Green) */
+.combo-card .btn, .pricing-card.popular .btn {
   background: #25D366;
   color: #000;
-  box-shadow:
-    0 0 18px rgba(37,211,102,0.9),
-    0 0 40px rgba(37,211,102,0.6);
-  transform: translateY(-1px);
+  border: none;
+  box-shadow: 0 4px 15px rgba(37,211,102,0.3);
 }
 
-/* Click */
-.pricing-card .btn:active{
-  transform: scale(0.97);
+.combo-card .btn:hover, .pricing-card.popular .btn:hover {
+  background: #20b858; /* slightly darker green */
+  box-shadow: 0 6px 20px rgba(37,211,102,0.5);
 }
-/* ⭐ PACKAGE FOCUS ANIMATION (ADD THIS) */
 
+/* Selected state via JS */
 .pricing-card.selected{
   border: 2px solid #25D366;
-  box-shadow: 0 0 0 2px rgba(37, 211, 102, 0.3);
-  transform: translateY(-2px);
-}
-.pricing-card.popular{border:2px solid #25D366}
-.price{font-size:30px;margin:10px 0}
-.details{margin:12px 0 16px 18px}
-.details li{font-size:13px;color:#bbb;margin-bottom:6px}
-/* 🌫 NON-FOCUSED PACKAGE STATE */
-.pricing-card {
-  transition:
-    transform 0.35s ease,
-    box-shadow 0.35s ease,
-    filter 0.35s ease,
-    opacity 0.35s ease;
+  transform: translateY(-4px);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.5), 0 0 20px rgba(37,211,102,0.15);
 }
 
-/* Blur + dim cards that are NOT focused */
-.pricing-card:not(.in-view) {
-  filter: blur(1.5px);
-  opacity: 0.55;
-}
-
-/* ✨ FOCUSED CARD – soft premium glow */
-.pricing-card.in-view {
-  transform: scale(1.05);   /* 👈 ADD THIS */
-  filter: blur(0);
-  opacity: 1;
-  z-index: 2;
-  box-shadow:
-    0 14px 35px rgba(0,0,0,0.45),
-    0 0 26px rgba(37,211,102,0.45);
-}
-  .pricing-card.in-view .btn{
-  box-shadow:
-    0 0 18px rgba(37,211,102,0.8),
-    0 0 40px rgba(37,211,102,0.5);
-}
-/* INFO */
+/* INFO / FAQ */
 .info-grid{display:grid;gap:25px}
-.info-card{background:#1a1a1a;padding:28px;border-radius:22px}
+.info-card{
+  background: rgba(30, 30, 32, 0.5);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  padding:28px;
+  border-radius:28px;
+}
 @media(min-width:768px){.info-grid{grid-template-columns:repeat(3,1fr)}}
-.faq-item{margin-bottom:15px}
+.faq-item{
+  margin-bottom:15px;
+  background: rgba(30, 30, 32, 0.4);
+  padding: 20px;
+  border-radius: 20px;
+  border: 1px solid rgba(255,255,255,0.05);
+}
 
 /* MODAL */
 .modal{
 display:none;position:fixed;inset:0;
 background:rgba(0,0,0,.85);
-align-items:center;justify-content:center;z-index:3000; /* Increased to stay above navbar */
+backdrop-filter: blur(8px);
+-webkit-backdrop-filter: blur(8px);
+align-items:center;justify-content:center;z-index:3000; 
 }
 .modal-content{
-background:#1a1a1a;padding:28px;border-radius:20px;
+background:#1c1c1e; /* Apple dark gray */
+border: 1px solid rgba(255,255,255,0.1);
+padding:32px;border-radius:28px;
 width:90%;max-width:380px;position:relative
 }
-.modal-content label{font-size:13px;color:#aaa;margin-top:12px;display:block}
+.modal-content label{font-size:13px;color:#a1a1a6;margin-top:16px;display:block}
 .modal-content input{
-width:100%;padding:12px;margin-top:6px;
-border-radius:8px;border:none
+width:100%;padding:14px;margin-top:8px;
+border-radius:12px;border:none;
+background: #2c2c2e; color: #fff;
+font-family: 'Poppins', sans-serif;
 }
-  /* ===== MODAL CONFIRM BUTTON ===== */
+.modal-content input:focus{
+  outline: 2px solid #25D366;
+}
 .modal-content .btn{
   display: block;
-  margin: 24px auto 0;   /* 👈 center horizontally */
-  padding: 14px 28px;    /* 👈 not too big, not too small */
-
+  margin: 30px auto 0;   
+  padding: 16px 32px;    
   font-size: 15px;
   font-weight: 600;
-  letter-spacing: 0.4px;
-
   color: #000;
   background: #25D366;
-
   border: none;
   border-radius: 999px;
   cursor: pointer;
-
-  box-shadow:
-    0 0 10px rgba(37,211,102,0.6),
-    0 0 22px rgba(37,211,102,0.4);
-
   transition: all 0.25s ease;
+  width: 100%;
 }
-
-/* Hover (only when enabled) */
 .modal-content .btn:not(:disabled):hover{
-  transform: scale(1.04);
-  box-shadow:
-    0 0 18px rgba(37,211,102,1),
-    0 0 40px rgba(37,211,102,0.8);
+  transform: scale(1.02);
+  background: #20b858;
 }
-
-/* Disabled state */
 .modal-content .btn:disabled{
-  background: #1f1f1f;
+  background: #2c2c2e;
   color: #777;
-  box-shadow: none;
 }
-.close-btn{position:absolute;top:14px;right:16px;font-size:20px;cursor:pointer}
+.close-btn{position:absolute;top:18px;right:22px;font-size:24px;color:#a1a1a6;cursor:pointer}
+.close-btn:hover{color:#fff;}
 
-/* FLOATING WHATSAPP – GLOW + PULSE */
+/* FLOATING WHATSAPP */
 .floating-wa{
   position:fixed;
   bottom:20px;
@@ -461,131 +501,78 @@ border-radius:8px;border:none
   justify-content:center;
   text-decoration:none;
   z-index:1000;
-
-  box-shadow:
-    0 0 10px rgba(37,211,102,0.8),
-    0 0 25px rgba(37,211,102,0.6);
-
+  box-shadow: 0 0 10px rgba(37,211,102,0.8), 0 0 25px rgba(37,211,102,0.6);
   animation: waPulse 2.2s ease-in-out infinite;
 }
-  @keyframes waPulse {
-  0% {
-    box-shadow:
-      0 0 8px rgba(37,211,102,0.6),
-      0 0 18px rgba(37,211,102,0.4);
-    transform: scale(1);
-  }
-  50% {
-    box-shadow:
-      0 0 16px rgba(37,211,102,1),
-      0 0 40px rgba(37,211,102,0.8);
-    transform: scale(1.08);
-  }
-  100% {
-    box-shadow:
-      0 0 8px rgba(37,211,102,0.6),
-      0 0 18px rgba(37,211,102,0.4);
-    transform: scale(1);
-  }
+@keyframes waPulse {
+  0% { box-shadow: 0 0 8px rgba(37,211,102,0.6), 0 0 18px rgba(37,211,102,0.4); transform: scale(1); }
+  50% { box-shadow: 0 0 16px rgba(37,211,102,1), 0 0 40px rgba(37,211,102,0.8); transform: scale(1.08); }
+  100% { box-shadow: 0 0 8px rgba(37,211,102,0.6), 0 0 18px rgba(37,211,102,0.4); transform: scale(1); }
 }
-/* ===== HERO BLUR GLOW BUTTON ===== */
+
+/* HERO BUTTON */
 .hero .btn{
   display: inline-block;
-  padding: 14px 36px;
+  padding: 16px 40px;
   margin-top: 18px;
-
   font-weight: 600;
   font-size: 16px;
-  letter-spacing: 0.5px; /* ✅ ADD THIS */
   text-decoration: none;
   color: #ffffff;
-
   border-radius: 999px;
-  border: 2px solid rgba(37,211,102,0.8);
-
+  border: 1px solid rgba(255,255,255,0.2);
   backdrop-filter: blur(12px);
--webkit-backdrop-filter: blur(12px);
-background: rgba(0,0,0,0.45);
-
-box-shadow:
-  0 0 10px rgba(37,211,102,0.5),
-  0 0 22px rgba(37,211,102,0.35);
-
-  transition: all 0.25s ease;
+  -webkit-backdrop-filter: blur(12px);
+  background: rgba(255,255,255,0.05);
+  transition: all 0.3s ease;
 }
-
-/* Hover */
 .hero .btn:hover{
-  background: #25D366;
+  background: #fff;
   color: #000;
-  box-shadow:
-    0 0 18px rgba(37,211,102,1),
-    0 0 45px rgba(37,211,102,0.8);
-  transform: scale(1.05);
+  transform: scale(1.03);
 }
 
-/* Click */
-.hero .btn:active{
-  transform: scale(0.96);
-}
-footer{padding:30px;background:#111;text-align:center;color:#777}
-  /* ===== MOBILE PACKAGE CARD POLISH & TEXT SCALE ===== */
+footer{padding:40px;background:#000;text-align:center;color:#777; font-size: 14px;}
+
+/* ===== MOBILE RESPONSIVENESS ===== */
 @media (max-width: 768px){
+  .glow-title-white { font-size: 36px; }
+  .glow-title { font-size: 32px; }
 
-  /* Scale down glowing titles for small screens */
-  .glow-title-white {
-    font-size: 36px;
+  /* iOS Style Horizontal Snap Scrolling for Mobile */
+  .package-row {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    padding-bottom: 30px; /* room for shadow */
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
   }
-  .glow-title {
-    font-size: 32px;
-  }
-
-  /* Make card more compact */
-  .pricing-card{
-    padding: 20px;
-  }
-
-  /* Reduce scale so card fits screen better */
-  .pricing-card.in-view{
-    transform: scale(1.02);
+  
+  .package-row::-webkit-scrollbar {
+    display: none; /* Hide scrollbar for clean UI */
   }
 
-  /* Title & price feel more centered */
-  .pricing-card h3{
-    text-align: center;
-    font-size: 18px;
+  .pricing-card {
+    min-width: 85vw; /* Almost full screen width */
+    scroll-snap-align: center;
+    padding: 30px 24px;
   }
 
-  .pricing-card .price{
-    text-align: center;
-    font-size: 26px;
-    margin-bottom: 8px;
+  /* Dim cards that aren't perfectly centered (replaces the old zoom logic) */
+  .pricing-card {
+    opacity: 0.6;
+    transform: scale(0.95);
+  }
+  .pricing-card.in-view {
+    opacity: 1;
+    transform: scale(1);
   }
 
-  /* Description easier to read */
-  .pricing-card p{
-    font-size: 13px;
-    line-height: 1.55;
-    text-align: center;
-    margin-bottom: 14px;
-  }
-
-  /* Bullet list stays readable */
-  .pricing-card .details{
-    margin-left: 14px;
-    margin-bottom: 14px;
-  }
-
-  .pricing-card .details li{
-    font-size: 12.5px;
-  }
-
-  /* Button slightly tighter on mobile */
-  .pricing-card .btn{
-    padding: 15px 0;
-    margin-top: 18px;
-    font-size: 15px;
-  }
+  .price { font-size: 38px; }
+  .pricing-card h3 { font-size: 18px; }
+  .pricing-card p { font-size: 13px; min-height: auto; }
+  .details li { font-size: 13px; }
 }
 </style>
 </head>
@@ -626,28 +613,15 @@ footer{padding:30px;background:#111;text-align:center;color:#777}
     <div class="slider-arrow arrow-right">›</div>
 
     <div class="portfolio-double">
-
       <div class="portfolio-scroll landscape">
-        <div class="portfolio-item">
-          <img src="camera-1.WEBP" loading="lazy" decoding="async" alt="Professional event photography landscape shot 1">
-        </div>
-        <div class="portfolio-item">
-          <img src="camera-2.WEBP" loading="lazy" decoding="async" alt="Professional event photography landscape shot 2">
-        </div>
-        <div class="portfolio-item">
-          <img src="camera-5.jpg" loading="lazy" decoding="async" alt="Professional event photography landscape shot 3">
-        </div>
+        <div class="portfolio-item"><img src="camera-1.WEBP" loading="lazy" decoding="async" alt="Photography 1"></div>
+        <div class="portfolio-item"><img src="camera-2.WEBP" loading="lazy" decoding="async" alt="Photography 2"></div>
+        <div class="portfolio-item"><img src="camera-5.jpg" loading="lazy" decoding="async" alt="Photography 3"></div>
       </div>
-
       <div class="portfolio-scroll portrait">
-        <div class="portfolio-item">
-          <img src="camera-3.jpg" loading="lazy" decoding="async" alt="Professional event photography portrait shot 1">
-        </div>
-        <div class="portfolio-item">
-          <img src="camera-4.jpg" loading="lazy" decoding="async" alt="Professional event photography portrait shot 2">
-        </div>
+        <div class="portfolio-item"><img src="camera-3.jpg" loading="lazy" decoding="async" alt="Photography 4"></div>
+        <div class="portfolio-item"><img src="camera-4.jpg" loading="lazy" decoding="async" alt="Photography 5"></div>
       </div>
-
     </div>
   </div>
 </div>
@@ -660,24 +634,12 @@ footer{padding:30px;background:#111;text-align:center;color:#777}
     <div class="slider-arrow arrow-right">›</div>
 
     <div class="portfolio-scroll">
-      <div class="portfolio-item">
-        <img src="drone-1.WEBP" loading="lazy" decoding="async" alt="Cinematic drone aerial photography shot 1">
-      </div>
-      <div class="portfolio-item">
-        <img src="drone-2.WEBP" loading="lazy" decoding="async" alt="Cinematic drone aerial photography shot 2">
-      </div>
-      <div class="portfolio-item">
-        <img src="drone-3.WEBP" loading="lazy" decoding="async" alt="Cinematic drone aerial photography shot 3">
-      </div>
-      <div class="portfolio-item">
-        <img src="drone-4.WEBP" loading="lazy" decoding="async" alt="Cinematic drone aerial photography shot 4">
-      </div>
-      <div class="portfolio-item">
-        <img src="drone-5.jpg" loading="lazy" decoding="async" alt="Cinematic drone aerial photography shot 5">
-      </div>
-      <div class="portfolio-item">
-        <img src="drone-6.jpg" loading="lazy" decoding="async" alt="Cinematic drone aerial photography shot 6">
-      </div>
+      <div class="portfolio-item"><img src="drone-1.WEBP" loading="lazy" decoding="async" alt="Drone 1"></div>
+      <div class="portfolio-item"><img src="drone-2.WEBP" loading="lazy" decoding="async" alt="Drone 2"></div>
+      <div class="portfolio-item"><img src="drone-3.WEBP" loading="lazy" decoding="async" alt="Drone 3"></div>
+      <div class="portfolio-item"><img src="drone-4.WEBP" loading="lazy" decoding="async" alt="Drone 4"></div>
+      <div class="portfolio-item"><img src="drone-5.jpg" loading="lazy" decoding="async" alt="Drone 5"></div>
+      <div class="portfolio-item"><img src="drone-6.jpg" loading="lazy" decoding="async" alt="Drone 6"></div>
     </div>
   </div>
 </div>
@@ -686,24 +648,25 @@ footer{padding:30px;background:#111;text-align:center;color:#777}
 
 <section id="packages">
   
-<h2> COMBO PACKAGE (BEST VALUE)</h2>
+<h2> COMBO PACKAGE</h2>
 <div class="package-row combo-row">
-  <div class="pricing-card popular combo-card">
-<h3>Photo + Drone Combo</h3>
-<div class="price">RM280</div>
-<p>
-Perfect for small events that need both ground and aerial coverage.
-Includes photography highlights and a cinematic drone video with smooth movement and color grading.
-</p>
-<ul class="details">
-<li>⏱ 1 hour photography session</li>
-<li>📸 30 professionally edited photos</li>
-<li>🎬 ~60 sec cinematic drone video</li>
-<li>🎥 Drone quality up to 4K</li>
-<li>📱 Portrait & landscape format</li>
-</ul>
-<button class="btn choose-btn" data-package="Photo + Drone Combo – RM280">Choose Package</button>
-</div>
+  <div class="pricing-card combo-card in-view">
+    <span class="badge">Best Value</span>
+    <h3>Photo + Drone Combo</h3>
+    <div class="price">RM280</div>
+    <p>
+      Perfect for small events that need both ground and aerial coverage.
+      Includes photography highlights and a cinematic drone video with smooth movement and color grading.
+    </p>
+    <ul class="details">
+      <li>⏱ 1 hour photography session</li>
+      <li>📸 30 professionally edited photos</li>
+      <li>🎬 ~60 sec cinematic drone video</li>
+      <li>🎥 Drone quality up to 4K</li>
+      <li>📱 Portrait & landscape format</li>
+    </ul>
+    <button class="btn choose-btn" data-package="Photo + Drone Combo – RM280">Choose Package</button>
+  </div>
 </div>
 
 <div class="package-tabs">
@@ -717,67 +680,53 @@ Includes photography highlights and a cinematic drone video with smooth movement
     <div class="pricing-card">
         <h3>Starter Aerial (Raw)</h3>
         <div class="price">RM100</div>
-        <p>
-          Entry-level drone service for clients who only need original footage.
-          Ideal for previews, documentation, or personal editing.
-        </p>
+        <p>Entry-level drone service for clients who only need original footage. Ideal for personal editing.</p>
         <ul class="details">
-          <li>⏱ 15–20 minutes flight time</li>
-          <li>🎬 Raw footage (no editing, no color grading)</li>
+          <li>⏱ 15–20 mins flight time</li>
+          <li>🎬 Raw footage (no editing)</li>
           <li>🎥 2.7K resolution</li>
-          <li>📱 Portrait or landscape (choose one)</li>
+          <li>📱 Portrait or landscape</li>
         </ul>
-        <button class="btn choose-btn" data-package="Starter Aerial (Raw) – RM100">
-          Choose Package
-        </button>
+        <button class="btn choose-btn" data-package="Starter Aerial (Raw) – RM100">Choose Package</button>
       </div>
       
     <div class="pricing-card">
-    <h3>Mini Aerial</h3>
-    <div class="price">RM150</div>
-    <p>
-    Quick aerial coverage suitable for location preview, social media, and small venue highlights.
-    Clean, simple, and efficient.
-    </p>
-    <ul class="details">
-    <li>⏱ 15–20 minutes flight time</li>
-    <li>🎬 30–45 sec edited video</li>
-    <li>🎥 2.7K quality</li>
-    <li>📱 Portrait or landscape format</li>
-    </ul>
-    <button class="btn choose-btn" data-package="Mini Aerial – RM150">Choose Package</button>
+      <h3>Mini Aerial</h3>
+      <div class="price">RM150</div>
+      <p>Quick aerial coverage suitable for location preview, social media, and small highlights.</p>
+      <ul class="details">
+        <li>⏱ 15–20 mins flight time</li>
+        <li>🎬 30–45 sec edited video</li>
+        <li>🎥 2.7K quality</li>
+        <li>📱 Portrait or landscape</li>
+      </ul>
+      <button class="btn choose-btn" data-package="Mini Aerial – RM150">Choose Package</button>
+    </div>
+
+    <div class="pricing-card popular">
+      <h3>Standard Promo</h3>
+      <div class="price">RM200</div>
+      <p>Cinematic drone footage with smooth motion and professional color grading. Ideal for events.</p>
+      <ul class="details">
+        <li>⏱ 20–30 mins flight time</li>
+        <li>🎬 ~60 sec edited video</li>
+        <li>🎥 4K quality</li>
+        <li>📱 Portrait or landscape</li>
+      </ul>
+      <button class="btn choose-btn" data-package="Standard Promo – RM200">Choose Package</button>
     </div>
 
     <div class="pricing-card">
-    <h3>Standard Promo</h3>
-    <div class="price">RM200</div>
-    <p>
-    Cinematic drone footage with smooth motion and professional color grading.
-    Ideal for events and promotional content.
-    </p>
-    <ul class="details">
-    <li>⏱ 20–30 minutes flight time</li>
-    <li>🎬 ~60 sec edited video</li>
-    <li>🎥 4K quality</li>
-    <li>📱 Portrait or landscape format</li>
-    </ul>
-    <button class="btn choose-btn" data-package="Standard Promo – RM200">Choose Package</button>
-    </div>
-
-    <div class="pricing-card">
-    <h3>Extended Event</h3>
-    <div class="price">RM300–350</div>
-    <p>
-    Extended aerial coverage with multiple angles and detailed location showcase.
-    Best for larger venues or marketing usage.
-    </p>
-    <ul class="details">
-    <li>⏱ Up to 1 hour coverage</li>
-    <li>🎬 75–90 sec edited video</li>
-    <li>🎥 4K quality</li>
-    <li>📱 Portrait & landscape format</li>
-    </ul>
-    <button class="btn choose-btn" data-package="Extended Event – RM300–350">Choose Package</button>
+      <h3>Extended Event</h3>
+      <div class="price">RM350</div>
+      <p>Extended aerial coverage with multiple angles and detailed location showcase. Best for larger venues.</p>
+      <ul class="details">
+        <li>⏱ Up to 1 hour coverage</li>
+        <li>🎬 75–90 sec edited video</li>
+        <li>🎥 4K quality</li>
+        <li>📱 Portrait & landscape</li>
+      </ul>
+      <button class="btn choose-btn" data-package="Extended Event – RM350">Choose Package</button>
     </div>
 
   </div>
@@ -787,48 +736,39 @@ Includes photography highlights and a cinematic drone video with smooth movement
   <div class="package-row">
 
     <div class="pricing-card">
-    <h3>Basic Session</h3>
-    <div class="price">RM100</div>
-    <p>
-    Short photography session for small gatherings, birthday parties,
-    or simple personal events with clean and natural editing.
-    </p>
-    <ul class="details">
-    <li>⏱ 30–45 minutes session</li>
-    <li>📸 15 edited photos</li>
-    <li>🎨 Basic color correction</li>
-    </ul>
-    <button class="btn choose-btn" data-package="Basic Session – RM100">Choose Package</button>
+      <h3>Basic Session</h3>
+      <div class="price">RM100</div>
+      <p>Short photography session for small gatherings, birthday parties, or simple personal events.</p>
+      <ul class="details">
+        <li>⏱ 30–45 minutes session</li>
+        <li>📸 15 edited photos</li>
+        <li>🎨 Basic color correction</li>
+      </ul>
+      <button class="btn choose-btn" data-package="Basic Session – RM100">Choose Package</button>
     </div>
 
     <div class="pricing-card popular">
-    <h3>Standard Event</h3>
-    <div class="price">RM200</div>
-    <p>
-    Balanced coverage for birthdays, engagements, graduations, and pre-events.
-    Focused on capturing meaningful moments with consistent editing style.
-    </p>
-    <ul class="details">
-    <li>⏱ 1–1.5 hour session</li>
-    <li>📸 30 edited photos</li>
-    <li>🎨 Professional color grading</li>
-    </ul>
-    <button class="btn choose-btn" data-package="Standard Event – RM200">Choose Package</button>
+      <h3>Standard Event</h3>
+      <div class="price">RM200</div>
+      <p>Balanced coverage for birthdays, engagements, and pre-events. Meaningful moments preserved.</p>
+      <ul class="details">
+        <li>⏱ 1–1.5 hour session</li>
+        <li>📸 30 edited photos</li>
+        <li>🎨 Professional color grading</li>
+      </ul>
+      <button class="btn choose-btn" data-package="Standard Event – RM200">Choose Package</button>
     </div>
 
     <div class="pricing-card">
-    <h3>Premium Small Event</h3>
-    <div class="price">RM300</div>
-    <p>
-    Extended photography coverage for clients who want fuller storytelling
-    and more moments preserved.
-    </p>
-    <ul class="details">
-    <li>⏱ Up to 2 hours session</li>
-    <li>📸 50 edited photos</li>
-    <li>🎨 Full professional color grading</li>
-    </ul>
-    <button class="btn choose-btn" data-package="Premium Small Event – RM300">Choose Package</button>
+      <h3>Premium Small Event</h3>
+      <div class="price">RM300</div>
+      <p>Extended photography coverage for clients who want fuller storytelling and more moments.</p>
+      <ul class="details">
+        <li>⏱ Up to 2 hours session</li>
+        <li>📸 50 edited photos</li>
+        <li>🎨 Full professional color grading</li>
+      </ul>
+      <button class="btn choose-btn" data-package="Premium Small Event – RM300">Choose Package</button>
     </div>
 
   </div>
@@ -839,9 +779,9 @@ Includes photography highlights and a cinematic drone video with smooth movement
 <section>
 <h2>How Booking Works</h2>
 <div class="info-grid">
-<div class="info-card">1️⃣ Choose a package</div>
-<div class="info-card">2️⃣ Select date & location</div>
-<div class="info-card">3️⃣ Confirm via WhatsApp</div>
+<div class="info-card"><strong>1️⃣ Choose a package</strong><p>Select the service that fits your event.</p></div>
+<div class="info-card"><strong>2️⃣ Select details</strong><p>Pick your date and location via the booking form.</p></div>
+<div class="info-card"><strong>3️⃣ Confirm</strong><p>Send the automated message to WhatsApp to lock it in.</p></div>
 </div>
 </section>
 
@@ -856,29 +796,20 @@ Includes photography highlights and a cinematic drone video with smooth movement
 
 <section id="faq">
 <h2>FAQ</h2>
-<div class="faq-item"><strong>Do you work on Saturdays?</strong> No, due to Sabbath day.</div>
-<div class="faq-item"><strong>Can I choose portrait or landscape?</strong> Yes, both formats are available.</div>
-<div class="faq-item"><strong>What if weather is bad?</strong> Rescheduling is available.</div>
-<div class="faq-item"><strong>How long will my files be available?</strong>
-Delivered files will be shared via Google Drive and will remain accessible for 14 days only.
-Please download and back up your files as soon as you receive the link, as access will expire after this period.
-</div>
+<div class="faq-item"><strong>Do you work on Saturdays?</strong><br><span style="color:#a1a1a6">No, due to Sabbath day.</span></div>
+<div class="faq-item"><strong>Can I choose portrait or landscape?</strong><br><span style="color:#a1a1a6">Yes, both formats are available based on your preference.</span></div>
+<div class="faq-item"><strong>What if weather is bad?</strong><br><span style="color:#a1a1a6">Rescheduling is available without penalty.</span></div>
+<div class="faq-item"><strong>How long will my files be available?</strong><br><span style="color:#a1a1a6">Delivered files will be shared via Google Drive and will remain accessible for 14 days only. Please download and back up your files as soon as you receive the link.</span></div>
 </section>
 
 <div class="modal" id="bookingModal">
 <div class="modal-content">
 <span class="close-btn" id="closeModal">✕</span>
-<h3 id="selectedPackage"></h3>
-<label>Name</label><input id="clientName">
-<label>Location</label><input id="eventLocation">
+<h3 id="selectedPackage" style="font-size: 20px; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 15px; margin-bottom: 20px;"></h3>
+<label>Name</label><input id="clientName" placeholder="Your full name">
+<label>Location</label><input id="eventLocation" placeholder="Event location (e.g. Tamparuli)">
 <label>Date</label><input type="date" id="eventDate">
-<button
-  class="btn"
-  id="confirmBtn"
-  disabled
->
-  Confirm Booking
-</button>
+<button class="btn" id="confirmBtn" disabled>Confirm Booking</button>
 </div>
 </div>
 
@@ -918,10 +849,8 @@ function validateForm() {
     confirmBtn.disabled = false;
     confirmBtn.style.opacity = "1";
     confirmBtn.style.cursor = "pointer";
-    confirmBtn.style.background = "#25D366";
   } else {
     confirmBtn.disabled = true;
-    confirmBtn.style.opacity = ".5";
     confirmBtn.style.cursor = "not-allowed";
   }
 }
@@ -931,7 +860,6 @@ locationInput.addEventListener("input", validateForm);
 
 /* WhatsApp Send */
 confirmBtn.addEventListener("click", () => {
-
   const message =
     "Hello Kichil Captures\n\n" +
     "Package: " + selectedPackage.textContent + "\n" +
@@ -941,71 +869,42 @@ confirmBtn.addEventListener("click", () => {
     "Looking forward to your confirmation.";
 
   const encodedMessage = encodeURIComponent(message);
-
-  window.location.href =
-    `https://api.whatsapp.com/send?phone=601139346782&text=${encodedMessage}`;
+  window.location.href = `https://api.whatsapp.com/send?phone=601139346782&text=${encodedMessage}`;
 });
  
 /* BOOKING MODAL – OPEN */
 const modal = document.getElementById("bookingModal");
 const selectedPackage = document.getElementById("selectedPackage");
 const closeModal = document.getElementById("closeModal");
-// TAP PACKAGE CARD TO SELECT (without opening modal)
-document.querySelectorAll(".pricing-card").forEach(card=>{
-  card.addEventListener("click", (e)=>{
-
-    // Prevent double trigger when clicking the button
-    if (e.target.classList.contains("choose-btn")) return;
-
-    // Remove selected from all cards
-    document.querySelectorAll(".pricing-card").forEach(c=>{
-      c.classList.remove("selected");
-    });
-
-    // Add selected to tapped card
-    card.classList.add("selected");
-  });
-});
 
 document.querySelectorAll(".choose-btn").forEach(btn=>{
   btn.addEventListener("click", ()=>{
-
-    // REMOVE selected state from all pricing cards
-    document.querySelectorAll(".pricing-card").forEach(card=>{
-      card.classList.remove("selected");
-    });
-
-    // ADD selected state to the clicked package card
+    document.querySelectorAll(".pricing-card").forEach(card=>card.classList.remove("selected"));
+    
     const card = btn.closest(".pricing-card");
     card.classList.add("selected");
-
-    // Set selected package text
+    
     selectedPackage.textContent = btn.dataset.package;
-
-    // reset form
     nameInput.value = "";
     locationInput.value = "";
     dateInput.value = "";
     confirmBtn.disabled = true;
-    confirmBtn.style.opacity = ".5";
     confirmBtn.style.cursor = "not-allowed";
 
     modal.style.display = "flex";
-    document.body.classList.add("no-scroll"); /* LOCK BACKGROUND SCROLL */
+    document.body.classList.add("no-scroll");
   });
 });
 
 /* CLOSE MODAL */
 closeModal.addEventListener("click", ()=>{
   modal.style.display = "none";
-  document.body.classList.remove("no-scroll"); /* UNLOCK BACKGROUND SCROLL */
+  document.body.classList.remove("no-scroll");
 });
-
-/* CLOSE WHEN CLICK OUTSIDE */
 modal.addEventListener("click", (e)=>{
   if(e.target === modal){
     modal.style.display = "none";
-    document.body.classList.remove("no-scroll"); /* UNLOCK BACKGROUND SCROLL */
+    document.body.classList.remove("no-scroll");
   }
 });
 
@@ -1026,20 +925,21 @@ document.querySelectorAll(".package-tabs button").forEach(btn=>{
     document.querySelectorAll(".package-group").forEach(g=>g.classList.remove("active"));
     btn.classList.add("active");
     document.getElementById(btn.dataset.pkg).classList.add("active");
+    
+    // Reset scroll positions when switching tabs on mobile
+    document.querySelectorAll(".package-row").forEach(row => {
+      row.scrollLeft = 0;
+    });
   };
 });
 
-/* AUTO SCROLL — SUPPORT MULTIPLE ROWS */
+/* AUTO SCROLL */
 document.querySelectorAll(".slider-wrapper").forEach(wrapper=>{
-
   const tracks = wrapper.querySelectorAll(".portfolio-scroll");
   let auto = true;
   let scroll = 0;
 
-  /* duplicate items for infinite loop */
-  tracks.forEach(track=>{
-    track.innerHTML += track.innerHTML;
-  });
+  tracks.forEach(track=>{ track.innerHTML += track.innerHTML; });
 
   function loop(){
    if(auto && !prefersReducedMotion){
@@ -1056,23 +956,11 @@ document.querySelectorAll(".slider-wrapper").forEach(wrapper=>{
   wrapper.addEventListener("mouseenter",()=>auto=false);
   wrapper.addEventListener("mouseleave",()=>auto=true);
 
-  const left = wrapper.querySelector(".arrow-left");
-  const right = wrapper.querySelector(".arrow-right");
-
-  left.onclick = ()=>{
-    tracks.forEach(track=>{
-      track.scrollBy({ left:-300, behavior:"smooth" });
-    });
-  };
-
-  right.onclick = ()=>{
-    tracks.forEach(track=>{
-      track.scrollBy({ left:300, behavior:"smooth" });
-    });
-  };
-
+  wrapper.querySelector(".arrow-left").onclick = ()=> tracks.forEach(t=>t.scrollBy({left:-300, behavior:"smooth"}));
+  wrapper.querySelector(".arrow-right").onclick = ()=> tracks.forEach(t=>t.scrollBy({left:300, behavior:"smooth"}));
 });
-/* PACKAGE SCROLL FOCUS EFFECT */
+
+/* MOBILE SCROLL FOCUS EFFECT */
 const packageObserver = new IntersectionObserver(
   (entries) => {
     entries.forEach(entry => {
@@ -1083,15 +971,10 @@ const packageObserver = new IntersectionObserver(
       }
     });
   },
-  {
-    root: null,
-    threshold: 0.6
-  }
+  { root: null, threshold: 0.6 }
 );
 
-document.querySelectorAll(".pricing-card").forEach(card => {
-  packageObserver.observe(card);
-});
+document.querySelectorAll(".pricing-card").forEach(card => packageObserver.observe(card));
 });
 </script>
 
