@@ -117,11 +117,33 @@ p{color:#a1a1a6;font-size:14px}
 .hero{
   position: relative;
   min-height: 100vh;
-  background: linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.65)), url("Background.webp") center / cover no-repeat;
+  background: linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.75)), url("Background.webp") center / cover no-repeat;
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
+}
+
+.hero-subtitle {
+  font-size: 20px;
+  font-weight: 500;
+  color: #fff;
+  margin-top: 15px;
+  letter-spacing: 0.5px;
+}
+
+.hero-tagline {
+  font-size: 16px;
+  margin-top: 8px;
+  color: #a1a1a6;
+}
+
+.hero-buttons {
+  display: flex; 
+  gap: 15px; 
+  justify-content: center; 
+  margin-top: 30px; 
+  flex-wrap: wrap;
 }
 
 .scroll-down{
@@ -135,6 +157,29 @@ animation:bounce 1.8s infinite
 40%{transform:translate(-50%,-10px)}
 60%{transform:translate(-50%,-5px)}
 }
+
+/* BUTTON STYLES */
+.btn {
+  display: inline-block; padding: 16px 40px; font-weight: 600; font-size: 16px;
+  text-decoration: none; border-radius: 999px; transition: all 0.3s ease;
+  cursor: pointer; text-align: center;
+}
+
+.primary-btn {
+  background: #25D366; color: #000; border: none; box-shadow: 0 4px 15px rgba(37,211,102,0.3);
+}
+.primary-btn:hover {
+  background: #20b858; transform: scale(1.03); box-shadow: 0 6px 20px rgba(37,211,102,0.5);
+}
+
+.secondary-btn {
+  background: rgba(255,255,255,0.05); color: #fff; border: 1px solid rgba(255,255,255,0.2);
+  backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+}
+.secondary-btn:hover {
+  background: #fff; color: #000; transform: scale(1.03); border-color: #fff;
+}
+
 
 /* =======================================
    1. PORTFOLIO TABS 
@@ -319,24 +364,24 @@ animation:bounce 1.8s infinite
 .details{ list-style: none; margin: 0 0 30px 0; padding: 0; flex-grow: 1; }
 .details li{ font-size: 14px; color: #f5f5f7; margin-bottom: 12px; display: flex; gap: 10px; align-items: flex-start; line-height: 1.4; }
 
-.pricing-card .btn{
+.pricing-card .btn.card-btn{
   display: block; width: 100%; padding: 16px 0; font-size: 15px; font-weight: 600;
   border-radius: 999px; cursor: pointer; transition: all 0.3s ease; margin-top: auto;
   background: rgba(255, 255, 255, 0.05); color: #fff; border: 1px solid rgba(255,255,255,0.15);
 }
-.pricing-card .btn:hover{ background: #fff; color: #000; border-color: #fff; transform: scale(1.02); }
+.pricing-card .btn.card-btn:hover{ background: #fff; color: #000; border-color: #fff; transform: scale(1.02); }
 
-.combo-card .btn, .pricing-card.popular .btn {
+.combo-card .btn.card-btn, .pricing-card.popular .btn.card-btn {
   background: #25D366; color: #000; border: none; box-shadow: 0 4px 15px rgba(37,211,102,0.3);
 }
-.combo-card .btn:hover, .pricing-card.popular .btn:hover {
+.combo-card .btn.card-btn:hover, .pricing-card.popular .btn.card-btn:hover {
   background: #20b858; box-shadow: 0 6px 20px rgba(37,211,102,0.5);
 }
 
-.premium-tier .btn {
+.premium-tier .btn.card-btn {
   background: #ffd700; color: #000; border: none; box-shadow: 0 4px 15px rgba(255,215,0,0.3);
 }
-.premium-tier .btn:hover {
+.premium-tier .btn.card-btn:hover {
   background: #e6c200; box-shadow: 0 6px 20px rgba(255,215,0,0.5);
 }
 
@@ -411,13 +456,13 @@ animation:bounce 1.8s infinite
   background: #2c2c2e; color: #fff; font-family: 'Poppins', sans-serif;
 }
 .modal-content input:focus{ outline: 2px solid #25D366; }
-.modal-content .btn{
+.modal-content .btn.card-btn{
   display: block; margin: 30px auto 0; padding: 16px 32px; font-size: 15px; font-weight: 600;
   color: #000; background: #25D366; border: none; border-radius: 999px; cursor: pointer;
   transition: all 0.25s ease; width: 100%;
 }
-.modal-content .btn:not(:disabled):hover{ transform: scale(1.02); background: #20b858; }
-.modal-content .btn:disabled{ background: #2c2c2e; color: #777; }
+.modal-content .btn.card-btn:not(:disabled):hover{ transform: scale(1.02); background: #20b858; }
+.modal-content .btn.card-btn:disabled{ background: #2c2c2e; color: #777; }
 .close-btn{position:absolute;top:18px;right:22px;font-size:24px;color:#a1a1a6;cursor:pointer}
 .close-btn:hover{color:#fff;}
 
@@ -434,15 +479,6 @@ animation:bounce 1.8s infinite
   50% { box-shadow: 0 0 16px rgba(37,211,102,1), 0 0 40px rgba(37,211,102,0.8); transform: scale(1.08); }
   100% { box-shadow: 0 0 8px rgba(37,211,102,0.6), 0 0 18px rgba(37,211,102,0.4); transform: scale(1); }
 }
-
-/* HERO BUTTON */
-.hero .btn{
-  display: inline-block; padding: 16px 40px; margin-top: 18px; font-weight: 600; font-size: 16px;
-  text-decoration: none; color: #ffffff; border-radius: 999px; border: 1px solid rgba(255,255,255,0.2);
-  backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); background: rgba(255,255,255,0.05);
-  transition: all 0.3s ease;
-}
-.hero .btn:hover{ background: #fff; color: #000; transform: scale(1.03); }
 
 footer{padding:40px;background:#000;text-align:center;color:#777; font-size: 14px;}
 
@@ -484,8 +520,12 @@ footer{padding:40px;background:#000;text-align:center;color:#777; font-size: 14p
 <section class="hero">
 <div>
 <h1 class="glow-title-white">Kichil Captures</h1>
-<p>Professional Drone & Event Photography</p>
-<a href="#packages" class="btn">View Packages</a>
+<p class="hero-subtitle">Cinematic Photography & Drone Visuals in Sabah</p>
+<p class="hero-tagline">Capture your moments from ground to sky.</p>
+<div class="hero-buttons">
+  <a href="javascript:void(0)" onclick="handleWhatsAppRedirect()" class="btn primary-btn">📩 Book now via WhatsApp</a>
+  <a href="#packages" class="btn secondary-btn">View Packages</a>
+</div>
 </div>
 <div class="scroll-down" onclick="document.getElementById('portfolio').scrollIntoView({behavior:'smooth'})">↓</div>
 </section>
@@ -553,7 +593,7 @@ footer{padding:40px;background:#000;text-align:center;color:#777; font-size: 14p
         <li>🖥 High-resolution export</li>
         <li>📦 3–5 days delivery</li>
       </ul>
-      <button class="btn choose-btn" data-package="Basic Photo Package – RM150">Choose Package</button>
+      <button class="btn card-btn choose-btn" data-package="Basic Photo Package – RM150">Choose Package</button>
     </div>
     <div class="pricing-card popular" style="max-width: 450px; width: 100%;">
       <h3>Standard Photo Package</h3>
@@ -562,11 +602,11 @@ footer{padding:40px;background:#000;text-align:center;color:#777; font-size: 14p
       <ul class="details">
         <li>⏱ 2–3 hours session</li>
         <li>📸 20–30 edited photos</li>
-        <li>✨ Better composition & lighting handling</li>
+        <li>✨ Better composition & lighting</li>
         <li>📱 High-res + social media version</li>
         <li>📦 3–5 days delivery</li>
       </ul>
-      <button class="btn choose-btn" data-package="Standard Photo Package – RM250">Choose Package</button>
+      <button class="btn card-btn choose-btn" data-package="Standard Photo Package – RM250">Choose Package</button>
     </div>
   </div>
 </div>
@@ -584,7 +624,7 @@ footer{padding:40px;background:#000;text-align:center;color:#777; font-size: 14p
         <li>🔄 1 revision included</li>
         <li>📦 3–5 days delivery</li>
       </ul>
-      <button class="btn choose-btn" data-package="Video Package – RM300">Choose Package</button>
+      <button class="btn card-btn choose-btn" data-package="Video Package – RM300">Choose Package</button>
     </div>
   </div>
 </div>
@@ -602,7 +642,7 @@ footer{padding:40px;background:#000;text-align:center;color:#777; font-size: 14p
         <li>🌤 Weather dependent</li>
         <li>📦 2–3 days delivery</li>
       </ul>
-      <button class="btn choose-btn" data-package="Drone Package – RM200">Choose Package</button>
+      <button class="btn card-btn choose-btn" data-package="Drone Package – RM200">Choose Package</button>
     </div>
   </div>
 </div>
@@ -610,7 +650,7 @@ footer{padding:40px;background:#000;text-align:center;color:#777; font-size: 14p
 <h2 style="margin-top: 100px;" class="glow-title">Signature Coverage</h2>
 <div class="package-row combo-row" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; max-width: 1000px; margin: 0 auto;">
   <div class="pricing-card combo-card in-view">
-    <span class="badge">Best Value</span>
+    <span class="badge">Most Popular</span>
     <h3>Combo Package</h3>
     <div class="price">RM450</div>
     <p>Best for: events, talents, promotional shoots. Complete ground and aerial coverage.</p>
@@ -623,7 +663,7 @@ footer{padding:40px;background:#000;text-align:center;color:#777; font-size: 14p
       <li>🔄 1 revision</li>
       <li>📦 5–7 days delivery</li>
     </ul>
-    <button class="btn choose-btn" data-package="Combo Package – RM450">Choose Package</button>
+    <button class="btn card-btn choose-btn" data-package="Combo Package – RM450">Choose Package</button>
   </div>
 
   <div class="pricing-card premium-tier in-view">
@@ -634,13 +674,13 @@ footer{padding:40px;background:#000;text-align:center;color:#777; font-size: 14p
     <ul class="details">
       <li>⏱ Up to 6–8 hours coverage</li>
       <li>📸 40–60 edited photos</li>
-      <li>🎬 1–2 videos (highlight + short clips)</li>
+      <li>🎬 1–2 videos (highlight + clips)</li>
       <li>🚁 Drone coverage</li>
       <li>⚡ Priority editing</li>
       <li>🔄 1–2 revisions</li>
       <li>📦 5–7 days delivery</li>
     </ul>
-    <button class="btn choose-btn" data-package="Full Day Package – RM600">Choose Package</button>
+    <button class="btn card-btn choose-btn" data-package="Full Day Package – RM600">Choose Package</button>
   </div>
 </div>
 </section>
@@ -689,6 +729,12 @@ footer{padding:40px;background:#000;text-align:center;color:#777; font-size: 14p
 </div>
 </section>
 
+<section style="text-align: center; padding: 60px 20px 80px;">
+  <h2 class="glow-title" style="font-size: 36px; margin-bottom: 20px;">Ready to Book?</h2>
+  <p style="margin-bottom: 30px; font-size: 16px; color: #a1a1a6;">Lock in your date and let's create something amazing.</p>
+  <a href="javascript:void(0)" onclick="handleWhatsAppRedirect()" class="btn primary-btn" style="padding: 16px 45px; font-size: 18px;">📩 Book Now via WhatsApp</a>
+</section>
+
 <div class="modal" id="bookingModal">
 <div class="modal-content">
 <span class="close-btn" id="closeModal">✕</span>
@@ -696,7 +742,7 @@ footer{padding:40px;background:#000;text-align:center;color:#777; font-size: 14p
 <label>Name</label><input id="clientName" placeholder="Your full name">
 <label>Location</label><input id="eventLocation" placeholder="Event location">
 <label>Date</label><input type="date" id="eventDate">
-<button class="btn" id="confirmBtn" disabled>Confirm Booking</button>
+<button class="btn card-btn" id="confirmBtn" disabled>Confirm Booking</button>
 </div>
 </div>
 
