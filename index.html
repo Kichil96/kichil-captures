@@ -137,7 +137,7 @@ animation:bounce 1.8s infinite
 }
 
 /* =======================================
-   1. PORTFOLIO TABS (Apple Minimalist Underline)
+   1. PORTFOLIO TABS 
 ======================================= */
 .portfolio-tabs {
   display: flex;
@@ -217,7 +217,7 @@ animation:bounce 1.8s infinite
 .arrow-left{left:10px} .arrow-right{right:10px}
 
 /* =======================================
-   2. PACKAGE TABS (iOS Segmented Control)
+   2. PACKAGE TABS 
 ======================================= */
 .package-tabs-wrapper {
   display: flex;
@@ -256,7 +256,7 @@ animation:bounce 1.8s infinite
 
 /* SWIPE HINT FOR MOBILE */
 .swipe-hint {
-  display: none; /* hidden on desktop */
+  display: none; 
   justify-content: center;
   align-items: center;
   gap: 12px;
@@ -296,6 +296,11 @@ animation:bounce 1.8s infinite
   border: 1px solid rgba(37, 211, 102, 0.3);
 }
 
+.pricing-card.premium-tier {
+  border-color: #ffd700; 
+  background: linear-gradient(145deg, rgba(255,215,0,0.08) 0%, rgba(30,30,32,0.6) 100%);
+}
+
 .badge {
   position: absolute; top: -14px; left: 50%; transform: translateX(-50%);
   background: #25D366; color: #000; font-size: 12px; font-weight: 800;
@@ -303,9 +308,14 @@ animation:bounce 1.8s infinite
   text-transform: uppercase; box-shadow: 0 4px 15px rgba(37,211,102,0.4);
 }
 
+.badge.premium-badge {
+  background: #ffd700;
+  box-shadow: 0 4px 15px rgba(255,215,0,0.4);
+}
+
 .pricing-card h3{ font-size: 20px; font-weight: 600; margin-bottom: 8px; color: #fff; }
 .price{ font-size: 44px; font-weight: 600; letter-spacing: -1.5px; margin: 10px 0 16px; color: #fff; }
-.pricing-card p{ font-size: 14px; line-height: 1.5; color: #a1a1a6; margin-bottom: 24px; min-height: 60px; }
+.pricing-card p{ font-size: 14px; line-height: 1.5; color: #a1a1a6; margin-bottom: 24px; min-height: 42px; }
 .details{ list-style: none; margin: 0 0 30px 0; padding: 0; flex-grow: 1; }
 .details li{ font-size: 14px; color: #f5f5f7; margin-bottom: 12px; display: flex; gap: 10px; align-items: flex-start; line-height: 1.4; }
 
@@ -322,6 +332,14 @@ animation:bounce 1.8s infinite
 .combo-card .btn:hover, .pricing-card.popular .btn:hover {
   background: #20b858; box-shadow: 0 6px 20px rgba(37,211,102,0.5);
 }
+
+.premium-tier .btn {
+  background: #ffd700; color: #000; border: none; box-shadow: 0 4px 15px rgba(255,215,0,0.3);
+}
+.premium-tier .btn:hover {
+  background: #e6c200; box-shadow: 0 6px 20px rgba(255,215,0,0.5);
+}
+
 .pricing-card.selected{
   border: 2px solid #25D366; transform: translateY(-4px);
   box-shadow: 0 12px 30px rgba(0,0,0,0.5), 0 0 20px rgba(37,211,102,0.15);
@@ -336,15 +354,17 @@ animation:bounce 1.8s infinite
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   border: 1px solid rgba(255, 255, 255, 0.05);
-  padding: 32px;
+  padding: 36px;
   border-radius: 28px;
-  text-align: center;
+  text-align: left;
   transition: transform 0.3s ease;
 }
 .info-card:hover { transform: translateY(-3px); }
-.info-icon { font-size: 36px; margin-bottom: 12px; }
-.info-card h4 { font-size: 18px; color: #fff; margin-bottom: 8px; }
-@media(min-width:768px){.info-grid{grid-template-columns:repeat(3,1fr)}}
+.info-icon { font-size: 36px; margin-bottom: 16px; display: inline-block; }
+.info-card h4 { font-size: 20px; color: #fff; margin-bottom: 16px; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 12px;}
+.info-card ul { color: #a1a1a6; font-size: 14px; list-style: none; padding: 0; line-height: 2.2; }
+.info-card ul strong { color: #fff; }
+@media(min-width:768px){.info-grid{grid-template-columns:repeat(2,1fr)}}
 
 /* =======================================
    4. INTERACTIVE FAQ ACCORDION
@@ -369,8 +389,9 @@ animation:bounce 1.8s infinite
   max-height: 0; overflow: hidden; transition: max-height 0.3s ease;
   padding: 0 24px;
 }
-.faq-answer p { padding-bottom: 24px; color: #a1a1a6; margin: 0;}
-.faq-item.active .faq-answer { max-height: 200px; }
+.faq-answer p { padding-bottom: 24px; color: #a1a1a6; margin: 0; line-height: 1.6;}
+.faq-answer strong { color: #fff; }
+.faq-item.active .faq-answer { max-height: 250px; }
 .faq-icon { font-size: 24px; color: #a1a1a6; transition: transform 0.3s ease; font-weight: 300;}
 .faq-item.active .faq-icon { transform: rotate(45deg); color: #25D366; }
 
@@ -463,7 +484,7 @@ footer{padding:40px;background:#000;text-align:center;color:#777; font-size: 14p
 <section class="hero">
 <div>
 <h1 class="glow-title-white">Kichil Captures</h1>
-<p>Drone & Photography for Small Events</p>
+<p>Professional Drone & Event Photography</p>
 <a href="#packages" class="btn">View Packages</a>
 </div>
 <div class="scroll-down" onclick="document.getElementById('portfolio').scrollIntoView({behavior:'smooth'})">↓</div>
@@ -509,97 +530,161 @@ footer{padding:40px;background:#000;text-align:center;color:#777; font-size: 14p
 </section>
 
 <section id="packages">
-<h2 class="glow-title">Our Packages</h2>
+<h2 class="glow-title">Base Services</h2>
 <div class="package-tabs-wrapper">
   <div class="package-tabs">
-    <button class="active" data-pkg="drone-packages">Drone</button>
-    <button data-pkg="photo-packages">Photography</button>
+    <button class="active" data-pkg="photo-packages">Photography</button>
+    <button data-pkg="video-packages">Videography</button>
+    <button data-pkg="drone-packages">Drone</button>
   </div>
 </div>
 <div class="swipe-hint"><span class="arrow-left">←</span> Swipe to explore <span class="arrow-right">→</span></div>
 
-<div id="drone-packages" class="package-group active">
-  <div class="package-row">
-    <div class="pricing-card">
-        <h3>Starter Aerial (Raw)</h3>
-        <div class="price">RM50</div>
-        <p>Entry-level drone service for clients who only need original footage.</p>
-        <ul class="details"><li>⏱ 15–20 mins flight</li><li>🎬 Raw footage (No Edit Video) & 5 Photos</li><li>🎥 2.7K</li><li>📱 Portrait/landscape</li></ul>
-        <button class="btn choose-btn" data-package="Starter Aerial (Raw) – RM50">Choose Package</button>
-    </div>
-    <div class="pricing-card">
-      <h3>Mini Aerial</h3>
-      <div class="price">RM80</div>
-      <p>Quick aerial coverage for social media highlights.</p>
-      <ul class="details"><li>⏱ 20–30 mins flight</li><li>🎬 ~ Available Edited video (Color Grading + 5 Photos)</li><li>🎥 2.7K</li><li>📱 Portrait/landscape</li></ul>
-      <button class="btn choose-btn" data-package="Mini Aerial – RM80">Choose Package</button>
-    </div>
-    <div class="pricing-card popular">
-      <h3>Standard Promo</h3>
-      <div class="price">RM120</div>
-      <p>Cinematic drone footage with professional grading.</p>
-      <ul class="details"><li>⏱ 30–45 mins flight</li><li>🎬 ~ Available Edited video (Color Grading + 10 Photos)</li><li>🎥 4K</li><li>📱 Portrait/landscape</li></ul>
-      <button class="btn choose-btn" data-package="Standard Promo – RM120">Choose Package</button>
-    </div>
-    <div class="pricing-card">
-      <h3>Extended Event</h3>
+<div id="photo-packages" class="package-group active">
+  <div class="package-row" style="justify-content: center;">
+    <div class="pricing-card" style="max-width: 450px; width: 100%;">
+      <h3>Basic Photo Package</h3>
       <div class="price">RM150</div>
-      <p>Extended aerial coverage with multiple angles and detailed location showcase.</p>
-      <ul class="details"><li>⏱ Up to 1 hour coverage</li><li>🎬 ~ Available Edited video (Color Grading + 20 Photos)</li><li>🎥 4K</li><li>📱 Portrait & landscape</li></ul>
-      <button class="btn choose-btn" data-package="Extended Event – RM150">Choose Package</button>
+      <p>Best for: pre-convo, portrait, pre-engagement/wedding.</p>
+      <ul class="details">
+        <li>⏱ 1 hour session</li>
+        <li>📸 10 edited photos (Lightroom)</li>
+        <li>🎨 Basic color grading</li>
+        <li>🖥 High-resolution export</li>
+        <li>📦 3–5 days delivery</li>
+      </ul>
+      <button class="btn choose-btn" data-package="Basic Photo Package – RM150">Choose Package</button>
+    </div>
+    <div class="pricing-card popular" style="max-width: 450px; width: 100%;">
+      <h3>Standard Photo Package</h3>
+      <div class="price">RM250</div>
+      <p>Best for: events, small events, small shoots.</p>
+      <ul class="details">
+        <li>⏱ 2–3 hours session</li>
+        <li>📸 20–30 edited photos</li>
+        <li>✨ Better composition & lighting handling</li>
+        <li>📱 High-res + social media version</li>
+        <li>📦 3–5 days delivery</li>
+      </ul>
+      <button class="btn choose-btn" data-package="Standard Photo Package – RM250">Choose Package</button>
     </div>
   </div>
 </div>
 
-<div id="photo-packages" class="package-group">
-  <div class="package-row">
-    <div class="pricing-card">
-      <h3>Basic Session</h3>
-      <div class="price">RM100</div>
-      <p>Short photography session for small gatherings.</p>
-      <ul class="details"><li>⏱ 45 mins photoshoot</li><li>📸 20 photos</li><li>🎨 Color Grading</li></ul>
-      <button class="btn choose-btn" data-package="Basic Session – RM100">Choose Package</button>
-    </div>
-    <div class="pricing-card popular">
-      <h3>Standard Event</h3>
-      <div class="price">RM200</div>
-      <p>Balanced coverage for birthdays and engagements.</p>
-      <ul class="details"><li>⏱ 1.5 hour photoshoot</li><li>📸 40 photos</li><li>🎨 Correction & Color grading</li></ul>
-      <button class="btn choose-btn" data-package="Standard Event – RM200">Choose Package</button>
-    </div>
-    <div class="pricing-card">
-      <h3>Premium Small Event</h3>
+<div id="video-packages" class="package-group">
+  <div class="package-row" style="justify-content: center; display: flex;">
+    <div class="pricing-card" style="width: 100%; max-width: 450px;">
+      <h3>Video Package</h3>
       <div class="price">RM300</div>
-      <p>Extended photography coverage for clients who want fuller storytelling.</p>
-      <ul class="details"><li>⏱ Up to 3 hours photoshoot</li><li>📸 ~ 60 photos</li><li>🎨 Correction & Color grading</li></ul>
-      <button class="btn choose-btn" data-package="Premium Small Event – RM300">Choose Package</button>
+      <p>Best for: short promo / highlight video.</p>
+      <ul class="details">
+        <li>⏱ 1–2 hours shooting</li>
+        <li>🎬 Cinematic video (30–60 sec)</li>
+        <li>✂️ Basic editing (cuts, music, color)</li>
+        <li>🔄 1 revision included</li>
+        <li>📦 3–5 days delivery</li>
+      </ul>
+      <button class="btn choose-btn" data-package="Video Package – RM300">Choose Package</button>
     </div>
   </div>
 </div>
 
-<h2 style="margin-top: 80px;">The Ultimate Combo</h2>
-<div class="package-row combo-row">
+<div id="drone-packages" class="package-group">
+  <div class="package-row" style="justify-content: center; display: flex;">
+    <div class="pricing-card" style="width: 100%; max-width: 450px;">
+      <h3>Drone Package</h3>
+      <div class="price">RM200</div>
+      <p>Best for: land, building, simple aerial.</p>
+      <ul class="details">
+        <li>⏱ 15–30 mins flight</li>
+        <li>🚁 5–10 aerial clips</li>
+        <li>🎨 Basic color grading</li>
+        <li>🌤 Weather dependent</li>
+        <li>📦 2–3 days delivery</li>
+      </ul>
+      <button class="btn choose-btn" data-package="Drone Package – RM200">Choose Package</button>
+    </div>
+  </div>
+</div>
+
+<h2 style="margin-top: 100px;" class="glow-title">Signature Coverage</h2>
+<div class="package-row combo-row" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; max-width: 1000px; margin: 0 auto;">
   <div class="pricing-card combo-card in-view">
     <span class="badge">Best Value</span>
-    <h3>Photo + Drone Combo</h3>
-    <div class="price">RM250</div>
-    <p>Complete ground and aerial coverage for your event.</p>
-    <ul class="details"><li>⏱ 2 hours photoshoot</li><li>📸 40 photos</li><li>🎬 Cinematic drone footage</li><li>🎥 4K</li></ul>
-    <button class="btn choose-btn" data-package="Photo + Drone Combo – RM250">Choose Package</button>
+    <h3>Combo Package</h3>
+    <div class="price">RM450</div>
+    <p>Best for: events, talents, promotional shoots. Complete ground and aerial coverage.</p>
+    <ul class="details">
+      <li>⏱ 3–5 hours coverage</li>
+      <li>📸 20–40 edited photos</li>
+      <li>🎬 1 cinematic video (30–60 sec)</li>
+      <li>🚁 Drone shots included</li>
+      <li>🎵 Basic audio + color grading</li>
+      <li>🔄 1 revision</li>
+      <li>📦 5–7 days delivery</li>
+    </ul>
+    <button class="btn choose-btn" data-package="Combo Package – RM450">Choose Package</button>
+  </div>
+
+  <div class="pricing-card premium-tier in-view">
+    <span class="badge premium-badge">Premium</span>
+    <h3>Full Day Package</h3>
+    <div class="price">RM600</div>
+    <p>Best for: big events, competitions, comprehensive storytelling coverage.</p>
+    <ul class="details">
+      <li>⏱ Up to 6–8 hours coverage</li>
+      <li>📸 40–60 edited photos</li>
+      <li>🎬 1–2 videos (highlight + short clips)</li>
+      <li>🚁 Drone coverage</li>
+      <li>⚡ Priority editing</li>
+      <li>🔄 1–2 revisions</li>
+      <li>📦 5–7 days delivery</li>
+    </ul>
+    <button class="btn choose-btn" data-package="Full Day Package – RM600">Choose Package</button>
+  </div>
+</div>
+</section>
+
+<section>
+<h2 class="glow-title" style="font-size: 32px; margin-bottom: 50px;">Add-ons & Booking Terms</h2>
+<div class="info-grid">
+  <div class="info-card">
+    <div class="info-icon">➕</div>
+    <h4>Available Add-ons</h4>
+    <ul>
+      <li>• Extra edited photo: <strong>RM5 / photo</strong></li>
+      <li>• Extra hour of coverage: <strong>RM50</strong></li>
+      <li>• Fast delivery (1–2 days): <strong>RM50</strong></li>
+      <li>• Extra video revision: <strong>RM30</strong></li>
+    </ul>
+  </div>
+  <div class="info-card">
+    <div class="info-icon">📋</div>
+    <h4>Professional Terms</h4>
+    <ul>
+      <li>• <strong>50% deposit</strong> required to securely confirm booking.</li>
+      <li>• Remaining balance must be paid immediately after delivery.</li>
+      <li>• Travel outside Kota Kinabalu – Tamparuli may incur additional travel costs.</li>
+      <li>• <strong>No raw files</strong> are provided under any circumstances.</li>
+    </ul>
   </div>
 </div>
 </section>
 
 <section id="faq">
-<h2>FAQ</h2>
+<h2 class="glow-title" style="font-size: 32px;">FAQ & Important Info</h2>
 <div class="faq-accordion">
   <div class="faq-item">
-    <button class="faq-question">Do you work on Saturdays? <span class="faq-icon">+</span></button>
-    <div class="faq-answer"><p>No, we are closed for the Sabbath day. Sunday-Friday available!</p></div>
+    <button class="faq-question">Do you work on weekends? <span class="faq-icon">+</span></button>
+    <div class="faq-answer"><p>We do not accept event bookings during the Sabbath (<strong>Friday 6:00 PM to Saturday 6:00 PM</strong>). However, we are fully available for bookings after 6:00 PM on Saturdays, and Sunday through Friday!</p></div>
   </div>
   <div class="faq-item">
-    <button class="faq-question">What about bad weather? <span class="faq-icon">+</span></button>
-    <div class="faq-answer"><p>Rescheduling is free! Safety first.</p></div>
+    <button class="faq-question">How long will my files be available? <span class="faq-icon">+</span></button>
+    <div class="faq-answer"><p>All final photos and videos will be delivered securely via a Google Drive link. This link is only valid for <strong>14 days (2 weeks)</strong>. Please download and back up your files immediately, as the link will be permanently unavailable after expiration.</p></div>
+  </div>
+  <div class="faq-item">
+    <button class="faq-question">What happens if the weather is bad? <span class="faq-icon">+</span></button>
+    <div class="faq-answer"><p>Rescheduling is completely available without any penalty. Safe flying for our drones and getting the best lighting for your photos is our top priority.</p></div>
   </div>
 </div>
 </section>
@@ -653,11 +738,15 @@ document.addEventListener("DOMContentLoaded",()=>{
     });
   });
 
-  // Date restriction
+  // Date restriction - Updated for Sabbath (Fri 6pm - Sat 6pm) warning
   dateInput.addEventListener("input", () => {
-    if (new Date(dateInput.value).getDay() === 6) {
-      alert("Saturday is not available.");
-      dateInput.value = "";
+    const selectedDate = new Date(dateInput.value);
+    const day = selectedDate.getDay();
+    
+    if (day === 6) {
+      alert("Sabbath Observation: We are closed from Friday 6:00 PM to Saturday 6:00 PM. If your event is on Saturday after 6:00 PM, please confirm times directly in WhatsApp.");
+    } else if (day === 5) {
+      alert("Sabbath Observation: Reminder that Friday bookings must conclude by 6:00 PM.");
     }
     validateForm();
   });
@@ -686,7 +775,7 @@ document.addEventListener("DOMContentLoaded",()=>{
     document.body.classList.remove("no-scroll");
   };
 
-  // Tab Logic
+  // Tab Logic (Portfolio)
   document.querySelectorAll(".portfolio-tabs button").forEach(btn=>{
     btn.onclick=()=>{
       document.querySelectorAll(".portfolio-tabs button, .portfolio-album").forEach(el=>el.classList.remove("active"));
@@ -695,13 +784,35 @@ document.addEventListener("DOMContentLoaded",()=>{
     };
   });
   
+  // Tab Logic (Packages)
   document.querySelectorAll(".package-tabs button").forEach(btn=>{
     btn.onclick=()=>{
       document.querySelectorAll(".package-tabs button, .package-group").forEach(el=>el.classList.remove("active"));
       btn.classList.add("active");
       document.getElementById(btn.dataset.pkg).classList.add("active");
+      
+      // Reset scroll positions when switching tabs on mobile
+      document.querySelectorAll(".package-row").forEach(row => {
+        row.scrollLeft = 0;
+      });
     };
   });
+
+  /* MOBILE SCROLL FOCUS EFFECT */
+  const packageObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("in-view");
+        } else {
+          entry.target.classList.remove("in-view");
+        }
+      });
+    },
+    { root: null, threshold: 0.6 }
+  );
+
+  document.querySelectorAll(".pricing-card").forEach(card => packageObserver.observe(card));
 });
 </script>
 </body>
