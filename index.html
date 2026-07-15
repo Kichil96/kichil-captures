@@ -232,11 +232,6 @@ animation:bounce 1.8s infinite
   to { opacity: 1; transform: translateY(0); }
 }
 
-@keyframes panRightToLeft {
-  0% { transform: translateX(-5%); }
-  100% { transform: translateX(5%); }
-}
-
 /* PORTFOLIO SLIDER */
 .slider-wrapper{position:relative;overflow:hidden}
 .fade-left,.fade-right{position:absolute;top:0;bottom:0;width:60px;z-index:2;pointer-events:none}
@@ -253,7 +248,7 @@ animation:bounce 1.8s infinite
   flex-shrink:0; border-radius:24px; overflow:hidden;
   background:#111; position:relative; width:260px; height:340px;
 }
-.portfolio-item img{width:115%;max-width:none;height:100%;object-fit:cover;display:block;animation:panRightToLeft 10s ease-in-out infinite alternate;}
+.portfolio-item img{width:100%;height:100%;object-fit:cover;display:block;}
 .portfolio-scroll.landscape .portfolio-item{width:320px;height:200px;}
 .portfolio-scroll.portrait .portfolio-item{width:220px;height:360px;}
 
@@ -889,13 +884,40 @@ document.addEventListener("DOMContentLoaded",()=>{
     });
   });
 
+  let autoScrollId = null;
+  function startAutoScroll() {
+    stopAutoScroll();
+    const activeAlbum = document.querySelector(".portfolio-album.active");
+    if (!activeAlbum) return;
+    const scrolls = activeAlbum.querySelectorAll(".portfolio-scroll");
+    autoScrollId = setInterval(() => {
+      scrolls.forEach(s => {
+        if (s.closest(".portfolio-album.active")) {
+          s.scrollLeft += 0.5;
+          if (s.scrollLeft >= s.scrollWidth - s.clientWidth) {
+            s.scrollLeft = 0;
+          }
+        }
+      });
+    }, 16);
+  }
+  function stopAutoScroll() {
+    if (autoScrollId) { clearInterval(autoScrollId); autoScrollId = null; }
+  }
+  document.querySelectorAll(".slider-wrapper").forEach(w => {
+    w.addEventListener("mouseenter", stopAutoScroll);
+    w.addEventListener("mouseleave", startAutoScroll);
+  });
+
   document.querySelectorAll(".portfolio-tabs button").forEach(btn=>{
     btn.onclick=()=>{
       document.querySelectorAll(".portfolio-tabs button, .portfolio-album").forEach(el=>el.classList.remove("active"));
       btn.classList.add("active");
       document.getElementById(btn.dataset.album).classList.add("active");
+      startAutoScroll();
     };
   });
+  startAutoScroll();
   
   document.querySelectorAll(".package-tabs button").forEach(btn=>{
     btn.onclick=()=>{
