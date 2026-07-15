@@ -117,7 +117,7 @@ p{color:#a1a1a6;font-size:14px}
 .hero{
   position: relative;
   min-height: 100vh;
-  background: linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.75)), url("Background.webp") center / cover no-repeat;
+  background: linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.75)), url("Assets/Background.webp") center / cover no-repeat;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -231,6 +231,11 @@ animation:bounce 1.8s infinite
   to { opacity: 1; transform: translateY(0); }
 }
 
+@keyframes panRightToLeft {
+  0% { transform: translateX(-5%); }
+  100% { transform: translateX(5%); }
+}
+
 /* PORTFOLIO SLIDER */
 .slider-wrapper{position:relative;overflow:hidden}
 .fade-left,.fade-right{position:absolute;top:0;bottom:0;width:60px;z-index:2;pointer-events:none}
@@ -247,7 +252,7 @@ animation:bounce 1.8s infinite
   flex-shrink:0; border-radius:24px; overflow:hidden;
   background:#111; position:relative; width:260px; height:340px;
 }
-.portfolio-item img{width:100%;height:100%;object-fit:cover;display:block;}
+.portfolio-item img{width:115%;max-width:none;height:100%;object-fit:cover;display:block;animation:panRightToLeft 10s ease-in-out infinite alternate;}
 .portfolio-scroll.landscape .portfolio-item{width:320px;height:200px;}
 .portfolio-scroll.portrait .portfolio-item{width:220px;height:360px;}
 
@@ -482,6 +487,23 @@ animation:bounce 1.8s infinite
 
 footer{padding:40px;background:#000;text-align:center;color:#777; font-size: 14px;}
 
+/* ===== DESKTOP ENHANCEMENTS ===== */
+@media (min-width: 1024px){
+  section { max-width: 1200px; padding: 120px 40px; }
+  .glow-title-white { font-size: 58px; }
+  .glow-title { font-size: 48px; }
+  .hero-subtitle { font-size: 24px; }
+  .nav-links a { font-size: 15px; }
+  .portfolio-scroll.landscape .portfolio-item { width: 380px; height: 240px; }
+  .portfolio-scroll.portrait .portfolio-item { width: 260px; height: 400px; }
+  .pricing-card { padding: 40px 32px; }
+  .pricing-card h3 { font-size: 22px; }
+  .price { font-size: 48px; }
+  .details li { font-size: 15px; }
+  .package-row { gap: 30px; }
+  .info-card { padding: 40px; }
+}
+
 /* ===== MOBILE RESPONSIVENESS ===== */
 @media (max-width: 768px){
   html { scroll-padding-top: 90px; }
@@ -542,13 +564,13 @@ footer{padding:40px;background:#000;text-align:center;color:#777; font-size: 14p
     <div class="slider-arrow arrow-left">‹</div><div class="slider-arrow arrow-right">›</div>
     <div class="portfolio-double">
       <div class="portfolio-scroll landscape">
-        <div class="portfolio-item"><img src="camera-1.WEBP" loading="lazy" decoding="async" alt="Photography 1"></div>
-        <div class="portfolio-item"><img src="camera-2.WEBP" loading="lazy" decoding="async" alt="Photography 2"></div>
-        <div class="portfolio-item"><img src="camera-5.jpg" loading="lazy" decoding="async" alt="Photography 3"></div>
+        <div class="portfolio-item"><img src="Assets/camera-1.WEBP" loading="lazy" decoding="async" alt="Photography 1"></div>
+        <div class="portfolio-item"><img src="Assets/camera-2.WEBP" loading="lazy" decoding="async" alt="Photography 2"></div>
+        <div class="portfolio-item"><img src="Assets/camera-5.jpg" loading="lazy" decoding="async" alt="Photography 3"></div>
       </div>
       <div class="portfolio-scroll portrait">
-        <div class="portfolio-item"><img src="camera-3.jpg" loading="lazy" decoding="async" alt="Photography 4"></div>
-        <div class="portfolio-item"><img src="camera-4.jpg" loading="lazy" decoding="async" alt="Photography 5"></div>
+        <div class="portfolio-item"><img src="Assets/camera-3.jpg" loading="lazy" decoding="async" alt="Photography 4"></div>
+        <div class="portfolio-item"><img src="Assets/camera-4.jpg" loading="lazy" decoding="async" alt="Photography 5"></div>
       </div>
     </div>
   </div>
@@ -558,12 +580,12 @@ footer{padding:40px;background:#000;text-align:center;color:#777; font-size: 14p
     <div class="fade-left"></div><div class="fade-right"></div>
     <div class="slider-arrow arrow-left">‹</div><div class="slider-arrow arrow-right">›</div>
     <div class="portfolio-scroll landscape">
-      <div class="portfolio-item"><img src="drone-1.WEBP" loading="lazy" decoding="async" alt="Drone 1"></div>
-      <div class="portfolio-item"><img src="drone-2.WEBP" loading="lazy" decoding="async" alt="Drone 2"></div>
-      <div class="portfolio-item"><img src="drone-3.WEBP" loading="lazy" decoding="async" alt="Drone 3"></div>
-      <div class="portfolio-item"><img src="drone-4.WEBP" loading="lazy" decoding="async" alt="Drone 4"></div>
-      <div class="portfolio-item"><img src="drone-5.jpg" loading="lazy" decoding="async" alt="Drone 5"></div>
-      <div class="portfolio-item"><img src="drone-6.jpg" loading="lazy" decoding="async" alt="Drone 6"></div>
+      <div class="portfolio-item"><img src="Assets/drone-1.WEBP" loading="lazy" decoding="async" alt="Drone 1"></div>
+      <div class="portfolio-item"><img src="Assets/drone-2.WEBP" loading="lazy" decoding="async" alt="Drone 2"></div>
+      <div class="portfolio-item"><img src="Assets/drone-3.WEBP" loading="lazy" decoding="async" alt="Drone 3"></div>
+      <div class="portfolio-item"><img src="Assets/drone-4.WEBP" loading="lazy" decoding="async" alt="Drone 4"></div>
+      <div class="portfolio-item"><img src="Assets/drone-5.jpg" loading="lazy" decoding="async" alt="Drone 5"></div>
+      <div class="portfolio-item"><img src="Assets/drone-6.jpg" loading="lazy" decoding="async" alt="Drone 6"></div>
     </div>
   </div>
 </div>
@@ -746,27 +768,16 @@ footer{padding:40px;background:#000;text-align:center;color:#777; font-size: 14p
 </div>
 </div>
 
-<a href="javascript:void(0)" onclick="handleWhatsAppRedirect()" class="floating-wa">💬</a>
+<a href="javascript:void(0)" onclick="handleWhatsAppRedirect()" class="floating-wa"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#fff" width="28" height="28"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></a>
 
 <footer>© 2026 Kichil Captures</footer>
 
 <script>
-// MASTER WHATSAPP REDIRECT FUNCTION (TikTok Bypass)
 function handleWhatsAppRedirect(customMessage) {
   const phone = "601139346782";
   const defaultMsg = "Hello Kichil Captures, I would like to inquire about your services.";
   const text = encodeURIComponent(customMessage || defaultMsg);
-  
-  const waUrl = `https://wa.me/${phone}?text=${text}`;
-  const schemeUrl = `whatsapp://send?phone=${phone}&text=${text}`;
-
-  // Try opening the app scheme first (often works in TikTok/IG when https fails)
-  window.location.assign(schemeUrl);
-
-  // Fallback to web link if the scheme doesn't trigger after 500ms
-  setTimeout(() => {
-    window.open(waUrl, '_blank');
-  }, 500);
+  window.open(`https://wa.me/${phone}?text=${text}`, '_blank');
 }
 
 document.addEventListener("DOMContentLoaded",()=>{
@@ -820,6 +831,26 @@ document.addEventListener("DOMContentLoaded",()=>{
     modal.style.display = "none";
     document.body.classList.remove("no-scroll");
   };
+
+  modal.addEventListener("click", (e) => {
+    if (e.target === modal) {
+      modal.style.display = "none";
+      document.body.classList.remove("no-scroll");
+    }
+  });
+
+  document.querySelectorAll(".slider-arrow").forEach(arrow => {
+    arrow.addEventListener("click", () => {
+      const wrapper = arrow.closest(".slider-wrapper");
+      const scrolls = wrapper.querySelectorAll(".portfolio-scroll");
+      const amount = 320;
+      if (arrow.classList.contains("arrow-left")) {
+        scrolls.forEach(s => s.scrollBy({ left: -amount, behavior: "smooth" }));
+      } else {
+        scrolls.forEach(s => s.scrollBy({ left: amount, behavior: "smooth" }));
+      }
+    });
+  });
 
   // Tab Logic (Portfolio)
   document.querySelectorAll(".portfolio-tabs button").forEach(btn=>{
